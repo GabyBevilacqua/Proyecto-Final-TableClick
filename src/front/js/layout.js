@@ -5,7 +5,12 @@ import { BackendURL } from "./component/backendURL";
 
 import { PreLogin } from "./pages/preLogin";
 import { RestRegister } from "./pages/restRegister";
-import { MenuRegister } from "./pages/menuRegister";
+import { MenusView } from "./pages/menusView";
+import { MenuItems } from "./pages/menuItems";
+import { DiningView } from "./pages/diningView";
+import { SecLogin } from "./pages/secLogin";
+import { TableMenu } from "./pages/tableMenu";
+
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
@@ -29,7 +34,11 @@ const Layout = () => {
                     <Routes>
                         <Route element={<PreLogin />} path="/" />
                         <Route element={<RestRegister />} path="/restRegister" />
-                        <Route element={<MenuRegister />} path="/menuRegister" />
+                        <Route element={<MenusView />} path="/menusView" />
+                        <Route element={<MenuItems />} path="/menuItems" />
+                        <Route element={<DiningView />} path="/diningView" />
+                        <Route element={<SecLogin />} path="/secLogin" />
+                        <Route element={<TableMenu />} path="/tableMenu" />
                         <Route element={<Demo />} path="/demo" />
                         <Route element={<Single />} path="/single/:theid" />
                         <Route element={<h1>Not found!</h1>} />
