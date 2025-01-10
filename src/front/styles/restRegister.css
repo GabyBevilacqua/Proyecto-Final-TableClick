@@ -1,0 +1,17 @@
+body {
+    background-color: #203953; /* Color azul oscuro de fondo */
+  }
+  .form-container {
+    background-color: #7297B4; /* Azul medio */
+    color: #F4F0D1; /* Amarillo pálido */
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 50px;
+  }
+  .btn-custom {
+    background-color: #F4F0D1;
+    color: #203953;
+  }
+  .btn-custom:hover {
+    background-color: #203953;
+  }
