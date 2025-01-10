@@ -21,7 +21,7 @@ export const PreLogin = () => {
 			<p>
 				This boilerplate comes with lots of documentation:{" "}
 				<a href="https://start.4geeksacademy.com/starters/react-flask">
-					Read documentation
+					Read documentation otra cosa
 				</a>
 			</p>
 		</div>
