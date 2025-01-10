@@ -12,22 +12,17 @@ export const PreLogin = () => {
 
 	return (
 		<div>
-			<div className="text-center mt-5">
-				<h1>Pagina para dar de alta el restaurante o hacer login</h1>
+			<div className="text-center m-5">
+				<h2>Actualmente estas en preLogin</h2>
 				<Link to="/restRegister">
-					<span className="text  m-5">
-						Go to restaurant register
-					</span>
+					<button type="button" class="btn btn-primary m-2">Go to restaurant register</button>
 				</Link>
 				<Link to="/secLogin">
-					<span className="text">
-						Go to secLogin 
-					</span>
+					<button type="button" class="btn btn-primary m-2">Go to secLogin </button>
 				</Link>
-				<div className="alert alert-info">
+				{/* <div className="alert alert-info">
 					{store.message || "Loading message from the backend (make sure your python backend is running)..."}
-				</div>
-
+				</div> */}
 				<div className="containerpreLogin">
      				<div className="row mt-5 justify-content-center">
        					<div className="col-12 text-center text-white mt-5">

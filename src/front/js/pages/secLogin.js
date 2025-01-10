@@ -9,24 +9,16 @@ export const SecLogin = () => {
 
     return (
         <div>
-            <div className="text-center mt-5">
-                <h2>
-                    Esta donde se da entrada al administrador o a la tablet de la mesa
-                </h2>
+            <div className="text-center m-5">
+                <h2>Actualmente estas en secLogin</h2>
                 <Link to="/">
-                    <span className="text  m-5">
-                        Return to preLogin
-                    </span>
+                    <button type="button" class="btn btn-primary m-2">Return to preLogin</button>
                 </Link>
                 <Link to="/menusView">
-                    <span className="text  m-5">
-                        Go to menusView
-                    </span>
+                    <button type="button" class="btn btn-primary m-2">Go to menusView</button>
                 </Link>
                 <Link to="/tableMenu">
-                    <span className="text">
-                        Go to tableMenu
-                    </span>
+                    <button type="button" class="btn btn-primary m-2">Go to tableMenu</button>
                 </Link>
             </div>
             <div className="containerpreLogin">
