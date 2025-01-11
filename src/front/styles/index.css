@@ -5,3 +5,15 @@
 .form-control{
     background-color: #F4F0D1;
 }
+/* 
+    General Styles used on every website (Don't Repeat Yourself)
+*/
+#menus-creados{
+    background-color: #7d9bbb;
+    text-align: center;
+    margin-left: 35%;
+    margin-right: 35%;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    border-radius: 20px;
+}
