@@ -1,0 +1,35 @@
+
+/* Estilo del contenedor principal */
+.containerDining {
+    display: flex;
+    flex-direction: row; /* Organiza de izquierda a derecha */
+    justify-content: space-evenly;
+    padding: 20px;
+    background-color: #213852; /* Fondo azul oscuro */
+    height: 100vh;
+}
+
+/* Estilo de las tarjetas */
+.cardDining {
+    background-color: #F4F0D1; /* Fondo beige */
+    color: #213852; /* Texto oscuro */
+    border-radius: 10px;
+    padding: 15px;
+    width: 210px; /* Tarjetas estrechas */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cardDining p {
+    margin-bottom: auto; /* Empuja el botón hacia abajo */
+}
+
+/* Botón dentro de las tarjetas */
+.cardDining button {
+    padding: 10px 20px;
+    border: 1px solid #213852; /* Borde oscuro */
+    align-self: center; /* Centrado horizontal */
+}
