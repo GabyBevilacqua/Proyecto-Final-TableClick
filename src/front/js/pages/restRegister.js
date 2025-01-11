@@ -29,51 +29,86 @@ export const RestRegister = () => {
                     </span>
                 </Link>
                 <div className="row justify-content-center">
-                    <div className="col-md-6 form-container">
+                    <div className="col-md-8 form-container">
                         <h2 className="text-center">Formulario de Registro</h2>
                         <form>
-                            <div className="mb-3">
-                                <label htmlFor="nombrePersonal" className="form-label">Nombre personal:</label>
-                                <input type="text" className="form-control" id="nombrePersonal" placeholder="Ingrese su nombre" />
+                            <div className="row mb-3 align-items-center">
+                                <label htmlFor="nombrePersonal" className="col-md-4 col-form-label text-end">
+                                    Nombre personal:
+                                </label>
+                                <div className="col-md-8">
+                                    <input type="text" className="form-control" id="nombrePersonal" placeholder="Ingrese su nombre" />
+                                </div>
                             </div>
-                            <div className="mb-3">
-                                <label htmlFor="nombreRestaurante" className="form-label">Nombre del restaurante:</label>
-                                <input type="text" className="form-control" id="nombreRestaurante" placeholder="Nombre del restaurante" />
+                            <div className="row mb-3 align-items-center">
+                                <label htmlFor="nombreRestaurante" className="col-md-4 col-form-label text-end">
+                                    Nombre del restaurante:
+                                </label>
+                                <div className="col-md-8">
+                                    <input type="text" className="form-control" id="nombreRestaurante" placeholder="Nombre del restaurante" />
+                                </div>
                             </div>
-                            <div className="mb-3">
-                                <label htmlFor="direccionRestaurante" className="form-label">Dirección del restaurante:</label>
-                                <input type="text" className="form-control" id="direccionRestaurante" placeholder="Dirección" />
+                            <div className="row mb-3 align-items-center">
+                                <label htmlFor="direccionRestaurante" className="col-md-4 col-form-label text-end">
+                                    Dirección del restaurante:
+                                </label>
+                                <div className="col-md-8">
+                                    <input type="text" className="form-control" id="direccionRestaurante" placeholder="Dirección" />
+                                </div>
                             </div>
-                            <div className="mb-3">
-                                <label htmlFor="telefono" className="form-label">Teléfono:</label>
-                                <input type="tel" className="form-control" id="telefono" placeholder="Teléfono" />
+                            <div className="row mb-3 align-items-center">
+                                <label htmlFor="telefono" className="col-md-4 col-form-label text-end">Teléfono:</label>
+                                <div className="col-md-8">
+                                    <input type="tel" className="form-control" id="telefono" placeholder="Teléfono" />
+                                </div>
                             </div>
-                            <div className="mb-3">
-                                <label htmlFor="email" className="form-label">Email:</label>
-                                <input type="email" className="form-control" id="email" placeholder="Email" />
+                            <div className="row mb-3 align-items-center">
+                                <label htmlFor="email" className="col-md-4 col-form-label text-end">Email:</label>
+                                <div className="col-md-8">
+                                    <input type="email" className="form-control" id="email" placeholder="Email" />
+                                </div>
                             </div>
-                            <div className="mb-3">
-                                <label htmlFor="contrasena" className="form-label">Crear contraseña:</label>
-                                <input type="password" className="form-control" id="contrasena" placeholder="Contraseña" />
+                            <div className="row mb-3 align-items-center">
+                                <label htmlFor="contrasena" className="col-md-4 col-form-label text-end">
+                                    Crear contraseña:
+                                </label>
+                                <div className="col-md-8">
+                                    <input type="password" className="form-control" id="contrasena" placeholder="Contraseña" />
+                                </div>
                             </div>
-                            <div className="mb-3">
-                                <label htmlFor="codigoAdmin" className="form-label">Crear código admin:</label>
-                                <input type="text" className="form-control" id="codigoAdmin" placeholder="Código admin" />
+                            <div className="row mb-3 align-items-center">
+                                <label htmlFor="codigoAdmin" className="col-md-4 col-form-label text-end">
+                                    Crear código administración:
+                                </label>
+                                <div className="col-md-8">
+                                    <input type="text" className="form-control" id="codigoAdmin" placeholder="Código admin" />
+                                </div>
                             </div>
-                            <div className="mb-3">
-                                <label className="form-label">Cargar imagen o logo del restaurante:</label>
-                                <button
-                                    type="button"
-                                    className="btn btn-custom"
-                                    onClick={handleOpenModal}
-                                >
-                                    Subir archivo
-                                </button>
+
+                            
+                            <div className="row mb-3 align-items-center">
+                                <label htmlFor="subirArchivo" className="col-md-4 col-form-label text-end">
+                                    Cargar imagen o logo del restaurante:
+                                </label>
+                                <div className="col-md-8 d-flex">
+                                    <button
+                                        id="subirArchivo"
+                                        type="button"
+                                        className="btn button2"
+                                        onClick={handleOpenModal}
+                                    >
+                                        Subir archivo
+                                    </button>
+                                </div>
                             </div>
-                            <button type="submit" className="btn btn-custom w-100">
+                            <div className="text-center">
+                            <button type="submit"
+                                className="btn button2 w-100">
                                 Salvar
                             </button>
+                            </div>
                         </form>
+                        
                     </div>
                 </div>
                 {/* Modal Component */}

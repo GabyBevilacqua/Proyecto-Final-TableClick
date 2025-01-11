@@ -31,8 +31,7 @@ export const ModalImg = ({ onClose }) => {
                     <div className="modal-footer">
                         <button
                             type="button"
-                            className="btn"
-                            style={{ backgroundColor: "#ffffe0", color: "#1b3b4b" }}
+                            className="btn button2"
                             onClick={onClose}
                         >
                             Salvar
