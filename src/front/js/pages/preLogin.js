@@ -23,23 +23,25 @@ export const PreLogin = () => {
 				{/* <div className="alert alert-info">
 					{store.message || "Loading message from the backend (make sure your python backend is running)..."}
 				</div> */}
+			</div>	
+			<div>
 				<div className="containerpreLogin">
-     				<div className="row mt-5 justify-content-center">
-       					<div className="col-12 text-center text-white mt-5">
-          					<h1>Da de alta tu restaurante</h1>
-         					<button className="btn btn-secondary mt-3">Click aquí</button>
-        				</div>
-      				</div>
-      				<div className="row mt-5 justify-content-center">
-        				<div className="col-6 text-center text-white mb-5">
-         					<h1>Inicia sesión</h1>
-          					<input type="text" className="form-control mt-3" placeholder="Usuario" />
-          					<input type="password" className="form-control mt-3" placeholder="Contraseña" />
-          					<button className="btn btn-secondary mt-3">Click aquí</button>
-        				</div>
-     				</div>
-   				</div>
-			</div>
+					<div className="row mt-5 justify-content-center">
+						<div className="col-6 text-center text-white mt-5">
+							<h1>Da de alta tu restaurante</h1>
+							<button className="btn btn-secondary mt-3">Click aquí</button>
+						</div>
+					</div>
+					<div className="row mt-5 justify-content-center">
+						<div className="col-6 text-center text-white mb-5">
+							<h1>Inicia sesión</h1>
+							<input type="text" className="form-control mt-3" placeholder="Usuario" />
+							<input type="password" className="form-control mt-3" placeholder="Contraseña" />
+							<button className="btn btn-secondary mt-3">Click aquí</button>
+						</div>
+					</div>
+				</div>
+   			</div>
 		</div>
 	);
 };
