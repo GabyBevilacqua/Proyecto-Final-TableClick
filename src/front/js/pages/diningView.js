@@ -19,14 +19,14 @@ export const DiningView = () => {
 
     return (
         <div>
-            <div className="text-center mt-5">
+            <div className="text-center">
                 <Link to="/">
-                    <button className="button4 m-5">
+                    <button className="btn m-2">
                         Return to preLogin
                     </button>
                 </Link>
                 <Link to="/menuItems">
-                    <button className="button4 m-5">
+                    <button className="btn m-2">
                         Return to menuItems
                     </button>
                 </Link>

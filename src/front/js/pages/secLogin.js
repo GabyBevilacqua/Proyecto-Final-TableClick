@@ -9,35 +9,38 @@ export const SecLogin = () => {
 
     return (
         <div>
-            <div className="text-center m-5">
-                <h2>Actualmente estas en secLogin</h2>
+            <div className="text-center m-2">
                 <Link to="/">
-                    <button type="button" class="btn btn-primary m-2">Return to preLogin</button>
+                    <button type="button" class="btn m-2">Return to preLogin</button>
                 </Link>
                 <Link to="/menusView">
-                    <button type="button" class="btn btn-primary m-2">Go to menusView</button>
+                    <button type="button" class="btn m-2">Go to menusView</button>
                 </Link>
                 <Link to="/tableMenu">
-                    <button type="button" class="btn btn-primary m-2">Go to tableMenu</button>
+                    <button type="button" class="btn m-2">Go to tableMenu</button>
                 </Link>
             </div>
             <div className="containerpreLogin">
-     			<div className="row mt-5 justify-content-center">
-       				<div className="col-6 text-center text-white mt-5">
-          				<h1>Administración</h1>
+                <div className="row mt-5 justify-content-center">
+                    <div className="col-6 text-center text-white mt-5">
+                        <h1>Administración</h1>
                         <input type="text" className="form-control mt-3" placeholder="Código admin" />
-         				<button className="btn btn-secondary mt-3">Click aquí</button>
-        			</div>
-      			</div>
-      			<div className="row mt-5 justify-content-center">
-        			<div className="col-6 text-center text-white mb-5">
-         				<h1>Identificador mesa</h1>
-          				<input type="text" className="form-control mt-3" placeholder="Código mesa" />
-          				<input type="password" className="form-control mt-3" placeholder="Seleccionar menú" />
-          				<button className="btn btn-secondary mt-3">Click aquí</button>
-        			</div>
-     			</div>
-   			</div>
+                        <Link to="/menusView">
+                            <button className="button4 mt-3">Click aquí</button>
+                        </Link>
+                    </div>
+                </div>
+                <div className="row mt-5 justify-content-center">
+                    <div className="col-6 text-center text-white mb-5">
+                        <h1>Identificador mesa</h1>
+                        <input type="text" className="form-control mt-3" placeholder="Código mesa" />
+                        <input type="password" className="form-control mt-3" placeholder="Seleccionar menú" />
+                        <Link to="/tableMenu">
+                            <button className="button4 mt-3">Click aquí</button>
+                        </Link>
+                    </div>
+                </div>
+            </div>
         </div>
 
     );

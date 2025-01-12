@@ -49,7 +49,7 @@ export const TabsMenu = () => {
       };
     
       return (
-        <div className="menu-container">
+        <div className="menu-container col-md-9 mx-auto">
           <h1 className="menu-title">Nombre del menú</h1>
           <Tabs defaultActiveKey="Bebidas" id="menu-tabs" className="menu-tabs">
             {Object.keys(menuData).map((category, idx) => (

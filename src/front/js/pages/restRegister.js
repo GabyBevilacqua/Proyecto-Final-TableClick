@@ -16,21 +16,21 @@ export const RestRegister = () => {
     const handleCloseModal = () => setShowModal(false);
 
     return (
-        <div className="container">
+        <div className="container mt-2">
             <div className="text mt-2">
                 <Link to="/">
-                    <span className="text  m-5">
+                    <button className="btn m-2">
                         Return to preLogin
-                    </span>
+                    </button>
                 </Link>
                 <Link to="/menusView">
-                    <span className="text">
+                    <button className="btn">
                         Go to menusView
-                    </span>
+                    </button>
                 </Link>
                 <div className="row justify-content-center">
-                    <div className="col-md-8 form-container containerRegister">
-                        <h2 className="text-center">Formulario de Registro</h2>
+                    <div className="col-md-8 form-container containerRegister mt-5">
+                        <h2 className="text-center mb-4">Formulario de Registro</h2>
                         <form>
                             <div className="row mb-3 align-items-center">
                                 <label htmlFor="nombrePersonal" className="col-md-4 col-form-label text-end">

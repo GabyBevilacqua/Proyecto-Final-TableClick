@@ -12,9 +12,9 @@ export const TableMenu = () => {
         <>
             <div className="text-center">
                 <Link to="/secLogin">
-                    <span className="text">
+                    <button className="btn">
                         Return to secLogin
-                    </span>
+                    </button>
                 </Link>
             </div>
             <div>
