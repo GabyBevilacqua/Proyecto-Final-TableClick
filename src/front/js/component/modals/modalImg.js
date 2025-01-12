@@ -31,7 +31,7 @@ export const ModalImg = ({ onClose }) => {
                     <div className="modal-footer">
                         <button
                             type="button"
-                            className="btn button2"
+                            className="button2"
                             onClick={onClose}
                         >
                             Salvar

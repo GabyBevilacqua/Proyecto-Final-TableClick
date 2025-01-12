@@ -29,7 +29,7 @@ export const RestRegister = () => {
                     </span>
                 </Link>
                 <div className="row justify-content-center">
-                    <div className="col-md-8 form-container">
+                    <div className="col-md-8 form-container containerRegister">
                         <h2 className="text-center">Formulario de Registro</h2>
                         <form>
                             <div className="row mb-3 align-items-center">
@@ -94,7 +94,7 @@ export const RestRegister = () => {
                                     <button
                                         id="subirArchivo"
                                         type="button"
-                                        className="btn button2"
+                                        className="button2"
                                         onClick={handleOpenModal}
                                     >
                                         Subir archivo
@@ -103,7 +103,7 @@ export const RestRegister = () => {
                             </div>
                             <div className="text-center">
                             <button type="submit"
-                                className="btn button2 w-100">
+                                className="button2 w-100">
                                 Salvar
                             </button>
                             </div>

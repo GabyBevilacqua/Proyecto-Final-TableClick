@@ -6,7 +6,7 @@
     on that page only (the ones not reused in other pages).
 */
 body {
-    background-color: #203953; /* Color azul oscuro de fondo */
+    background-color: #203953  !important; /* Color azul oscuro de fondo */
   }
   
 .button2 {
@@ -16,7 +16,7 @@ body {
     overflow: hidden;
     z-index: 1;
     color: #090909;
-   /* padding: 0.7em 1.7em; */
+    padding: 0.5em 1em;
     cursor: pointer;
     font-size: 18px;
     border-radius: 0.5em;
@@ -86,7 +86,7 @@ body {
     overflow: hidden;
     z-index: 1;
     color: #090909;
-   /* padding: 0.7em 1.7em; */
+    padding: 0.5em 1em;
     cursor: pointer;
     font-size: 18px;
     border-radius: 0.5em;
@@ -156,7 +156,7 @@ body {
     overflow: hidden;
     z-index: 1;
     color: #090909;
-   /* padding: 0.7em 1.7em; */
+    padding: 0.5em 1em;
     cursor: pointer;
     font-size: 18px;
     border-radius: 0.5em;
