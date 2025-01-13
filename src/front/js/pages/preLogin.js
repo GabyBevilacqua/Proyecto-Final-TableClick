@@ -8,30 +8,45 @@ import { Link, useNavigate } from "react-router-dom";
 
 export const PreLogin = () => {
 	const { store, actions } = useContext(Context);
-    const navigate = useNavigate()
+	const navigate = useNavigate()
 
 	return (
-		<div className="text-center mt-5">
-			<h1>Pagina para dar de alta el restaurante o hacer login</h1>
-			<Link to="/restRegister">
-                <span className="text  m-5">
-                    Go to restaurant register
-                </span>
-            </Link>
-			<Link to="/secLogin">
-                <span className="text">
-                    Go to secLogin 
-                </span>
-            </Link>
-			<div className="alert alert-info">
-				{store.message || "Loading message from the backend (make sure your python backend is running)..."}
+		<div>
+			<div className="text-center m-5">
+				<Link to="/restRegister">
+					<button type="button" className="btn">Go to restaurant register</button>
+				</Link>
+				<Link to="/secLogin">
+					<button type="button" className="btn m-2">Go to secLogin </button>
+				</Link>
 			</div>
-			<p>
-				This boilerplate comes with lots of documentation:{" "}
-				<a href="https://start.4geeksacademy.com/starters/react-flask">
-					Read documentation otra cosa
-				</a>
-			</p>
+			<div>
+				<div className="containerpreLogin">
+					<div className="row mt-5 justify-content-center">
+						<div className="col-6 text-center text-white mt-5">
+							<h1>Da de alta tu restaurante</h1>
+							<Link to="/restRegister">
+								<button className="button4 mt-3">Click aquí</button>
+							</Link>
+						</div>
+					</div>
+					<div className="row mt-5 justify-content-center">
+						<div className="col-6 text-center text-white">
+							<h1>Inicia sesión</h1>
+							<input type="text" className="form-control mt-3" placeholder="Usuario" />
+							<input type="password" className="form-control mt-3" placeholder="Contraseña" />
+							<Link to="/secLogin">
+								<button className="button4 mt-3">Click aquí</button>
+							</Link>
+						</div>
+						<div className="text-center mt-3 mb-5">
+							<Link to="/secLogin">
+								<span className="span text-white text-center">Recuperar contraseña</span>
+							</Link>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	);
 };
