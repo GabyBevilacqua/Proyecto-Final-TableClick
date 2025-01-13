@@ -31,12 +31,17 @@ export const PreLogin = () => {
 						</div>
 					</div>
 					<div className="row mt-5 justify-content-center">
-						<div className="col-6 text-center text-white mb-5">
+						<div className="col-6 text-center text-white">
 							<h1>Inicia sesión</h1>
 							<input type="text" className="form-control mt-3" placeholder="Usuario" />
 							<input type="password" className="form-control mt-3" placeholder="Contraseña" />
 							<Link to="/secLogin">
 								<button className="button4 mt-3">Click aquí</button>
+							</Link>
+						</div>
+						<div className="text-center mt-3 mb-5">
+							<Link to="/secLogin">
+								<span className="span text-white text-center">Recuperar contraseña</span>
 							</Link>
 						</div>
 					</div>
