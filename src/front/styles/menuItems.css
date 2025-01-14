@@ -14,13 +14,14 @@
     
 }
 .cardItems{
-    background-color: #3F617C;
+    background-color: #3F617C !important;
     color: white; 
 }
 
 .liMenuItems{
-    background-color: #3F617C;
+    background-color: #3F617C !important;
     width: 99%;
+
 }
 .btn-borrar{
     background-color: #567164;
@@ -29,7 +30,8 @@
 .mesaItems{
     text-align: center;
     justify-content: flex-start;
-    width: 155px;
+    width: 155px !important
+    ;
 }
 .inputModalItems{
     background-color: #F4F0D1;
