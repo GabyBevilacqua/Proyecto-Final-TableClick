@@ -1,0 +1,45 @@
+.bodyMenuItens{
+    background-color: #203953;
+}
+
+.tituloNombreMenu{
+    color: white;
+    background-color: #567164 ;
+    align-items: center;
+    text-align: center;
+}
+
+.bodyCardItems{
+    align-items: center;
+    
+}
+.cardItems{
+    background-color: #3F617C !important;
+    color: white; 
+}
+
+.liMenuItems{
+    background-color: #3F617C !important;
+    width: 99%;
+
+}
+.btn-borrar{
+    background-color: #567164;
+    color: white;
+}
+.mesaItems{
+    text-align: center;
+    justify-content: flex-start;
+    width: 155px !important
+    ;
+}
+.inputModalItems{
+    background-color: #F4F0D1;
+}
+.button33{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: 11px;
+    margin-left: 18px;
+}
