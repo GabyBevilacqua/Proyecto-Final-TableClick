@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import imagenLogo from "../../img/imagenLogo.jpg";
+import imagenLogo from "../../img/imagenLogo.png";
 import "../../styles/navbar.css";
 
 export const Navbar = () => {
@@ -12,14 +12,14 @@ export const Navbar = () => {
             case "/menusView":
                 return (
                     <>
-                        <h1 className="navbar-brand mb-0" style={{ color: "white" }}>Nombre del restaurante</h1>
+                        <h1 className="navbar-brand mb-0" style={{ color: "white" }}>El Cangrejo</h1>
                         <img src={imagenLogo} alt="Logo" style={{ height: "60px" }} />
                     </>
                 );
             case "/tableMenu":
                 return (
                     <>
-                        <h1 className="navbar-brand mb-0" style={{ color: "white" }}>Nombre del restaurante</h1>
+                        <h1 className="navbar-brand mb-0" style={{ color: "white" }}>El Cangrejo</h1>
                         <img src={imagenLogo} alt="Logo" style={{ height: "60px" }} />
                         <div className="ml-auto">
                             <div className="dropdown">
@@ -67,7 +67,7 @@ export const Navbar = () => {
             case "/menuItems":
                 return (
                     <>
-                        <h1 className="navbar-brand mb-0" style={{ color: "white" }}>Nombre del restaurante</h1>
+                        <h1 className="navbar-brand mb-0" style={{ color: "white" }}>El Cangrejo</h1>
                         <img src={imagenLogo} alt="Logo" style={{ height: "60px" }} />
                         <div className="ml-auto">
                             <Link to="/diningView">
@@ -79,7 +79,7 @@ export const Navbar = () => {
             case "/diningView":
                 return (
                     <>
-                        <h1 className="navbar-brand mb-0" style={{ color: "white" }}>Nombre del restaurante</h1>
+                        <h1 className="navbar-brand mb-0" style={{ color: "white" }}>El Cangrejo</h1>
                         <img src={imagenLogo} alt="Logo" style={{ height: "60px" }} />
                         <div className="ml-auto">
                             <Link to="/menuItems">

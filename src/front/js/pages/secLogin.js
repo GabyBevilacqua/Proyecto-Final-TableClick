@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/home.css";
 import { Link, useNavigate } from "react-router-dom";
+import tableClick01 from "../../img/tableClick01.png";
 
 //formulario de entrada para admin con su codigo o para las tables
 
@@ -20,8 +21,11 @@ export const SecLogin = () => {
                     <button type="button" class="btn m-2">Go to tableMenu</button>
                 </Link>
             </div>
+            <div className="text-center mt-2">
+                        <img src={tableClick01} alt="Logoapp" style={{ height: "100px" }} />
+                        </div>
             <div className="containerpreLogin">
-                <div className="row mt-5 justify-content-center">
+                <div className="row mt-3 justify-content-center">
                     <div className="col-6 text-center text-white mt-5">
                         <h1>Administración</h1>
                         <input type="text" className="form-control mt-3" placeholder="Código admin" />

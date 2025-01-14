@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/home.css";
 import { Link, useNavigate } from "react-router-dom";
+import tableClick01 from "../../img/tableClick01.png";
 
 // boton darse de alta
 //formulario para iniciar sesion : usuario, contraseña.
@@ -12,7 +13,7 @@ export const PreLogin = () => {
 
 	return (
 		<div>
-			<div className="text-center m-5">
+			<div className="text-center mt-2 mb-3">
 				<Link to="/restRegister">
 					<button type="button" className="btn">Go to restaurant register</button>
 				</Link>
@@ -20,9 +21,12 @@ export const PreLogin = () => {
 					<button type="button" className="btn m-2">Go to secLogin </button>
 				</Link>
 			</div>
+			<div className="text-center mt-2">
+			<img src={tableClick01} alt="Logoapp" style={{ height: "100px" }} />
+			</div>
 			<div>
 				<div className="containerpreLogin">
-					<div className="row mt-5 justify-content-center">
+					<div className="row mt-3 justify-content-center">
 						<div className="col-6 text-center text-white mt-5">
 							<h1>Da de alta tu restaurante</h1>
 							<Link to="/restRegister">
