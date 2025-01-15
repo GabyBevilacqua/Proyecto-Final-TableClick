@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-//import { Context } from "../store/appContext";
+import { Context } from "../store/appContext";
 import "../../styles/restRegister.css";
 import { Link, useNavigate } from "react-router-dom";
 import { ModalImg } from "../component/modals/modalImg";
@@ -8,6 +8,7 @@ import { ModalImg } from "../component/modals/modalImg";
 //formulario : Nombre personal, Nombre del rest, direccion, telefono, mail, crear contraseña, crear codigo admin   -- y logo con su modal si nos da tiempo --
 
 export const RestRegister = () => {
+    const { actions } = useContext(Context);
     const [formData, setFormData] = useState({
         nombrePersonal: "",
         username: "",
@@ -31,7 +32,7 @@ export const RestRegister = () => {
         setFormData({ ...formData, [id]: value });
     };
 
-    const handleSubmit = async (e) => {
+  /*  const handleSubmit = async (e) => {
         e.preventDefault();
         const response = await fetch("http://localhost:5000/api/register", {
             method: "POST",
@@ -43,6 +44,16 @@ export const RestRegister = () => {
 
         if (response.ok) {
             navigate("/secLogin");
+        } else {
+            alert("Error al registrar el usuario");
+        }
+    }; */
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const success = await actions.registerUser(formData);
+        if (success) {
+            navigate("/menusView");
         } else {
             alert("Error al registrar el usuario");
         }

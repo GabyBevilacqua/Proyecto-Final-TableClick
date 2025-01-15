@@ -35,7 +35,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-			// Cambiar color de demo
+			// Cambiar color de demo HAY QUE BORRAR ESTO
 			changeColor: (index, color) => {
 				const store = getStore();
 				const demo = store.demo.map((elm, i) => {
@@ -44,6 +44,34 @@ const getState = ({ getStore, getActions, setStore }) => {
 				});
 				setStore({ demo: demo });
 			},
+
+			// ACCIONES DE REGISTRO DE USUARIO NUEVO restRegister.js
+
+			registerUser: async (formData) => {
+                try {
+                    const response = await fetch("http://localhost:3000/api/register", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(formData)
+                    });
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        console.log("Usuario registrado exitosamente:", data);
+                        return true;
+                    } else {
+                        console.error("Error al registrar el usuario");
+                        return false;
+                    }
+                } catch (error) {
+                    console.error("Error al registrar el usuario:", error);
+                    return false;
+                }
+            },
+//--------------------------------------------------------------------------------
+			// ACCIONES DE LA PAGINA DE menuItems.js
 
 			// Agregar una nueva mesa
 			addTable: (tableName) => {
