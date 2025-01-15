@@ -5,23 +5,37 @@ import CardMenu from "../component/cards/cardsMenus";
 
 export const MenusView = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [menus, setMenus] = useState([]); // Estado para almacenar los menús creados
+    const [menus, setMenus] = useState([
+
+    ]);
     const [menuToSave, setMenuToSave] = useState(null);
 
     const openModal = () => setIsModalOpen(true);
     const closeModal = () => setIsModalOpen(false);
 
     const handleSaveMenu = (menuData) => {
-        setMenus([menuData, ...menus]); // Añade el nuevo menú al estado
+        setMenus((prevMenus) => [menuData, ...prevMenus]);
         closeModal();
     };
 
+    const handleEditMenu = (id, newName) => {
+        const updatedMenus = menus.map(menu =>
+            menu.id === id ? { ...menu, menuName: newName } : menu
+        );
+        setMenus(updatedMenus);
+    }
+
+    const handleDeleteMenu = (id) => {
+        const filteredMenus = menus.filter(menu => menu.id !== id);
+        setMenus(filteredMenus); 
+    };
+
+
     useEffect(() => {
         if (menuToSave) {
-            // Si hay un menú para guardar, lo agregamos al inicio
-            setMenus([menuToSave, ...menus]);
-            setMenuToSave(null); // Reiniciamos el estado después de guardarlo
-            closeModal(); // Cerramos el modal después de guardar
+            setMenus((prevMenus) => [menuToSave, ...prevMenus]);
+            setMenuToSave(null);
+            closeModal();
         }
     }, [menuToSave, menus]);
 
@@ -42,24 +56,40 @@ export const MenusView = () => {
             <div className="container mt-4 text-white">
                 <h1 id="menus-creados">Menús Creados</h1>
             </div>
-            <div className="container">
-                <div className="row">
-                    {menus.map((menu, index) => (
-                        <div className="col-md-3" key={index}>
-                            <CardMenu menu={menu} />
-                        </div>
-                    ))}
-                    <div className="col-md-3">
+            <div className="container menuCreate">
+                <ul className="list-unstyled row">
+                    {menus.length === 0 ? (
+                        <li className="col-12">
+                            <div className="alert alert-warning text-center" role="alert">
+                                No hay menús creados aún. ¡Crea uno ahora!
+                            </div>
+                        </li>
+                    ) : (
+                        menus.map((menu) => (
+                            <li className="col-md-3" key={menu.id}>
+                                <CardMenu
+                                    key={menu.id}
+                                    menu={menu}
+                                    onEdit={handleEditMenu}
+                                    onDelete={handleDeleteMenu}
+                                />
+                            </li>
+                        ))
+                    )}
+                    <li className="col-md-3">
                         <div className="card menu-container text-center">
                             <div className="card-body">
                                 <h5 className="card-title"></h5>
-                                <button onClick={openModal} className="btn button1 btn-primary w-100">
+                                <button
+                                    onClick={openModal}
+                                    className="btn button1 btn-primary"
+                                >
                                     Crear Menú
                                 </button>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </li>
+                </ul>
             </div>
             <ModalMenu isOpen={isModalOpen} onClose={closeModal} onSave={handleSaveMenu} />
         </div>

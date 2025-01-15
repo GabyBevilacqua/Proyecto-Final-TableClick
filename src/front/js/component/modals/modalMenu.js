@@ -18,15 +18,32 @@ export const ModalMenu = ({ isOpen, onClose, onSave }) => {
         setSections({ ...sections, [id]: checked });
     };
 
+    const handleOtherSectionChange = (e) => {
+        setOtherSection(e.target.value);
+    };
+
+    const handleAddCustomSection = () => {
+        if (otherSection && !sections[otherSection]) {
+            setSections({ ...sections, [otherSection]: false });
+            setOtherSection(""); 
+        }
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        if (!menuName || !tablesCount) {
+            alert("Por favor, ingrese el nombre del menú y el número de mesas.");
+            return;
+        };
+
         const menuData = {
             menuName,
             tablesCount,
             sections,
             otherSection,
         };
-        onSave(menuData); 
+        onSave(menuData);
     };
 
     return (
@@ -66,7 +83,7 @@ export const ModalMenu = ({ isOpen, onClose, onSave }) => {
                                 </div>
                                 <div className="mb-3">
                                     <label className="form-label">Secciones del Menú:</label>
-                                    {["entrantes", "bebidas", "principales", "postres"].map((section) => (
+                                    {Object.keys(sections).map((section) => (
                                         <div key={section} className="form-check">
                                             <input
                                                 className="form-check-input"
@@ -81,31 +98,36 @@ export const ModalMenu = ({ isOpen, onClose, onSave }) => {
                                         </div>
                                     ))}
                                 </div>
-                                <div className="mb-3">
-                                    <label htmlFor="otherSection" className="form-label">
-                                        Otros:
-                                    </label>
+                                <div className="input-group mb-3">
                                     <input
                                         type="text"
                                         className="form-control"
                                         id="otherSection"
                                         value={otherSection}
-                                        onChange={(e) => setOtherSection(e.target.value)}
+                                        onChange={handleOtherSectionChange}
+                                        placeholder="Agregar otra sección"
                                     />
+                                    <button
+                                        type="button"
+                                        className="btn btn-outline-secondary"
+                                        onClick={handleAddCustomSection}
+                                    >
+                                        Agregar
+                                    </button>
+                                </div>
+                                <div className="modal-footer">
+                                    <button type="button" className="btn btn-secondary" onClick={onClose}>
+                                        Cerrar
+                                    </button>
+                                    <button type="submit" className="btn btn-primary">
+                                        Guardar
+                                    </button>
                                 </div>
                             </form>
-                        </div>
-                        <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary" onClick={onClose}>
-                                Close
-                            </button>
-                            <button type="submit" className="btn btn-primary">
-                                Save changes
-                            </button>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
