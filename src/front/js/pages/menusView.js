@@ -5,9 +5,7 @@ import CardMenu from "../component/cards/cardsMenus";
 
 export const MenusView = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [menus, setMenus] = useState([
-
-    ]);
+    const [menus, setMenus] = useState([]);
     const [menuToSave, setMenuToSave] = useState(null);
 
     const openModal = () => setIsModalOpen(true);
@@ -76,6 +74,9 @@ export const MenusView = () => {
                             </li>
                         ))
                     )}
+                    <li className="col-md-3">
+                        <CardMenu menu="Menú Principal" />
+                    </li>
                     <li className="col-md-3">
                         <div className="card menu-container text-center">
                             <div className="card-body">
