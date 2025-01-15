@@ -10,6 +10,7 @@ export const Navbar = () => {
         switch (location.pathname) {
             case "/secLogin":
             case "/menusView":
+            case "/editUser":
                 return (
                     <>
                         <h1 className="navbar-brand mb-0" style={{ color: "white" }}>El Cangrejo</h1>
