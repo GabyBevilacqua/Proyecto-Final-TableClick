@@ -12,13 +12,16 @@ export const SecLogin = () => {
         <div>
             <div className="text-center m-2">
                 <Link to="/">
-                    <button type="button" class="btn m-2">Return to preLogin</button>
+                    <button type="button" className="btn m-2">Return to preLogin</button>
                 </Link>
                 <Link to="/menusView">
-                    <button type="button" class="btn m-2">Go to menusView</button>
+                    <button type="button" className="btn m-2">Go to menusView</button>
                 </Link>
                 <Link to="/tableMenu">
-                    <button type="button" class="btn m-2">Go to tableMenu</button>
+                    <button type="button" className="btn m-2">Go to tableMenu</button>
+                </Link>
+                <Link to="/editUser">
+                    <button type="button" className="btn m-2">edit user</button>
                 </Link>
             </div>
             <div className="text-center mt-2">

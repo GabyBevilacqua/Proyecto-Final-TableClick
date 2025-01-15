@@ -15,7 +15,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			],
 			tables: [],
-			items: [] // Aquí almacenaremos los ítems
+			items: [], // Aquí almacenaremos los ítems
+			registerUser: []
 		},
 		actions: {
 			// Ejemplo de función
@@ -49,7 +50,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			registerUser: async (formData) => {
                 try {
-                    const response = await fetch("http://localhost:3000/api/register", {
+                    const response = await fetch("https://jubilant-zebra-v6grjw6xrp973wp6j-3001.app.github.dev/api/register", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json"
