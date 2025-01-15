@@ -10,6 +10,7 @@ import { MenuItems } from "./pages/menuItems";
 import { DiningView } from "./pages/diningView";
 import { SecLogin } from "./pages/secLogin";
 import { TableMenu } from "./pages/tableMenu";
+import { EditUser } from "./pages/editUser";
 
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
@@ -17,6 +18,7 @@ import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+
 
 //create your first component
 const Layout = () => {
@@ -38,6 +40,7 @@ const Layout = () => {
                         <Route element={<MenuItems />} path="/menuItems" />
                         <Route element={<DiningView />} path="/diningView" />
                         <Route element={<SecLogin />} path="/secLogin" />
+                        <Route element={<EditUser />} path="/editUser" />
                         <Route element={<TableMenu />} path="/tableMenu" />
                         <Route element={<Demo />} path="/demo" />
                         <Route element={<Single />} path="/single/:theid" />

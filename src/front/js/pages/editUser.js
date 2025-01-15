@@ -1,13 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/restRegister.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams, } from "react-router-dom";
 import { ModalImg } from "../component/modals/modalImg";
 
-// aqui se usaria el modalImg.js para el logo del rest si nos da tiempo de implementarlo
-//formulario : Nombre personal, Nombre del rest, direccion, telefono, mail, crear contraseña, crear codigo admin   -- y logo con su modal si nos da tiempo --
 
-export const RestRegister = () => {
+export const EditUser = () => {
+    const { id } = useParams();
     const { actions } = useContext(Context);
     const [formData, setFormData] = useState({
         nombrePersonal: "",
@@ -21,7 +20,6 @@ export const RestRegister = () => {
     });
 
     const navigate = useNavigate()
-
     const [showModal, setShowModal] = useState(false);
 
     const handleOpenModal = () => setShowModal(true);
@@ -32,22 +30,6 @@ export const RestRegister = () => {
         setFormData({ ...formData, [id]: value });
     };
 
-  /*  const handleSubmit = async (e) => {
-        e.preventDefault();
-        const response = await fetch("http://localhost:5000/api/register", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(formData)
-        });
-
-        if (response.ok) {
-            navigate("/secLogin");
-        } else {
-            alert("Error al registrar el usuario");
-        }
-    }; */
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -74,7 +56,7 @@ export const RestRegister = () => {
                 </Link>
                 <div className="row justify-content-center">
                     <div className="col-md-8 form-container containerRegister mt-5">
-                        <h2 className="text-center mb-4">Formulario de Registro</h2>
+                        <h2 className="text-center mb-4">Edición del usuario</h2>
                         <form onSubmit={handleSubmit}>
                             <div className="row mb-3 align-items-center">
                                 <label htmlFor="nombrePersonal" className="col-md-4 col-form-label text-end">
@@ -129,46 +111,46 @@ export const RestRegister = () => {
                                     Dirección del restaurante:
                                 </label>
                                 <div className="col-md-8">
-                                    <input 
-                                    type="text" 
-                                    className="form-control" 
-                                    id="direccion" 
-                                    placeholder="Dirección"
-                                    value={formData.direccion}
-                                    onChange={handleChange}
-                                    required 
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        id="direccion"
+                                        placeholder="Dirección"
+                                        value={formData.direccion}
+                                        onChange={handleChange}
+                                        required
                                     />
                                 </div>
                             </div>
                             <div className="row mb-3 align-items-center">
                                 <label htmlFor="telefono" className="col-md-4 col-form-label text-end">
                                     Teléfono:
-                                    </label>
+                                </label>
                                 <div className="col-md-8">
-                                    <input 
-                                    type="tel" 
-                                    className="form-control" 
-                                    id="telefono" 
-                                    placeholder="Teléfono"
-                                    value={formData.telefono}
-                                    onChange={handleChange}
-                                    required 
+                                    <input
+                                        type="tel"
+                                        className="form-control"
+                                        id="telefono"
+                                        placeholder="Teléfono"
+                                        value={formData.telefono}
+                                        onChange={handleChange}
+                                        required
                                     />
                                 </div>
                             </div>
                             <div className="row mb-3 align-items-center">
                                 <label htmlFor="email" className="col-md-4 col-form-label text-end">
                                     Email:
-                                    </label>
+                                </label>
                                 <div className="col-md-8">
-                                    <input 
-                                    type="email" 
-                                    className="form-control" 
-                                    id="email" 
-                                    placeholder="Email"
-                                    value={formData.email}
-                                    onChange={handleChange}
-                                    required
+                                    <input
+                                        type="email"
+                                        className="form-control"
+                                        id="email"
+                                        placeholder="Email"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        required
                                     />
                                 </div>
                             </div>
@@ -177,14 +159,14 @@ export const RestRegister = () => {
                                     Crear contraseña:
                                 </label>
                                 <div className="col-md-8">
-                                    <input 
-                                    type="password" 
-                                    className="form-control" 
-                                    id="password" 
-                                    placeholder="Ingrese la contraseña"
-                                    value={formData.password}
-                                    onChange={handleChange}
-                                    required                                    
+                                    <input
+                                        type="password"
+                                        className="form-control"
+                                        id="password"
+                                        placeholder="Ingrese la contraseña"
+                                        value={formData.password}
+                                        onChange={handleChange}
+                                        required
                                     />
                                 </div>
                             </div>
@@ -193,14 +175,14 @@ export const RestRegister = () => {
                                     Crear código administración:
                                 </label>
                                 <div className="col-md-8">
-                                    <input 
-                                    type="text" 
-                                    className="form-control" 
-                                    id="codigoAdmin" 
-                                    placeholder="Código admin"
-                                    value={formData.codigoAdmin}
-                                    onChange={handleChange}
-                                    required 
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        id="codigoAdmin"
+                                        placeholder="Código admin"
+                                        value={formData.codigoAdmin}
+                                        onChange={handleChange}
+                                        required
                                     />
                                 </div>
                             </div>
@@ -214,10 +196,24 @@ export const RestRegister = () => {
                                     <button
                                         id="subirArchivo"
                                         type="button"
-                                        className="button2"
+                                        className="button2 me-2"
                                         onClick={handleOpenModal}
                                     >
                                         Subir archivo
+                                    </button>
+                                    <button
+                                        id="subirArchivo"
+                                        type="button"
+                                        className="button2 me-2"
+                                    >
+                                        Cerrar sesión
+                                    </button>
+                                    <button
+                                        id="subirArchivo"
+                                        type="button"
+                                        className="button2"
+                                    >
+                                        Eliminar usuario
                                     </button>
                                 </div>
                             </div>
