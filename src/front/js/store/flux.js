@@ -84,6 +84,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			addItem: (item) => {
 				const store = getStore();
 				setStore({ items: [...store.items, item] }); // Añade el ítem al estado global
+				
 			}
 		}
 	};
