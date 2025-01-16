@@ -73,6 +73,33 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
+			//accion para taer todos los usuarios
+
+			getAllUsers: async () => {
+				try {
+					const response = await fetch("https://jubilant-zebra-v6grjw6xrp973wp6j-3001.app.github.dev/api/user", {
+						method: "GET",
+						headers: {
+							"Content-Type": "application/json"
+						}
+					});
+
+					if (response.ok) {
+						const data = await response.json();
+						setStore({ registerUser: data });
+
+						console.log("Datos de usuarios cargados exitosamente:", data);
+						return data;
+					} else {
+						console.error("Error al cargar los datos de usuarios");
+						return null;
+					}
+				} catch (error) {
+					console.error("Error al cargar los datos de usuarios:", error);
+					return null;
+				}
+			},
+
 			// Acción para obtener los datos de un usuario por ID
 			getUserById: async (userId) => {
 				try {

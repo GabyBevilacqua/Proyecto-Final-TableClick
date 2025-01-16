@@ -94,11 +94,11 @@ def update_user(user_id):
 
     return jsonify({"message": "Usuario actualizado exitosamente"}), 200
 
-@api.route('/users/<int:user_id>', methods=['DELETE'])
+@api.route('/user/<int:user_id>', methods=['DELETE'])
 def delete_user(user_id):
     user = User.query.get(user_id)
 
-    if user is None:
+    if not user:
         return jsonify({"message": "Usuario no encontrado"}), 404
     
     db.session.delete(user)
