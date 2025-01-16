@@ -14,14 +14,14 @@
     
 }
 .cardItems{
-    background-color: #3F617C !important;
+    background-color: #F4F0D1 !important;
     color: white; 
 }
 
 .liMenuItems{
-    background-color: #3F617C !important;
+    background-color: #F4F0D1 !important;
     width: 99%;
-
+    
 }
 .btn-borrar{
     background-color: #567164;
@@ -40,6 +40,9 @@
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    margin-top: 11px;
     margin-left: 18px;
+    margin-top: 16px;
 }
+
+/* //------------------------------------------------// */
+/* //------------------------------------------------// */
