@@ -16,7 +16,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			],
 			tables: [],
 			items: [], // Aquí almacenaremos los ítems
-			registerUser: []
+			registerUser: [],
+			authToken: null, // Añadir token de autenticación
+			user: null // Añadir informacion del usuario
 		},
 		actions: {
 			// Ejemplo de función
@@ -51,7 +53,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// Acción para registrar un usuario
 			registerUser: async (formData) => {
 				try {
-					const response = await fetch("https://jubilant-zebra-v6grjw6xrp973wp6j-3001.app.github.dev/api/register", {
+					const response = await fetch("https://solid-space-bassoon-69rw9g97vv5q2wpw-3001.app.github.dev/api/register", {
 						method: "POST",
 						headers: {
 							"Content-Type": "application/json"
@@ -77,7 +79,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			getAllUsers: async () => {
 				try {
-					const response = await fetch("https://jubilant-zebra-v6grjw6xrp973wp6j-3001.app.github.dev/api/user", {
+					const response = await fetch("https://solid-space-bassoon-69rw9g97vv5q2wpw-3001.app.github.dev/api/user", {
 						method: "GET",
 						headers: {
 							"Content-Type": "application/json"
@@ -103,7 +105,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// Acción para obtener los datos de un usuario por ID
 			getUserById: async (userId) => {
 				try {
-					const response = await fetch(`https://jubilant-zebra-v6grjw6xrp973wp6j-3001.app.github.dev/api/user/${userId}`, {
+					const response = await fetch(`https://solid-space-bassoon-69rw9g97vv5q2wpw-3001.app.github.dev/api/user/${userId}`, {
 						method: "GET",
 						headers: {
 							"Content-Type": "application/json"
@@ -129,7 +131,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
             updateUser: async (userId, formData) => {
                 try {
-                    const response = await fetch(`https://jubilant-zebra-v6grjw6xrp973wp6j-3001.app.github.dev/api/user/${userId}`, {
+                    const response = await fetch(`https://solid-space-bassoon-69rw9g97vv5q2wpw-3001.app.github.dev/api/user/${userId}`, {
                         method: "PUT",
                         headers: {
                             "Content-Type": "application/json"
@@ -155,7 +157,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			 // Acción para eliminar un usuario por ID
 			 deleteUser: async (userId) => {
                 try {
-                    const response = await fetch(`https://jubilant-zebra-v6grjw6xrp973wp6j-3001.app.github.dev/api/user/${userId}`, {
+                    const response = await fetch(`https://solid-space-bassoon-69rw9g97vv5q2wpw-3001.app.github.dev/api/user/${userId}`, {
                         method: "DELETE",
                         headers: {
                             "Content-Type": "application/json"
@@ -189,6 +191,31 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const store = getStore();
 				setStore({ items: [...store.items, item] }); // Añade el ítem al estado global
 
+			},
+
+			//ACCIONES DE LA PAGINA DE preLogin.js
+
+			loginUser: async (username, password) => { 
+				try { 
+					const response = await fetch("https://solid-space-bassoon-69rw9g97vv5q2wpw-3001.app.github.dev/api/login", { 
+						method: "POST", 
+						headers: { "Content-Type": "application/json" }, 
+						body: JSON.stringify({ username, password }) 
+					}); 
+					
+					if (response.ok) { 
+						const data = await response.json(); 
+						setStore({ authToken: data.token, user: data.user }); 
+						console.log("Login successful!", data); 
+						return true; // Indica éxito en el inicio de sesión 
+					} else { 
+						console.log("Login failed!"); 
+						return false; // Indica fracaso en el inicio de sesión 
+					} 
+				} catch (error) { 
+					console.error("Error logging in", error); 
+					return false; 
+				}
 			}
 		}
 	};

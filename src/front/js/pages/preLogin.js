@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/home.css";
 import { Link, useNavigate } from "react-router-dom";
@@ -9,7 +9,18 @@ import tableClick01 from "../../img/tableClick01.png";
 
 export const PreLogin = () => {
 	const { store, actions } = useContext(Context);
+	const [username, setUsername] = useState(""); 
+	const [password, setPassword] = useState(""); 
 	const navigate = useNavigate()
+
+	const handleLogin = async () => { 
+		const success = await actions.loginUser(username, password); 
+		if (success) { 
+			navigate("/secLogin"); // Redirigir a la página de inicio de sesión 
+		} else { 
+			alert("Login failed. Please check your credentials and try again."); 
+		} 
+	};
 
 	return (
 		<div>
