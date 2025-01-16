@@ -6,8 +6,8 @@ import { ModalImg } from "../component/modals/modalImg";
 
 
 export const EditUser = () => {
-    const { id } = useParams();
-    const { actions } = useContext(Context);
+    const { userId } = useParams();
+    const { store, actions } = useContext(Context);
     const [formData, setFormData] = useState({
         nombrePersonal: "",
         username: "",
@@ -25,6 +25,17 @@ export const EditUser = () => {
     const handleOpenModal = () => setShowModal(true);
     const handleCloseModal = () => setShowModal(false);
 
+    useEffect(() => { 
+        const fetchUserData = async () => {
+            const userData = await actions.getUserById(userId);
+            if (userData) {
+                setFormData(userData);
+            }
+        };
+
+        fetchUserData();
+    }, [userId]);   
+
     const handleChange = (e) => {
         const { id, value } = e.target;
         setFormData({ ...formData, [id]: value });
@@ -33,11 +44,20 @@ export const EditUser = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const success = await actions.registerUser(formData);
+        const success = await actions.updateUser(userId, formData);
         if (success) {
-            navigate("/menusView");
+            navigate("/editUser");
         } else {
             alert("Error al registrar el usuario");
+        }
+    };
+
+    const handleDelete = async () => {
+        const success = await actions.deleteUser(userId);
+        if (success) {
+            navigate("/users");
+        } else {
+            alert("Error al eliminar el usuario");
         }
     };
 
@@ -56,7 +76,7 @@ export const EditUser = () => {
                 </Link>
                 <div className="row justify-content-center">
                     <div className="col-md-8 form-container containerRegister mt-5">
-                        <h2 className="text-center mb-4">Edición del usuario</h2>
+                        <h2 className="text-center mb-4">Editar usuario</h2>
                         <form onSubmit={handleSubmit}>
                             <div className="row mb-3 align-items-center">
                                 <label htmlFor="nombrePersonal" className="col-md-4 col-form-label text-end">
@@ -65,7 +85,7 @@ export const EditUser = () => {
                                 <div className="col-md-8">
                                     <input
                                         type="text"
-                                        className="form-control"
+                                        className="form-control inputStyle"
                                         id="nombrePersonal"
                                         placeholder="Ingrese su nombre"
                                         value={formData.nombrePersonal}
@@ -81,7 +101,7 @@ export const EditUser = () => {
                                 <div className="col-md-8">
                                     <input
                                         type="text"
-                                        className="form-control"
+                                        className="form-control inputStyle"
                                         id="username"
                                         placeholder="Ingrese nombre de usuario"
                                         value={formData.username}
@@ -97,7 +117,7 @@ export const EditUser = () => {
                                 <div className="col-md-8">
                                     <input
                                         type="text"
-                                        className="form-control"
+                                        className="form-control inputStyle"
                                         id="nombreRestaurante"
                                         placeholder="Nombre del restaurante"
                                         value={formData.nombreRestaurante}
@@ -113,7 +133,7 @@ export const EditUser = () => {
                                 <div className="col-md-8">
                                     <input
                                         type="text"
-                                        className="form-control"
+                                        className="form-control inputStyle"
                                         id="direccion"
                                         placeholder="Dirección"
                                         value={formData.direccion}
@@ -129,7 +149,7 @@ export const EditUser = () => {
                                 <div className="col-md-8">
                                     <input
                                         type="tel"
-                                        className="form-control"
+                                        className="form-control inputStyle"
                                         id="telefono"
                                         placeholder="Teléfono"
                                         value={formData.telefono}
@@ -145,7 +165,7 @@ export const EditUser = () => {
                                 <div className="col-md-8">
                                     <input
                                         type="email"
-                                        className="form-control"
+                                        className="form-control inputStyle"
                                         id="email"
                                         placeholder="Email"
                                         value={formData.email}
@@ -161,7 +181,7 @@ export const EditUser = () => {
                                 <div className="col-md-8">
                                     <input
                                         type="password"
-                                        className="form-control"
+                                        className="form-control inputStyle"
                                         id="password"
                                         placeholder="Ingrese la contraseña"
                                         value={formData.password}
@@ -177,7 +197,7 @@ export const EditUser = () => {
                                 <div className="col-md-8">
                                     <input
                                         type="text"
-                                        className="form-control"
+                                        className="form-control inputStyle"
                                         id="codigoAdmin"
                                         placeholder="Código admin"
                                         value={formData.codigoAdmin}
@@ -190,7 +210,7 @@ export const EditUser = () => {
 
                             <div className="row mb-3 align-items-center">
                                 <label htmlFor="subirArchivo" className="col-md-4 col-form-label text-end">
-                                    Cargar imagen o logo del restaurante:
+                                    Cambiar imagen o logo del restaurante:
                                 </label>
                                 <div className="col-md-8 d-flex">
                                     <button
@@ -212,6 +232,7 @@ export const EditUser = () => {
                                         id="subirArchivo"
                                         type="button"
                                         className="button2"
+                                        onClick={handleDelete}
                                     >
                                         Eliminar usuario
                                     </button>
