@@ -53,7 +53,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// Acción para registrar un usuario
 			registerUser: async (formData) => {
 				try {
-					const response = await fetch("https://solid-space-bassoon-69rw9g97vv5q2wpw-3001.app.github.dev/api/register", {
+					const response = await fetch(process.env.BACKEND_URL + "api/register", {
 						method: "POST",
 						headers: {
 							"Content-Type": "application/json"
@@ -79,7 +79,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			getAllUsers: async () => {
 				try {
-					const response = await fetch("https://solid-space-bassoon-69rw9g97vv5q2wpw-3001.app.github.dev/api/user", {
+					const response = await fetch(process.env.BACKEND_URL + "api/user", {
 						method: "GET",
 						headers: {
 							"Content-Type": "application/json"
@@ -105,7 +105,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// Acción para obtener los datos de un usuario por ID
 			getUserById: async (userId) => {
 				try {
-					const response = await fetch(`https://solid-space-bassoon-69rw9g97vv5q2wpw-3001.app.github.dev/api/user/${userId}`, {
+					const response = await fetch(process.env.BACKEND_URL + "${userId}", {
 						method: "GET",
 						headers: {
 							"Content-Type": "application/json"
@@ -131,7 +131,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
             updateUser: async (userId, formData) => {
                 try {
-                    const response = await fetch(`https://solid-space-bassoon-69rw9g97vv5q2wpw-3001.app.github.dev/api/user/${userId}`, {
+                    const response = await fetch(process.env.BACKEND_URL + "${userId}", {
                         method: "PUT",
                         headers: {
                             "Content-Type": "application/json"
@@ -157,7 +157,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			 // Acción para eliminar un usuario por ID
 			 deleteUser: async (userId) => {
                 try {
-                    const response = await fetch(`https://solid-space-bassoon-69rw9g97vv5q2wpw-3001.app.github.dev/api/user/${userId}`, {
+                    const response = await fetch(process.env.BACKEND_URL + "${userId}", {
                         method: "DELETE",
                         headers: {
                             "Content-Type": "application/json"
@@ -197,7 +197,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			loginUser: async (username, password) => { 
 				try { 
-					const response = await fetch("https://solid-space-bassoon-69rw9g97vv5q2wpw-3001.app.github.dev/api/login", { 
+					const response = await fetch(process.env.BACKEND_URL + "api/login", { 
 						method: "POST", 
 						headers: { "Content-Type": "application/json" }, 
 						body: JSON.stringify({ username, password }) 

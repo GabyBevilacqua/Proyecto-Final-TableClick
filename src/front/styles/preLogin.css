@@ -1,0 +1,28 @@
+
+.dot1 {
+    width: 10px;
+    aspect-ratio: 1;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 0 10px #ffffff;
+    border-radius: 100px;
+    z-index: 2;
+    animation: moveDot1 10s linear infinite;
+  }
+  
+  @keyframes moveDot1 { 
+    0%, 100% { 
+        top: 230px; 
+        left: 150px; 
+    } 
+    25% { 
+        top: 230px; 
+        left: calc(100% - 150px); 
+    } 50% { 
+        top: calc(100% - 200px); /* 100% menos el tamaño del punto */ 
+        left: calc(100% - 150px); /* 100% menos el tamaño del punto */ 
+    } 75% { 
+        top: calc(100% - 200px); 
+        left: 150px; 
+    }
+}
