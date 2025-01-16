@@ -24,6 +24,8 @@ def handle_hello():
 
     return jsonify(response_body), 200
 
+# registrar un usuario
+
 @api.route('/register', methods=['POST'])
 def register():
     data = request.get_json()
@@ -59,34 +61,47 @@ def get_users():
     users = list(map(lambda user: user.serialize(), users))
     return jsonify(users), 200
 
-@api.route('/users/<int:id>', methods=['GET'])
-def get_user(id):
-    user = User.query.get(id)
-    if user is None:
-        raise APIException("Usuario no encontrado", status_code=404)
-    return jsonify(user.serialize()), 200
+# traer un usuario por su id
 
-@api.route('/users/<int:id>', methods=['PUT'])
-def update_user(id):
-    user = User.query.get(id)
-    if user is None:
-        raise APIException("Usuario no encontrado", status_code=404)
+@api.route('/user/<int:user_id>', methods=['GET'])
+def get_user_by_id(user_id):
+    user = User.query.get(user_id)
+    if user:
+        return jsonify(user.serialize()), 200
+    else:
+        return jsonify({"message": "Usuario no encontrado"}), 404
+
+# actualizar un usuario
+
+@api.route('/user/<int:user_id>', methods=['PUT'])
+def update_user(user_id):
     data = request.get_json()
-    user.nombre_personal = data['nombrePersonal']
-    user.username = data['username']
-    user.nombre_restaurante = data['nombreRestaurante']
-    user.direccion = data['direccion']
-    user.telefono = data['telefono']
-    user.email = data['email']
-    user.codigo_admin = data['codigoAdmin']
-    db.session.commit()
-    return jsonify(user.serialize()), 200
+    user = User.query.get(user_id)
 
-@api.route('/users/<int:id>', methods=['DELETE'])
-def delete_user(id):
-    user = User.query.get(id)
-    if user is None:
-        raise APIException("Usuario no encontrado", status_code=404)
+    if not user:
+        return jsonify({"message": "Usuario no encontrado"}), 404
+    
+    user.nombre_personal = data.get('nombrePersonal', user.nombre_personal)
+    user.username = data.get('username', user.username)
+    user.nombre_restaurante = data.get('nombreRestaurante', user.nombre_restaurante)
+    user.direccion = data.get('direccion', user.direccion)
+    user.telefono = data.get('telefono', user.telefono)
+    user.email = data.get('email', user.email)
+    user.password = bcrypt.generate_password_hash(data['password']).decode('utf-8') if 'password' in data else user.password
+    user.codigo_admin = data.get('codigoAdmin', user.codigo_admin)
+
+    db.session.commit()
+
+    return jsonify({"message": "Usuario actualizado exitosamente"}), 200
+
+@api.route('/user/<int:user_id>', methods=['DELETE'])
+def delete_user(user_id):
+    user = User.query.get(user_id)
+
+    if not user:
+        return jsonify({"message": "Usuario no encontrado"}), 404
+    
     db.session.delete(user)
     db.session.commit()
+
     return jsonify({"message": "Usuario eliminado exitosamente"}), 200

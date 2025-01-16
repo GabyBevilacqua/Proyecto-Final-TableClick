@@ -10,6 +10,9 @@ from api.models import db
 from api.routes import api
 from api.admin import setup_admin
 from api.commands import setup_commands
+import cloudinary
+import cloudinary.uploader
+from cloudinary.utils import cloudinary_url
 
 # from models import Person
 
@@ -30,6 +33,34 @@ else:
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 MIGRATE = Migrate(app, db, compare_type=True)
 db.init_app(app)
+
+#------------------------------------------------------------------------------------------
+
+#https://res.cloudinary.com/dzqgni1qi/image/upload/v1737052700/hat.png
+
+# cloudinary configuration
+# Configuration       
+cloudinary.config( 
+    cloud_name = "dzqgni1qi", 
+    api_key = "782366222663955", 
+    api_secret = os.getenv("CLOUDINARY_API_SECRET"), # Click 'View API Keys' above to copy your API secret
+    secure=True
+)
+
+# Upload an image
+#upload_result = cloudinary.uploader.upload("src/front/img/imagenLogo.png",
+ #                                          public_id="hat")
+#print(upload_result["secure_url"])
+
+# Optimize delivery by resizing and applying auto-format and auto-quality
+optimize_url, _ = cloudinary_url("hat", fetch_format="auto", quality="auto")
+print(optimize_url)
+
+# Transform the image: auto-crop to square aspect_ratio
+auto_crop_url, _ = cloudinary_url("hat", width=500, height=500, crop="auto", gravity="auto")
+print(auto_crop_url)
+
+#------------------------------------------------------------------------------------------
 
 # add the admin
 setup_admin(app)

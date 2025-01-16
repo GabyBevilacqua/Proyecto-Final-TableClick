@@ -83,7 +83,7 @@ export const RestRegister = () => {
                                 <div className="col-md-8">
                                     <input
                                         type="text"
-                                        className="form-control"
+                                        className="form-control inputStyle"
                                         id="nombrePersonal"
                                         placeholder="Ingrese su nombre"
                                         value={formData.nombrePersonal}
@@ -99,7 +99,7 @@ export const RestRegister = () => {
                                 <div className="col-md-8">
                                     <input
                                         type="text"
-                                        className="form-control"
+                                        className="form-control inputStyle"
                                         id="username"
                                         placeholder="Ingrese nombre de usuario"
                                         value={formData.username}
@@ -115,7 +115,7 @@ export const RestRegister = () => {
                                 <div className="col-md-8">
                                     <input
                                         type="text"
-                                        className="form-control"
+                                        className="form-control inputStyle"
                                         id="nombreRestaurante"
                                         placeholder="Nombre del restaurante"
                                         value={formData.nombreRestaurante}
@@ -131,7 +131,7 @@ export const RestRegister = () => {
                                 <div className="col-md-8">
                                     <input 
                                     type="text" 
-                                    className="form-control" 
+                                    className="form-control inputStyle" 
                                     id="direccion" 
                                     placeholder="Dirección"
                                     value={formData.direccion}
@@ -147,7 +147,7 @@ export const RestRegister = () => {
                                 <div className="col-md-8">
                                     <input 
                                     type="tel" 
-                                    className="form-control" 
+                                    className="form-control inputStyle" 
                                     id="telefono" 
                                     placeholder="Teléfono"
                                     value={formData.telefono}
@@ -163,7 +163,7 @@ export const RestRegister = () => {
                                 <div className="col-md-8">
                                     <input 
                                     type="email" 
-                                    className="form-control" 
+                                    className="form-control inputStyle" 
                                     id="email" 
                                     placeholder="Email"
                                     value={formData.email}
@@ -179,7 +179,7 @@ export const RestRegister = () => {
                                 <div className="col-md-8">
                                     <input 
                                     type="password" 
-                                    className="form-control" 
+                                    className="form-control inputStyle" 
                                     id="password" 
                                     placeholder="Ingrese la contraseña"
                                     value={formData.password}
@@ -195,7 +195,7 @@ export const RestRegister = () => {
                                 <div className="col-md-8">
                                     <input 
                                     type="text" 
-                                    className="form-control" 
+                                    className="form-control inputStyle" 
                                     id="codigoAdmin" 
                                     placeholder="Código admin"
                                     value={formData.codigoAdmin}
