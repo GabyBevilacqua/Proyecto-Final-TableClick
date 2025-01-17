@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import imagenLogo from "../../img/imagenLogo.png";
 import "../../styles/navbar.css";
 
-export const Navbar = () => {
+export const Navbar = ({ selectedItems }) => {
     const location = useLocation();
 
     const renderNavbarContent = () => {
@@ -33,33 +33,15 @@ export const Navbar = () => {
                                     Mesa x Cliente x Pedidos x
                                 </button>
                                 <div className="dropdown-menu dropdown-menu-end w-auto" aria-labelledby="dropdownMenuButton">
-                                    <a className="dropdown-item" href="#">Pedido ---------------Cantidad-----Estatus------Precio</a>
-                                    <p className="dropdown-item mb-0">
-                                        ----------------------------------------------------<br />
-                                        Bebida: Coca-cola---------02-------Servido--------5$<br />
-                                        Bebida: Cuba libre--------01-------Servido--------6$<br />
-                                        Entrante: Ensalada--------01-------Servido--------12$<br />
-                                        Entrante: Patatas---------02-------Servido--------25$
-                                    </p>
-                                    <a className="dropdown-item" href="#">Pedido 01</a>
-                                    <p className="dropdown-item mb-0">
-                                        ----------------------------------------------------<br />
-                                        Principal: Hamburguesa----02------En cocción-----40$<br />
-                                        Principal: Entrecot--------01-----En cocción--------20$
-                                    </p>
-                                    <a className="dropdown-item" href="#">Pedido 02</a>
-                                    <p className="dropdown-item mb-0">
-                                        ----------------------------------------------------<br />
-                                        Postre: Helado--------01--------En espera--------6$<br />
-                                        Postre: Copa---------02---------En espera--------12$
-                                    </p>
+                                    {selectedItems.map((item, index) => (
+                                        <div key={index} className="dropdown-item">
+                                            {item.idProduct} - {item.name} - {item.quantity}
+                                        </div>
+                                    ))}
                                     <a className="dropdown-item space-between" href="#">
-                                        Pedido 03
+                                        Pedido ------------
                                         <button className="buttonDropdown" type="button">Enviar pedido a cocina</button>
                                     </a>
-                                    <p className="dropdown-item mb-0">
-                                        Subtotal -----------------------------------------180$
-                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -106,3 +88,50 @@ export const Navbar = () => {
         </>
     );
 };
+
+
+/*
+
+Juan David González
+18:51
+https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Usin
+https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events
+Juan David González
+19:17
+https://flet.dev/
+https://reactnative.dev/
+
+
+<div className="dropdown-menu dropdown-menu-end w-auto" aria-labelledby="dropdownMenuButton">
+                                    <a className="dropdown-item" href="#">Pedido ---------------Cantidad-----Estatus------Precio</a>
+                                    <p className="dropdown-item mb-0">
+                                        ----------------------------------------------------<br />
+                                        Bebida: Coca-cola---------02-------Servido--------5$<br />
+                                        Bebida: Cuba libre--------01-------Servido--------6$<br />
+                                        Entrante: Ensalada--------01-------Servido--------12$<br />
+                                        Entrante: Patatas---------02-------Servido--------25$
+                                    </p>
+                                    <a className="dropdown-item" href="#">Pedido 01</a>
+                                    <p className="dropdown-item mb-0">
+                                        ----------------------------------------------------<br />
+                                        Principal: Hamburguesa----02------En cocción-----40$<br />
+                                        Principal: Entrecot--------01-----En cocción--------20$
+                                    </p>
+                                    <a className="dropdown-item" href="#">Pedido 02</a>
+                                    <p className="dropdown-item mb-0">
+                                        ----------------------------------------------------<br />
+                                        Postre: Helado--------01--------En espera--------6$<br />
+                                        Postre: Copa---------02---------En espera--------12$
+                                    </p>
+                                    <a className="dropdown-item space-between" href="#">
+                                        Pedido 03
+                                        <button className="buttonDropdown" type="button">Enviar pedido a cocina</button>
+                                    </a>
+                                    <p className="dropdown-item mb-0">
+                                        Subtotal -----------------------------------------180$
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+*/
