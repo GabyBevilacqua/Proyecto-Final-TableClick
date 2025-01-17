@@ -1,3 +1,13 @@
+/*.dot1 {
+    width: 10px;
+    aspect-ratio: 1;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 0 10px #ffffff;
+    border-radius: 100px;
+    z-index: 2;
+    animation: moveDot1 10s linear infinite;
+  }*/
 
 .dot1 {
     width: 10px;
@@ -7,22 +17,95 @@
     box-shadow: 0 0 10px #ffffff;
     border-radius: 100px;
     z-index: 2;
-    animation: moveDot1 10s linear infinite;
-  }
-  
-  @keyframes moveDot1 { 
-    0%, 100% { 
-        top: 230px; 
-        left: 150px; 
-    } 
-    25% { 
-        top: 230px; 
-        left: calc(100% - 150px); 
-    } 50% { 
-        top: calc(100% - 200px); /* 100% menos el tamaño del punto */ 
-        left: calc(100% - 150px); /* 100% menos el tamaño del punto */ 
-    } 75% { 
-        top: calc(100% - 200px); 
-        left: 150px; 
+    right: 10%;
+    top: 10%;
+    animation: moveDot1 6s linear infinite;
+}
+
+@keyframes moveDot1 {
+
+    0%,
+    100% {
+        top: 50px;
+        left: 145px;
     }
+
+    25% {
+        top: 50px;
+        left: calc(100% - 145px);
+    }
+
+    50% {
+        top: calc(100% - 60px);
+        /* 100% menos el tamaño del punto */
+        left: calc(100% - 145px);
+        /* 100% menos el tamaño del punto */
+    }
+
+    75% {
+        top: calc(100% - 60px);
+        left: 145px;
+    }
+}
+
+.outer {
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    padding: 1px;
+   
+    position: relative;
+   
+}
+
+.card2 {
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    border-radius: 9px;
+    border: solid 3px #202222;
+    
+    background: radial-gradient(circle 280px at 0% 0%, #404355, #162531);
+    
+   
+    justify-content: center;
+    position: relative;
+    flex-direction: column;
+    color: #fff;
+
+    box-shadow: 0px 0px 30px 1px #cbeaff65
+/*
+background-size: 20px 20px;
+*/
+
+}
+
+
+.line {
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    background-color: #424242;
+}
+
+.topl {
+    top: 10%;
+    background: linear-gradient(90deg, #888888 30%, #2b2e2e 70%);
+}
+
+.bottoml {
+    bottom: 10%;
+}
+
+.leftl {
+    left: 10%;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(180deg, #747474 30%, #3c3f3f 70%);
+}
+
+.rightl {
+    right: 10%;
+    width: 1px;
+    height: 100%;
 }
