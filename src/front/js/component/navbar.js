@@ -1,10 +1,12 @@
-import React from "react";
+import React, {useContext}from "react";
 import { Link, useLocation } from "react-router-dom";
 import imagenLogo from "../../img/imagenLogo.png";
 import "../../styles/navbar.css";
+import { Context } from '../store/appContext';
 
-export const Navbar = ({ selectedItems }) => {
+export const Navbar = ({ selectedItems = [] }) => {
     const location = useLocation();
+    const { store } = useContext(Context);
 
     const renderNavbarContent = () => {
         switch (location.pathname) {
@@ -33,7 +35,7 @@ export const Navbar = ({ selectedItems }) => {
                                     Mesa x Cliente x Pedidos x
                                 </button>
                                 <div className="dropdown-menu dropdown-menu-end w-auto" aria-labelledby="dropdownMenuButton">
-                                    {selectedItems.map((item, index) => (
+                                    {store.selectedItems.map((item, index) => (
                                         <div key={index} className="dropdown-item">
                                             {item.idProduct} - {item.name} - {item.quantity}
                                         </div>

@@ -16,6 +16,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			],
 			tables: [],
 			items: [], // Aquí almacenaremos los ítems
+			selectedItems: [], // Aquí almacenaremos los ítems seleccionados
 			registerUser: [],
 			authToken: null, // Añadir token de autenticación
 			user: null // Añadir informacion del usuario
@@ -29,7 +30,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// Obtener mensajes desde el backend
 			getMessage: async () => {
 				try {
-					const resp = await fetch(process.env.BACKEND_URL + "/api/hello");
+					const resp = await fetch(process.env.BACKEND_URL + "api/hello");
 					const data = await resp.json();
 					setStore({ message: data.message });
 					return data;
@@ -129,54 +130,60 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			// Acción para actualizar los datos de un usuario
 
-            updateUser: async (userId, formData) => {
-                try {
-                    const response = await fetch(process.env.BACKEND_URL + "${userId}", {
-                        method: "PUT",
-                        headers: {
-                            "Content-Type": "application/json"
-                        },
-                        body: JSON.stringify(formData)
-                    });
+			updateUser: async (userId, formData) => {
+				try {
+					const response = await fetch(process.env.BACKEND_URL + "${userId}", {
+						method: "PUT",
+						headers: {
+							"Content-Type": "application/json"
+						},
+						body: JSON.stringify(formData)
+					});
 
-                    if (response.ok) {
-                        const data = await response.json();
-                        setStore({ user: data });
-                        console.log("Usuario actualizado exitosamente:", data);
-                        return true;
-                    } else {
-                        console.error("Error al actualizar el usuario");
-                        return false;
-                    }
-                } catch (error) {
-                    console.error("Error al actualizar el usuario:", error);
-                    return false;
-                }
-            },
+					if (response.ok) {
+						const data = await response.json();
+						setStore({ user: data });
+						console.log("Usuario actualizado exitosamente:", data);
+						return true;
+					} else {
+						console.error("Error al actualizar el usuario");
+						return false;
+					}
+				} catch (error) {
+					console.error("Error al actualizar el usuario:", error);
+					return false;
+				}
+			},
 
-			 // Acción para eliminar un usuario por ID
-			 deleteUser: async (userId) => {
-                try {
-                    const response = await fetch(process.env.BACKEND_URL + "${userId}", {
-                        method: "DELETE",
-                        headers: {
-                            "Content-Type": "application/json"
-                        }
-                    });
+			// Acción para eliminar un usuario por ID
+			deleteUser: async (userId) => {
+				try {
+					const response = await fetch(process.env.BACKEND_URL + "${userId}", {
+						method: "DELETE",
+						headers: {
+							"Content-Type": "application/json"
+						}
+					});
 
-                    if (response.ok) {
-                        console.log("Usuario eliminado exitosamente");
-                        return true;
-                    } else {
-                        console.error("Error al eliminar el usuario");
-                        return false;
-                    }
-                } catch (error) {
-                    console.error("Error al eliminar el usuario:", error);
-                    return false;
-                }
-            },
+					if (response.ok) {
+						console.log("Usuario eliminado exitosamente");
+						return true;
+					} else {
+						console.error("Error al eliminar el usuario");
+						return false;
+					}
+				} catch (error) {
+					console.error("Error al eliminar el usuario:", error);
+					return false;
+				}
+			},
+			//--------------------------------------------------------------------------------
 
+			addSelectedItems: (item) => {
+				const store = getStore();
+				setStore({ selectedItems: [...store.selectedItems, item] }); // Añade el ítem al estado global
+
+			},
 			//--------------------------------------------------------------------------------
 			// ACCIONES DE LA PAGINA DE menuItems.js
 
@@ -195,26 +202,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			//ACCIONES DE LA PAGINA DE preLogin.js
 
-			loginUser: async (username, password) => { 
-				try { 
-					const response = await fetch(process.env.BACKEND_URL + "api/login", { 
-						method: "POST", 
-						headers: { "Content-Type": "application/json" }, 
-						body: JSON.stringify({ username, password }) 
-					}); 
-					
-					if (response.ok) { 
-						const data = await response.json(); 
-						setStore({ authToken: data.token, user: data.user }); 
-						console.log("Login successful!", data); 
+			loginUser: async (username, password) => {
+				try {
+					const response = await fetch(process.env.BACKEND_URL + "api/login", {
+						method: "POST",
+						headers: { "Content-Type": "application/json" },
+						body: JSON.stringify({ username, password })
+					});
+
+					if (response.ok) {
+						const data = await response.json();
+						setStore({ authToken: data.token, user: data.user });
+						console.log("Login successful!", data);
 						return true; // Indica éxito en el inicio de sesión 
-					} else { 
-						console.log("Login failed!"); 
+					} else {
+						console.log("Login failed!");
 						return false; // Indica fracaso en el inicio de sesión 
-					} 
-				} catch (error) { 
-					console.error("Error logging in", error); 
-					return false; 
+					}
+				} catch (error) {
+					console.error("Error logging in", error);
+					return false;
 				}
 			}
 		}
