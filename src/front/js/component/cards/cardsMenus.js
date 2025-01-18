@@ -15,13 +15,13 @@ const CardMenu = ({ menu, onEdit, onDelete }) => {
                 <h5 className="card-title text-center text-white">{menu.menuName}</h5>
                     <div className="d-flex flex-column">
                     <button
-                        className="btn btn-warning m-2"
+                        className="button2 m-2"
                         onClick={() => setShowModal(true)}
                     >
                         Editar
                     </button>
                     <button
-                        className="btn btn-danger m-2"
+                        className="button3 m-2"
                         onClick={() => onDelete(menu.id)}
                     >
                         Eliminar

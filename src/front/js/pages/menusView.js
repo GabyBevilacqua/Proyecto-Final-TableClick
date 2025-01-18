@@ -39,8 +39,8 @@ export const MenusView = () => {
 
     return (
         <div>
-            <div className="container mt-4 text-white">
-                <h1 id="menus-creados">Menús Creados</h1>
+            <div className="container mt-5 mb-5 text-white">
+                <h1 id="menus-creados">Cartas y Menús disponibles</h1>
             </div>
             <div className="container menuCreate">
                 <ul className="list-unstyled row">
@@ -71,7 +71,7 @@ export const MenusView = () => {
                                 <h5 className="card-title"></h5>
                                 <button
                                     onClick={openModal}
-                                    className="btn button1 btn-primary"
+                                    className="button2"
                                 >
                                     Crear Menú
                                 </button>

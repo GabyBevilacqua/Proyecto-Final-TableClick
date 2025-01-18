@@ -20,6 +20,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			registerUser: [],
 			selectedMenu: [],  // almacenamos el menu seleccionado
 			selectedTable: [], // almacenamos la mesa seleccionada
+			selectedOrder: [], // almacenamos el pedido seleccionado que esta en el dropdown
 			authToken: null, // Añadir token de autenticación
 			user: null // Añadir informacion del usuario
 		},
@@ -203,6 +204,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ selectedItems: [...store.selectedItems, item] }); // Añade el ítem al estado global
 
 			},
+
+			//------Accion para cargar el pedido seleccionado en el dropdown---------------------------------
+
+			addSelectedOrder: (order) => {
+				const store = getStore();
+				setStore({ selectedOrder: [...store.selectedOrder, order] }); // Añade los ítems al estado global
+
+			},
+
 			//--------------------------------------------------------------------------------
 			// ACCIONES DE LA PAGINA DE menuItems.js
 
