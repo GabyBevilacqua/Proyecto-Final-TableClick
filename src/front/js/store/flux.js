@@ -15,7 +15,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			],
 			tables: [],
-			items: [], // Aquí almacenaremos los ítems
+			items: [
+				
+			], 
 			registerUser: []
 		},
 		actions: {
@@ -83,8 +85,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// Agregar un nuevo ítem
 			addItem: (item) => {
 				const store = getStore();
-				setStore({ items: [...store.items, item] }); // Añade el ítem al estado global
-				
+				setStore({ items: [...store.items, item] }); 
 			}
 		}
 	};
