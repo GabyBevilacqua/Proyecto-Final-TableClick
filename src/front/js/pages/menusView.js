@@ -39,18 +39,6 @@ export const MenusView = () => {
 
     return (
         <div>
-            <div className="text-center mt-5 text-white">
-                <h2>Aquí se crean y se ven los menús creados</h2>
-                <Link to="/">
-                    <span className="text m-5">Return to preLogin</span>
-                </Link>
-                <Link to="/menuItems">
-                    <span className="text m-5">Go to menuItems</span>
-                </Link>
-                <Link to="/secLogin">
-                    <span className="text">Regresar</span>
-                </Link>
-            </div>
             <div className="container mt-4 text-white">
                 <h1 id="menus-creados">Menús Creados</h1>
             </div>

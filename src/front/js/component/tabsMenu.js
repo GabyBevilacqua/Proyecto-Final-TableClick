@@ -8,6 +8,7 @@ import { Context } from '../store/appContext';
 export const TabsMenu = () => {
   const [selectedItems, setSelectedItems] = useState([]);
   const { actions, store } = useContext(Context);
+  
   console.log(actions);
 
   const menuData = {
@@ -91,7 +92,7 @@ export const TabsMenu = () => {
 
   return (
     <div className="menu-container col-md-9 mx-auto">
-      <h1 className="menu-title">Nombre del menú</h1>
+      <h1 className="menu-title">Menú seleccionado: {store.selectedMenu}</h1>
 
       <Tabs defaultActiveKey="Bebidas" id="menu-tabs" className="menu-tabs">
         {Object.keys(menuData).map((category, index) => (

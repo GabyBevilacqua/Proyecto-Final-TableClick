@@ -10,13 +10,6 @@ export const TableMenu = () => {
 
     return (
         <>
-            <div className="text-center">
-                <Link to="/secLogin">
-                    <button className="btn">
-                        Return to secLogin
-                    </button>
-                </Link>
-            </div>
             <div>
                 <TabsMenu />
             </div>

@@ -16,41 +16,25 @@ export const MenuItems = () => {
     // const handleOpenModal = () => {
     //   setShowModal(true);
     // };
-  
+
     // const handleCloseModal = () => {
     //   setShowModal(false);
     // };  
     return (
-        
+
         <div className="bodyMenuItens">
-             <div className="container d-flex justify-content-center">
+            <div className="container d-flex justify-content-center">
                 <h5 className="tituloNombreMenu  rounded-5 m-3 p-3">CARTA PRINCIPAL </h5>
             </div>
-            
-            <CardsItem3/>
-            {/* <CardsItem2/> */}
-            <ModalItems/>
-            <CardsTable/>
-            <ModalTable/>
 
-            <div className="text-center mt-5">
-                <Link to="/">
-                    <span className="text m-5">
-                        Return to preLogin
-                    </span>
-                </Link>
-                <Link to="/menusView">
-                    <span className="text  m-5">
-                        Return to menusView
-                    </span>
-                </Link>
-                <Link to="/diningView">
-                    <span className="text">
-                        Go to diningView
-                    </span>
-                </Link>
-            </div> 
-            </div> 
-            
+            <CardsItem3 />
+            {/* <CardsItem2/> */}
+            <ModalItems />
+            <CardsTable />
+            <ModalTable />
+
+
+        </div>
+
     );
 }; 

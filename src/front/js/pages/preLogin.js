@@ -34,7 +34,7 @@ export const PreLogin = () => {
 				</Link>
 			</div>
 			<div className="text-center mt-2">
-				<img src={tableClick01} alt="Logoapp" style={{ height: "100px" }} />
+				<img src={tableClick01} alt="Logoapp" style={{ height: "120px" }} />
 			</div>
 
 
@@ -49,7 +49,7 @@ export const PreLogin = () => {
 							<div className="col-6 text-center text-white mt-5">
 								<h1>Da de alta tu restaurante</h1>
 								<Link to="/restRegister">
-									<button className="button4 mt-3">Click aquí</button>
+									<button className="button2 mt-3">Click aquí</button>
 								</Link>
 							</div>
 						</div>
@@ -59,7 +59,7 @@ export const PreLogin = () => {
 								<input type="text" className="form-control mt-3" placeholder="Usuario" />
 								<input type="password" className="form-control mt-3" placeholder="Contraseña" />
 								<Link to="/secLogin">
-									<button className="button4 mt-3">Click aquí</button>
+									<button className="button2 mt-3">Click aquí</button>
 								</Link>
 							</div>
 							<div className="text-center mt-5 mb-3">

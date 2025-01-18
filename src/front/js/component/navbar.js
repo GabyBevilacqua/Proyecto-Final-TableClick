@@ -3,10 +3,11 @@ import { Link, useLocation } from "react-router-dom";
 import imagenLogo from "../../img/imagenLogo.png";
 import "../../styles/navbar.css";
 import { Context } from '../store/appContext';
+import { DropNavigation } from "./dropNavigation";
 
 export const Navbar = ({ selectedItems = [] }) => {
     const location = useLocation();
-    const { store } = useContext(Context);
+    const { actions, store } = useContext(Context);
 
     const renderNavbarContent = () => {
         switch (location.pathname) {
@@ -15,14 +16,20 @@ export const Navbar = ({ selectedItems = [] }) => {
             case "/editUser":
                 return (
                     <>
-                        <h1 className="navbar-brand mb-0" style={{ color: "white" }}>El Cangrejo</h1>
+                        <h1 className="navbar-brand mb-0 d-flex" style={{ color: "white" }}>
+                            < DropNavigation />
+                            El Cangrejo
+                        </h1>
                         <img src={imagenLogo} alt="Logo" style={{ height: "60px" }} />
                     </>
                 );
             case "/tableMenu":
                 return (
                     <>
-                        <h1 className="navbar-brand mb-0" style={{ color: "white" }}>El Cangrejo</h1>
+                        <h1 className="navbar-brand mb-0 d-flex me-3" style={{ color: "white" }}>
+                        < DropNavigation />
+                        El Cangrejo
+                        </h1>
                         <img src={imagenLogo} alt="Logo" style={{ height: "60px" }} />
                         <div className="ml-auto">
                             <div className="dropdown">
@@ -32,7 +39,7 @@ export const Navbar = ({ selectedItems = [] }) => {
                                     data-bs-toggle="dropdown"
                                     aria-haspopup="true"
                                     aria-expanded="false">
-                                    Mesa x Cliente x Pedidos x
+                                    {store.selectedTable} Cliente x Pedidos x
                                 </button>
                                 <div className="dropdown-menu dropdown-menu-end w-auto" aria-labelledby="dropdownMenuButton">
                                     {store.selectedItems.map((item, index) => (
@@ -52,7 +59,10 @@ export const Navbar = ({ selectedItems = [] }) => {
             case "/menuItems":
                 return (
                     <>
-                        <h1 className="navbar-brand mb-0" style={{ color: "white" }}>El Cangrejo</h1>
+                        <h1 className="navbar-brand mb-0 d-flex me-3" style={{ color: "white" }}>
+                        < DropNavigation />
+                        El Cangrejo
+                        </h1>
                         <img src={imagenLogo} alt="Logo" style={{ height: "60px" }} />
                         <div className="ml-auto">
                             <Link to="/diningView">
@@ -64,7 +74,10 @@ export const Navbar = ({ selectedItems = [] }) => {
             case "/diningView":
                 return (
                     <>
-                        <h1 className="navbar-brand mb-0" style={{ color: "white" }}>El Cangrejo</h1>
+                        <h1 className="navbar-brand mb-0 d-flex me-3" style={{ color: "white" }}>
+                        < DropNavigation />
+                        El Cangrejo
+                        </h1>
                         <img src={imagenLogo} alt="Logo" style={{ height: "60px" }} />
                         <div className="ml-auto">
                             <Link to="/menuItems">

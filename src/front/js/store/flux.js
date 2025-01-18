@@ -18,6 +18,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			items: [], // Aquí almacenaremos los ítems
 			selectedItems: [], // Aquí almacenaremos los ítems seleccionados
 			registerUser: [],
+			selectedMenu: [],  // almacenamos el menu seleccionado
+			selectedTable: [], // almacenamos la mesa seleccionada
 			authToken: null, // Añadir token de autenticación
 			user: null // Añadir informacion del usuario
 		},
@@ -177,7 +179,24 @@ const getState = ({ getStore, getActions, setStore }) => {
 					return false;
 				}
 			},
-			//--------------------------------------------------------------------------------
+
+			//------Accion para cargar la seleccion de la mesa---------------------------------
+
+			addSelectedTable: (table) => {
+				const store = getStore();
+				setStore({ selectedTable: table }); // Añade el ítem al estado global
+
+			},
+
+			//------Accion para cargar la seleccion del menu---------------------------------
+
+			addSelectedMenu: (menu) => {
+				const store = getStore();
+				setStore({ selectedMenu: menu }); // Añade el ítem al estado global
+
+			},
+
+			//------Accion para cargar la cantidad de los produstos en el pedido---------------------------------
 
 			addSelectedItems: (item) => {
 				const store = getStore();

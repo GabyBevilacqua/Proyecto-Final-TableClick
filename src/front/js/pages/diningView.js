@@ -30,6 +30,11 @@ export const DiningView = () => {
                         Return to menuItems
                     </button>
                 </Link>
+                <Link to="/tableMenu">
+                    <button className="btn m-2">
+                        Return to tableMenu
+                    </button>
+                </Link>
             </div>
 
             <div className="container containerDining">

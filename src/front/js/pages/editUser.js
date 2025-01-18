@@ -64,16 +64,6 @@ export const EditUser = () => {
     return (
         <div className="container mt-2">
             <div className="text mt-2">
-                <Link to="/">
-                    <button className="btn m-2">
-                        Return to preLogin
-                    </button>
-                </Link>
-                <Link to="/menusView">
-                    <button className="btn">
-                        Go to menusView
-                    </button>
-                </Link>
                 <div className="row justify-content-center">
                     <div className="col-md-8 form-container containerRegister mt-5">
                         <h2 className="text-center mb-4">Editar usuario</h2>
