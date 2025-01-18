@@ -4,7 +4,7 @@ import "../../../styles/home.css";
 import "../../../styles/menuItems.css";
 
 export const ModalItems = () => {
-  const { actions } = useContext(Context); // Obtener acciones del contexto
+  const { actions } = useContext(Context);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
@@ -15,18 +15,15 @@ export const ModalItems = () => {
       alert("Por favor completa todos los campos requeridos");
       return;
     }
-
-    // Crear un nuevo ítem y usar la acción addItem para guardarlo en el store
     const newItem = { name, description, price, image };
     actions.addItem(newItem);
 
-    // Limpiar campos del formulario
     setName("");
     setDescription("");
     setPrice("");
     setImage(null);
 
-    // Cerrar el modal
+
     const modal = document.getElementById("staticBackdrop");
     const bootstrapModal = bootstrap.Modal.getInstance(modal);
     bootstrapModal.hide();
@@ -87,6 +84,8 @@ export const ModalItems = () => {
     </div>
   );
 };
+
+
 
 // <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 //                         <div className="modal-dialog">
