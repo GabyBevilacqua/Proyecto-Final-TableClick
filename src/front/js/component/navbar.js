@@ -1,5 +1,5 @@
-import React, {useContext}from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import imagenLogo from "../../img/imagenLogo.png";
 import "../../styles/navbar.css";
 import { Context } from '../store/appContext';
@@ -8,6 +8,13 @@ import { DropNavigation } from "./dropNavigation";
 export const Navbar = ({ selectedItems = [] }) => {
     const location = useLocation();
     const { actions, store } = useContext(Context);
+    const navigate = useNavigate();
+
+    const handleSendOrders = (order) => { // Función para añadir los pedidos      
+        actions.addSelectedOrder(order);
+        console.log(order);
+
+    }
 
     const renderNavbarContent = () => {
         switch (location.pathname) {
@@ -27,8 +34,8 @@ export const Navbar = ({ selectedItems = [] }) => {
                 return (
                     <>
                         <h1 className="navbar-brand mb-0 d-flex me-3" style={{ color: "white" }}>
-                        < DropNavigation />
-                        El Cangrejo
+                            < DropNavigation />
+                            El Cangrejo
                         </h1>
                         <img src={imagenLogo} alt="Logo" style={{ height: "60px" }} />
                         <div className="ml-auto">
@@ -39,7 +46,7 @@ export const Navbar = ({ selectedItems = [] }) => {
                                     data-bs-toggle="dropdown"
                                     aria-haspopup="true"
                                     aria-expanded="false">
-                                    {store.selectedTable} Cliente x Pedidos x
+                                    {store.selectedTable} Cliente-1001 Pedidos 0
                                 </button>
                                 <div className="dropdown-menu dropdown-menu-end w-auto" aria-labelledby="dropdownMenuButton">
                                     {store.selectedItems.map((item, index) => (
@@ -49,7 +56,12 @@ export const Navbar = ({ selectedItems = [] }) => {
                                     ))}
                                     <a className="dropdown-item space-between" href="#">
                                         Pedido ------------
-                                        <button className="buttonDropdown" type="button">Enviar pedido a cocina</button>
+                                        <button
+                                            className="buttonDropdown"
+                                            type="button"
+                                            onClick={() => handleSendOrders(store.selectedOrder)}>
+                                            Enviar pedido a cocina
+                                        </button>
                                     </a>
                                 </div>
                             </div>
@@ -60,8 +72,8 @@ export const Navbar = ({ selectedItems = [] }) => {
                 return (
                     <>
                         <h1 className="navbar-brand mb-0 d-flex me-3" style={{ color: "white" }}>
-                        < DropNavigation />
-                        El Cangrejo
+                            < DropNavigation />
+                            El Cangrejo
                         </h1>
                         <img src={imagenLogo} alt="Logo" style={{ height: "60px" }} />
                         <div className="ml-auto">
@@ -75,8 +87,8 @@ export const Navbar = ({ selectedItems = [] }) => {
                 return (
                     <>
                         <h1 className="navbar-brand mb-0 d-flex me-3" style={{ color: "white" }}>
-                        < DropNavigation />
-                        El Cangrejo
+                            < DropNavigation />
+                            El Cangrejo
                         </h1>
                         <img src={imagenLogo} alt="Logo" style={{ height: "60px" }} />
                         <div className="ml-auto">
