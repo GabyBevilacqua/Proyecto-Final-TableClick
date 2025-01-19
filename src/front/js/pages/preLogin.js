@@ -56,11 +56,11 @@ export const PreLogin = () => {
 						<div className="row mt-5 justify-content-center">
 							<div className="col-6 text-center text-white">
 								<h1>Inicia sesión</h1>
-								<input type="text" className="form-control mt-3" placeholder="Usuario" />
-								<input type="password" className="form-control mt-3" placeholder="Contraseña" />
-								<Link to="/secLogin">
-									<button className="button2 mt-3">Click aquí</button>
-								</Link>
+								<input type="text" className="form-control mt-3" onChange={(e) => setUsername(e.target.value)} placeholder="Usuario" />
+								<input type="password" className="form-control mt-3" onChange={(e) => setPassword(e.target.value)} placeholder="Contraseña" />
+								
+									<button className="button2 mt-3" onClick={handleLogin}>Click aquí</button>
+								
 							</div>
 							<div className="text-center mt-5 mb-3">
 								<Link to="/">

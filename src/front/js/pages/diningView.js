@@ -32,7 +32,7 @@ export const DiningView = () => {
                                     <ul>
                                         {store.tablesOrders["Mesa 01"].map((order, idx) => (
                                             <li key={idx}>
-                                                {order.idProduct} {order.name} (Cantidad: {order.quantity})
+                                                {order.idProduct} {order.name} (Cantidad: {order.quantity}) {order.price}
                                             </li>
                                         ))}
                                     </ul>

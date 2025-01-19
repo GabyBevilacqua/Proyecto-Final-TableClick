@@ -49,7 +49,7 @@ export const Navbar = ({ selectedItems = [] }) => {
                                 <div className="dropdown-menu dropdown-menu-end w-auto" aria-labelledby="dropdownMenuButton">
                                     {store.selectedItems.map((item, index) => (
                                         <div key={index} className="dropdown-item">
-                                            {item.idProduct} - {item.name} - {item.quantity}
+                                            {item.idProduct} - {item.name} - {item.quantity} - {item.price}
                                         </div>
                                     ))}
                                     <a className="dropdown-item space-between" href="#">

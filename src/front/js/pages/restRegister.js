@@ -9,6 +9,8 @@ import { ModalImg } from "../component/modals/modalImg";
 
 export const RestRegister = () => {
     const { actions } = useContext(Context);
+    const navigate = useNavigate()
+    const [error, setError] = useState("");
     const [formData, setFormData] = useState({
         nombrePersonal: "",
         username: "",
@@ -20,7 +22,7 @@ export const RestRegister = () => {
         codigoAdmin: ""
     });
 
-    const navigate = useNavigate()
+
 
     const [showModal, setShowModal] = useState(false);
 
@@ -32,30 +34,51 @@ export const RestRegister = () => {
         setFormData({ ...formData, [id]: value });
     };
 
-  /*  const handleSubmit = async (e) => {
-        e.preventDefault();
-        const response = await fetch("http://localhost:5000/api/register", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(formData)
-        });
-
-        if (response.ok) {
-            navigate("/secLogin");
-        } else {
-            alert("Error al registrar el usuario");
-        }
-    }; */
+    /*  
+    
+    
+    const handleSubmit = async (e) => {
+          e.preventDefault();
+          const response = await fetch("http://localhost:5000/api/register", {
+              method: "POST",
+              headers: {
+                  "Content-Type": "application/json"
+              },
+              body: JSON.stringify(formData)
+          });
+  
+          if (response.ok) {
+              navigate("/secLogin");
+          } else {
+              alert("Error al registrar el usuario");
+          }
+      }; 
+      
+                 const data = await response.json();
+              setError(data.message);
+  
+    const handleSubmit = async (e) => {
+          e.preventDefault();
+          const success = await actions.registerUser(formData);
+          if (success) {
+              navigate("/menusView");
+          } else {
+              alert("Error al registrar el usuario");
+          }
+      };
+  
+      */
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const success = await actions.registerUser(formData);
-        if (success) {
-            navigate("/menusView");
-        } else {
-            alert("Error al registrar el usuario");
+        try {
+            const success = await actions.registerUser(formData); // Asume que devuelve `true` o lanza error
+            if (success) {
+                navigate("/menusView");
+            }
+        } catch (error) {
+            // Mostrar el mensaje de error del servidor
+            alert(error.message || "Error al registrar el usuario");
         }
     };
 
@@ -75,6 +98,7 @@ export const RestRegister = () => {
                 <div className="row justify-content-center">
                     <div className="col-md-8 form-container containerRegister mt-5">
                         <h2 className="text-center mb-4">Formulario de Registro</h2>
+                        {/*error && <div className="alert alert-danger">{error}</div>*/}
                         <form onSubmit={handleSubmit}>
                             <div className="row mb-3 align-items-center">
                                 <label htmlFor="nombrePersonal" className="col-md-4 col-form-label text-end">
@@ -129,46 +153,46 @@ export const RestRegister = () => {
                                     Dirección del restaurante:
                                 </label>
                                 <div className="col-md-8">
-                                    <input 
-                                    type="text" 
-                                    className="form-control inputStyle" 
-                                    id="direccion" 
-                                    placeholder="Dirección"
-                                    value={formData.direccion}
-                                    onChange={handleChange}
-                                    required 
+                                    <input
+                                        type="text"
+                                        className="form-control inputStyle"
+                                        id="direccion"
+                                        placeholder="Dirección"
+                                        value={formData.direccion}
+                                        onChange={handleChange}
+                                        required
                                     />
                                 </div>
                             </div>
                             <div className="row mb-3 align-items-center">
                                 <label htmlFor="telefono" className="col-md-4 col-form-label text-end">
                                     Teléfono:
-                                    </label>
+                                </label>
                                 <div className="col-md-8">
-                                    <input 
-                                    type="tel" 
-                                    className="form-control inputStyle" 
-                                    id="telefono" 
-                                    placeholder="Teléfono"
-                                    value={formData.telefono}
-                                    onChange={handleChange}
-                                    required 
+                                    <input
+                                        type="tel"
+                                        className="form-control inputStyle"
+                                        id="telefono"
+                                        placeholder="Teléfono"
+                                        value={formData.telefono}
+                                        onChange={handleChange}
+                                        required
                                     />
                                 </div>
                             </div>
                             <div className="row mb-3 align-items-center">
                                 <label htmlFor="email" className="col-md-4 col-form-label text-end">
                                     Email:
-                                    </label>
+                                </label>
                                 <div className="col-md-8">
-                                    <input 
-                                    type="email" 
-                                    className="form-control inputStyle" 
-                                    id="email" 
-                                    placeholder="Email"
-                                    value={formData.email}
-                                    onChange={handleChange}
-                                    required
+                                    <input
+                                        type="email"
+                                        className="form-control inputStyle"
+                                        id="email"
+                                        placeholder="Email"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        required
                                     />
                                 </div>
                             </div>
@@ -177,14 +201,14 @@ export const RestRegister = () => {
                                     Crear contraseña:
                                 </label>
                                 <div className="col-md-8">
-                                    <input 
-                                    type="password" 
-                                    className="form-control inputStyle" 
-                                    id="password" 
-                                    placeholder="Ingrese la contraseña"
-                                    value={formData.password}
-                                    onChange={handleChange}
-                                    required                                    
+                                    <input
+                                        type="password"
+                                        className="form-control inputStyle"
+                                        id="password"
+                                        placeholder="Ingrese la contraseña"
+                                        value={formData.password}
+                                        onChange={handleChange}
+                                        required
                                     />
                                 </div>
                             </div>
@@ -193,14 +217,14 @@ export const RestRegister = () => {
                                     Crear código administración:
                                 </label>
                                 <div className="col-md-8">
-                                    <input 
-                                    type="text" 
-                                    className="form-control inputStyle" 
-                                    id="codigoAdmin" 
-                                    placeholder="Código admin"
-                                    value={formData.codigoAdmin}
-                                    onChange={handleChange}
-                                    required 
+                                    <input
+                                        type="text"
+                                        className="form-control inputStyle"
+                                        id="codigoAdmin"
+                                        placeholder="Código admin"
+                                        value={formData.codigoAdmin}
+                                        onChange={handleChange}
+                                        required
                                     />
                                 </div>
                             </div>
