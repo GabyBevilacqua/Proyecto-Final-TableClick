@@ -14,6 +14,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 					initial: "white"
 				}
 			],
+
+			tablesOrders: {
+				"Mesa 01": [], // Lista de pedidos para Mesa 01
+				"Mesa 02": [], // agregar más mesas si es necesario
+			},
+
+
 			tables: [],
 			items: [], // Aquí almacenaremos los ítems
 			selectedItems: [], // Aquí almacenaremos los ítems seleccionados
@@ -65,20 +72,33 @@ const getState = ({ getStore, getActions, setStore }) => {
 						body: JSON.stringify(formData)
 					});
 
-					if (response.ok) {
-						const data = await response.json();
-						console.log("Usuario registrado exitosamente:", data);
-						return true;
-					} else {
-						console.error("Error al registrar el usuario");
-						return false;
+					if (!response.ok) {
+						const errorData = await response.json();
+						throw new Error(errorData.message); // Lanza el mensaje del backend
 					}
+
+					const data = await response.json();
+					return true; // Registro exitoso
 				} catch (error) {
-					console.error("Error al registrar el usuario:", error);
-					return false;
+					console.error("Error al registrar el usuario:", error.message);
+					throw error; // Lanza el error al componente
 				}
 			},
-
+			/*
+								if (response.ok) {
+									const data = await response.json();
+									console.log("Usuario registrado exitosamente:", data);
+									return true;
+								} else {
+									console.error("Error al registrar el usuario");
+									return false;
+								}
+							} catch (error) {
+								console.error("Error al registrar el usuario:", error);
+								return false;
+							}
+						},
+			*/
 			//accion para taer todos los usuarios
 
 			getAllUsers: async () => {
@@ -143,21 +163,36 @@ const getState = ({ getStore, getActions, setStore }) => {
 						body: JSON.stringify(formData)
 					});
 
-					if (response.ok) {
-						const data = await response.json();
-						setStore({ user: data });
-						console.log("Usuario actualizado exitosamente:", data);
-						return true;
-					} else {
-						console.error("Error al actualizar el usuario");
-						return false;
+					if (!response.ok) {
+						const errorData = await response.json();
+						throw new Error(errorData.message); // Lanza el mensaje de error
 					}
+
+					const data = await response.json();
+					console.log("Usuario actualizado exitosamente:", data);
+					return true; // Retorna éxito
 				} catch (error) {
-					console.error("Error al actualizar el usuario:", error);
-					return false;
+					console.error("Error al actualizar el usuario:", error.message);
+					throw error; // Lanza el error al componente
 				}
 			},
 
+			/*
+								if (response.ok) {
+									const data = await response.json();
+									setStore({ user: data });
+									console.log("Usuario actualizado exitosamente:", data);
+									return true;
+								} else {
+									console.error("Error al actualizar el usuario");
+									return false;
+								}
+							} catch (error) {
+								console.error("Error al actualizar el usuario:", error);
+								return false;
+							}
+						},
+			*/
 			// Acción para eliminar un usuario por ID
 			deleteUser: async (userId) => {
 				try {
@@ -206,12 +241,47 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			//------Accion para cargar el pedido seleccionado en el dropdown---------------------------------
+			// Enviar pedido a cocina (para Mesa 01)
 
+			// Acción para enviar pedidos a una mesa específica
+			sendOrderToTable: (table) => {
+				const store = getStore();
+				const currentOrders = store.tablesOrders[table] || [];
+				setStore({
+					tablesOrders: {
+						...store.tablesOrders,
+						[table]: [...currentOrders, ...store.selectedItems],
+					},
+					selectedItems: [], // Limpia el dropdown después de enviar
+				});
+			},
+
+			// Acción para cerrar los pedidos de una mesa
+			clearTableOrders: (table) => {
+				const store = getStore();
+				setStore({
+					tablesOrders: {
+						...store.tablesOrders,
+						[table]: [], // Borra los pedidos de la mesa especificada
+					},
+				});
+			},
+
+
+			/*
+				sendOrderToKitchen: () => {
+				const store = getStore();
+				// Agregamos el contenido actual del dropdown (selectedItems) a selectedOrder
+				setStore({
+					selectedOrder: [...store.selectedItems],
+					selectedItems: [], // Limpiar el dropdown después de enviar
+				});
+			},
 			addSelectedOrder: (order) => {
 				const store = getStore();
 				setStore({ selectedOrder: [...store.selectedOrder, order] }); // Añade los ítems al estado global
 
-			},
+			}, */
 
 			//--------------------------------------------------------------------------------
 			// ACCIONES DE LA PAGINA DE menuItems.js

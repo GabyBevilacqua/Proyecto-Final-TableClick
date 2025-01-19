@@ -29,6 +29,17 @@ def handle_hello():
 @api.route('/register', methods=['POST'])
 def register():
     data = request.get_json()
+
+ # Verificar si el username, email o telefono ya están en uso
+    if User.query.filter_by(username=data['username']).first():
+        return jsonify({"message": "El nombre de usuario ya está en uso"}), 400
+    
+    if User.query.filter_by(email=data['email']).first():
+        return jsonify({"message": "El correo electrónico ya está en uso"}), 400
+    
+    if User.query.filter_by(telefono=data['telefono']).first():
+        return jsonify({"message": "El teléfono ya está en uso"}), 400
+
     hashed_password = bcrypt.generate_password_hash(data['password']).decode('utf-8')
     new_user = User(
         nombre_personal=data['nombrePersonal'],
@@ -47,11 +58,12 @@ def register():
 
 @api.route('/login', methods=['POST'])
 def login():
+    
     data = request.get_json()
     user = User.query.filter_by(username=data['username']).first()
 
     if user and bcrypt.check_password_hash(user.password, data['password']):
-        return jsonify({"message": "Inicio de sesión exitoso"}), 200
+        return jsonify({"user": user.serialize(), "authToken": "hola"}), 200
     else:
         return jsonify({"message": "Nombre de usuario o contraseña incorrectos"}), 401
 
@@ -80,6 +92,22 @@ def update_user(user_id):
 
     if not user:
         return jsonify({"message": "Usuario no encontrado"}), 404
+    
+    # Verificar si el username ya está en uso por otro usuario
+    if 'username' in data and data['username'] != user.username:
+        if User.query.filter_by(username=data['username']).first():
+            return jsonify({"message": "El nombre de usuario ya está en uso"}), 400
+
+    # Verificar si el email ya está en uso por otro usuario
+    if 'email' in data and data['email'] != user.email:
+        if User.query.filter_by(email=data['email']).first():
+            return jsonify({"message": "El correo electrónico ya está en uso"}), 400
+
+    # Verificar si el teléfono ya está en uso por otro usuario
+    if 'telefono' in data and data['telefono'] != user.telefono:
+        if User.query.filter_by(telefono=data['telefono']).first():
+            return jsonify({"message": "El teléfono ya está en uso"}), 400
+
     
     user.nombre_personal = data.get('nombrePersonal', user.nombre_personal)
     user.username = data.get('username', user.username)

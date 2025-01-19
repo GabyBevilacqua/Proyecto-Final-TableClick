@@ -25,7 +25,7 @@ export const EditUser = () => {
     const handleOpenModal = () => setShowModal(true);
     const handleCloseModal = () => setShowModal(false);
 
-    useEffect(() => { 
+    useEffect(() => {
         const fetchUserData = async () => {
             const userData = await actions.getUserById(userId);
             if (userData) {
@@ -34,28 +34,41 @@ export const EditUser = () => {
         };
 
         fetchUserData();
-    }, [userId]);   
+    }, [userId]);
 
     const handleChange = (e) => {
         const { id, value } = e.target;
         setFormData({ ...formData, [id]: value });
     };
 
-
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const success = await actions.updateUser(userId, formData);
-        if (success) {
-            navigate("/editUser");
-        } else {
-            alert("Error al registrar el usuario");
+        try {
+            const success = await actions.updateUser(userId, formData);
+            if (success) {
+                navigate("/menusView"); // Navega después de un registro exitoso
+            }
+        } catch (error) {
+            // Muestra el mensaje de error en una alerta
+            alert(error.message || "Error al actualizar el usuario");
         }
     };
 
+    /*
+        const handleSubmit = async (e) => {
+            e.preventDefault();
+            const success = await actions.updateUser(userId, formData);
+            if (success) {
+                navigate("/editUser");
+            } else {
+                alert("Error al registrar el usuario");
+            }
+        };
+    */
     const handleDelete = async () => {
         const success = await actions.deleteUser(userId);
         if (success) {
-            navigate("/users");
+            navigate("/");
         } else {
             alert("Error al eliminar el usuario");
         }
@@ -166,7 +179,7 @@ export const EditUser = () => {
                             </div>
                             <div className="row mb-3 align-items-center">
                                 <label htmlFor="contrasena" className="col-md-4 col-form-label text-end">
-                                    Crear contraseña:
+                                    Cambiar contraseña:
                                 </label>
                                 <div className="col-md-8">
                                     <input
@@ -182,7 +195,7 @@ export const EditUser = () => {
                             </div>
                             <div className="row mb-3 align-items-center">
                                 <label htmlFor="codigoAdmin" className="col-md-4 col-form-label text-end">
-                                    Crear código administración:
+                                    Cambiar código administración:
                                 </label>
                                 <div className="col-md-8">
                                     <input
