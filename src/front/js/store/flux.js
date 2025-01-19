@@ -14,6 +14,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 					initial: "white"
 				}
 			],
+
+			tablesOrders: {
+				"Mesa 01": [], // Lista de pedidos para Mesa 01
+				"Mesa 02": [], // agregar más mesas si es necesario
+			},
+
+
 			tables: [],
 			items: [], // Aquí almacenaremos los ítems
 			selectedItems: [], // Aquí almacenaremos los ítems seleccionados
@@ -206,12 +213,47 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			//------Accion para cargar el pedido seleccionado en el dropdown---------------------------------
+			// Enviar pedido a cocina (para Mesa 01)
 
+			// Acción para enviar pedidos a una mesa específica
+			sendOrderToTable: (table) => {
+				const store = getStore();
+				const currentOrders = store.tablesOrders[table] || [];
+				setStore({
+					tablesOrders: {
+						...store.tablesOrders,
+						[table]: [...currentOrders, ...store.selectedItems],
+					},
+					selectedItems: [], // Limpia el dropdown después de enviar
+				});
+			},
+
+			// Acción para cerrar los pedidos de una mesa
+			clearTableOrders: (table) => {
+				const store = getStore();
+				setStore({
+					tablesOrders: {
+						...store.tablesOrders,
+						[table]: [], // Borra los pedidos de la mesa especificada
+					},
+				});
+			},
+
+
+			/*
+				sendOrderToKitchen: () => {
+				const store = getStore();
+				// Agregamos el contenido actual del dropdown (selectedItems) a selectedOrder
+				setStore({
+					selectedOrder: [...store.selectedItems],
+					selectedItems: [], // Limpiar el dropdown después de enviar
+				});
+			},
 			addSelectedOrder: (order) => {
 				const store = getStore();
 				setStore({ selectedOrder: [...store.selectedOrder, order] }); // Añade los ítems al estado global
 
-			},
+			}, */
 
 			//--------------------------------------------------------------------------------
 			// ACCIONES DE LA PAGINA DE menuItems.js

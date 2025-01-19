@@ -10,11 +10,9 @@ export const Navbar = ({ selectedItems = [] }) => {
     const { actions, store } = useContext(Context);
     const navigate = useNavigate();
 
-    const handleSendOrders = (order) => { // Función para añadir los pedidos      
-        actions.addSelectedOrder(order);
-        console.log(order);
-
-    }
+    const handleSendOrders = () => {
+        actions.sendOrderToTable("Mesa 01"); // Enviar los pedidos a Mesa 01
+    };
 
     const renderNavbarContent = () => {
         switch (location.pathname) {
@@ -59,7 +57,7 @@ export const Navbar = ({ selectedItems = [] }) => {
                                         <button
                                             className="buttonDropdown"
                                             type="button"
-                                            onClick={() => handleSendOrders(store.selectedOrder)}>
+                                            onClick={handleSendOrders}>
                                             Enviar pedido a cocina
                                         </button>
                                     </a>
@@ -118,6 +116,19 @@ export const Navbar = ({ selectedItems = [] }) => {
 
 
 /*
+
+
+   <a className="dropdown-item space-between" href="#">
+                                        Pedido ------------
+                                        <button
+                                            className="buttonDropdown"
+                                            type="button"
+                                            onClick={() => handleSendOrders(store.selectedOrder)}>
+                                            Enviar pedido a cocina
+                                        </button>
+                                    </a>
+                                </div>
+                                
 
 Juan David González
 18:51
