@@ -5,8 +5,7 @@ import CardMenu from "../component/cards/cardsMenus";
 
 export const MenusView = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [menus, setMenus] = useState([]);
-    const [menuToSave, setMenuToSave] = useState(null);
+    const [menus, setMenus] = useState([{ id: 1, menuName: "Menu Principal" }]);
 
     const openModal = () => setIsModalOpen(true);
     const closeModal = () => setIsModalOpen(false);
@@ -25,17 +24,8 @@ export const MenusView = () => {
 
     const handleDeleteMenu = (id) => {
         const filteredMenus = menus.filter(menu => menu.id !== id);
-        setMenus(filteredMenus); 
+        setMenus(filteredMenus);
     };
-
-
-    useEffect(() => {
-        if (menuToSave) {
-            setMenus((prevMenus) => [menuToSave, ...prevMenus]);
-            setMenuToSave(null);
-            closeModal();
-        }
-    }, [menuToSave, menus]);
 
     return (
         <div>
@@ -52,9 +42,8 @@ export const MenusView = () => {
                         </li>
                     ) : (
                         menus.map((menu) => (
-                            <li className="col-md-3" key={menu.id}>
+                            <li className="col-md-3">
                                 <CardMenu
-                                    key={menu.id}
                                     menu={menu}
                                     onEdit={handleEditMenu}
                                     onDelete={handleDeleteMenu}
@@ -62,9 +51,6 @@ export const MenusView = () => {
                             </li>
                         ))
                     )}
-                    <li className="col-md-3">
-                        <CardMenu menu="Menú Principal" />
-                    </li>
                     <li className="col-md-3">
                         <div className="card menu-container text-center">
                             <div className="card-body">

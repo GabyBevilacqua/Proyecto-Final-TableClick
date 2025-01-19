@@ -316,3 +316,9 @@ body {
     background-color: #677a9c;
     border-radius: 20px;
   }
+
+  .cardTitleMenusView {
+    cursor: pointer;
+    text-underline-offset: none;
+    text-decoration: none;
+  }
