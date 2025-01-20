@@ -9,14 +9,14 @@ export const EditUser = () => {
     const { userId } = useParams();
     const { store, actions } = useContext(Context);
     const [formData, setFormData] = useState({
-        nombrePersonal: "",
+        nombre_personal: "",
         username: "",
-        nombreRestaurante: "",
+        nombre_restaurante: "",
         direccion: "",
         telefono: "",
         email: "",
         password: "",
-        codigoAdmin: ""
+        codigo_admin: ""
     });
 
     const navigate = useNavigate()
@@ -41,7 +41,6 @@ export const EditUser = () => {
         useEffect(() => {
             const fetchUserData = async () => {
                 try {
-                    console.log("Fetching user with ID:", userId);
                     const user = await actions.getUserById(userId);
                     if (user) {
                         console.log("Datos del usuario:", user);
@@ -55,7 +54,7 @@ export const EditUser = () => {
             };
         
             fetchUserData();
-        }, [userId, actions]);
+        }, []);
 
 
 
@@ -69,7 +68,7 @@ export const EditUser = () => {
         try {
             const success = await actions.updateUser(userId, formData);
             if (success) {
-                navigate("/menusView"); // Navega después de un registro exitoso
+               // navigate("/editUser"); // Navega después de un registro exitoso
             }
         } catch (error) {
             // Muestra el mensaje de error en una alerta
@@ -105,16 +104,16 @@ export const EditUser = () => {
                         <h2 className="text-center mb-4">Editar usuario</h2>
                         <form onSubmit={handleSubmit}>
                             <div className="row mb-3 align-items-center">
-                                <label htmlFor="nombrePersonal" className="col-md-4 col-form-label text-end">
+                                <label htmlFor="nombre_personal" className="col-md-4 col-form-label text-end">
                                     Nombre personal:
                                 </label>
                                 <div className="col-md-8">
                                     <input
                                         type="text"
                                         className="form-control inputStyle"
-                                        id="nombrePersonal"
+                                        id="nombre_personal"
                                         placeholder="Ingrese su nombre"
-                                        value={formData.nombrePersonal}
+                                        value={formData.nombre_personal}
                                         onChange={handleChange}
                                         required
                                     />
@@ -146,7 +145,7 @@ export const EditUser = () => {
                                         className="form-control inputStyle"
                                         id="nombreRestaurante"
                                         placeholder="Nombre del restaurante"
-                                        value={formData.nombreRestaurante}
+                                        value={formData.nombre_restaurante}
                                         onChange={handleChange}
                                         required
                                     />
@@ -201,22 +200,6 @@ export const EditUser = () => {
                                 </div>
                             </div>
                             <div className="row mb-3 align-items-center">
-                                <label htmlFor="contrasena" className="col-md-4 col-form-label text-end">
-                                    Cambiar contraseña:
-                                </label>
-                                <div className="col-md-8">
-                                    <input
-                                        type="password"
-                                        className="form-control inputStyle"
-                                        id="password"
-                                        placeholder="Ingrese la contraseña"
-                                        value={formData.password}
-                                        onChange={handleChange}
-                                        required
-                                    />
-                                </div>
-                            </div>
-                            <div className="row mb-3 align-items-center">
                                 <label htmlFor="codigoAdmin" className="col-md-4 col-form-label text-end">
                                     Cambiar código administración:
                                 </label>
@@ -226,7 +209,7 @@ export const EditUser = () => {
                                         className="form-control inputStyle"
                                         id="codigoAdmin"
                                         placeholder="Código admin"
-                                        value={formData.codigoAdmin}
+                                        value={formData.codigo_admin}
                                         onChange={handleChange}
                                         required
                                     />

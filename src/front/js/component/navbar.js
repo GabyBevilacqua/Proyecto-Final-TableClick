@@ -9,6 +9,8 @@ export const Navbar = ({ selectedItems = [] }) => {
     const location = useLocation();
     const { actions, store } = useContext(Context);
     const navigate = useNavigate();
+    const user = JSON.parse(localStorage.getItem("user"))
+    const userId = user.id
 
     const handleSendOrders = () => {
         actions.sendOrderToTable("Mesa 01"); // Enviar los pedidos a Mesa 01
@@ -18,7 +20,7 @@ export const Navbar = ({ selectedItems = [] }) => {
         switch (location.pathname) {
             case "/secLogin":
             case "/menusView":
-            case "/editUser":
+            case `/editUser/${userId}`:
                 return (
                     <>
                         <h1 className="navbar-brand mb-0 d-flex" style={{ color: "white" }}>

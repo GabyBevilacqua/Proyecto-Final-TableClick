@@ -28,8 +28,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				Bebidas: [
 					{
-						idProduct: "001", name: "Agua", description: "1L", price: "2,00€",
-						image: "https://tenda.elmasove.com/wp-content/uploads/2020/01/veri.png", quantity: 1
+						idProduct: "001", name: "Agua", description: "1L", price: "2,50€",
+						image: "https://financialfood.es/wp-content/uploads/2024/04/Solan-de-Cabras_Campana-220424.jpg", quantity: 1
 					},
 					{
 						idProduct: "002", name: "Cerveza", description: "33Cl", price: "3,00€",
@@ -189,7 +189,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			getAllUsers: async () => {
 				try {
-					const response = await fetch(process.env.BACKEND_URL + "api/user", {
+					const response = await fetch(process.env.BACKEND_URL + "api/users", {
 						method: "GET",
 						headers: {
 							"Content-Type": "application/json"
@@ -227,7 +227,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 					if (response.ok) {
 						const data = await response.json();
-						// setStore({ user: data });
+						setStore({ user: data });
 						console.log("Datos del usuario cargados exitosamente:", data);
 						return data;
 					} else {
@@ -267,7 +267,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			updateUser: async (userId, formData) => {
 				try {
-					const response = await fetch(process.env.BACKEND_URL + "${userId}", {
+					const response = await fetch(`${process.env.BACKEND_URL}api/user/${userId}`, {
 						method: "PUT",
 						headers: {
 							"Content-Type": "application/json"
@@ -308,7 +308,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// Acción para eliminar un usuario por ID
 			deleteUser: async (userId) => {
 				try {
-					const response = await fetch(process.env.BACKEND_URL + "${userId}", {
+					const response = await fetch(`${process.env.BACKEND_URL}api/user/${userId}`, {
 						method: "DELETE",
 						headers: {
 							"Content-Type": "application/json"
@@ -419,7 +419,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				if (response.ok) {
 					const data = await response.json();
-					setStore({ authToken: data.token, user: data.user });
+					setStore({ authToken: data.access_token, user: data.user });
+					localStorage.setItem("authToken", data.access_token); // Guarda el token en el almacenamiento local
+					localStorage.setItem("user", JSON.stringify(data.user)); // Guarda los datos del usuario
 					console.log("Login successful!", data);
 					return true; // Indica éxito en el inicio de sesión 
 				} else {

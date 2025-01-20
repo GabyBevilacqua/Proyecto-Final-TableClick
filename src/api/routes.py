@@ -66,7 +66,7 @@ def login():
     if user and bcrypt.check_password_hash(user.password, data['password']):
         access_token = create_access_token(identity=str(user.id))
         print(access_token)
-        return jsonify({"message": "Inicio de sesión exitoso","access_token":access_token}), 200
+        return jsonify({"message": "Inicio de sesión exitoso","access_token": access_token, "user": user.serialize()}), 200
     else:
         return jsonify({"message": "Nombre de usuario o contraseña incorrectos"}), 401
 

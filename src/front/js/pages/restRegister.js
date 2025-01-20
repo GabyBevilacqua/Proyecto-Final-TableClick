@@ -74,7 +74,8 @@ export const RestRegister = () => {
         try {
             const success = await actions.registerUser(formData); // Asume que devuelve `true` o lanza error
             if (success) {
-                navigate("/menusView");
+                alert("Usuario creado con éxito, inicia sesion");
+                navigate("/");
             }
         } catch (error) {
             // Mostrar el mensaje de error del servidor

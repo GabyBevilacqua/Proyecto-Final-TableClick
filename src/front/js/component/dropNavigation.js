@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 
 
 export const DropNavigation = () => {
+    const user = JSON.parse(localStorage.getItem("user"))
+    const userId = user.id
+
     return (
         <div className="dropdown">
             <button className="button2 dropdown-toggle me-3" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -15,7 +18,7 @@ export const DropNavigation = () => {
                 <Link to="/secLogin">
                     <li><button className="dropdown-item" type="button">Adim</button></li>
                 </Link>
-                <Link to="/editUser">
+                <Link to={`/editUser/${userId}`}>
                 <li><button className="dropdown-item" type="button">Edit user</button></li>
                 </Link>
                 <Link to="/menusView">
@@ -29,6 +32,9 @@ export const DropNavigation = () => {
                 </Link>
                 <Link to="/diningView">
                 <li><button className="dropdown-item" type="button">Comedor</button></li>
+                </Link>
+                <Link to="/">
+                <li><button className="dropdown-item" type="button">Cerrar sesion</button></li>
                 </Link>
             </ul>
         </div>

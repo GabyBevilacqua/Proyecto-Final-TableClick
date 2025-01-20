@@ -48,7 +48,7 @@ const Layout = () => {
                         <Route element={<MenuItems />} path="/menuItems" />
                         <Route element={<DiningView />} path="/diningView" />
                         <Route element={<SecLogin />} path="/secLogin" />
-                        <Route element={<EditUser />} path="/editUser" />
+                        <Route element={<EditUser />} path="/editUser/:userId" /> 
                         <Route element={<TableMenu />} path="/tableMenu" />
                         <Route element={<Demo />} path="/demo" />
                         <Route element={<Single />} path="/single/:theid" />
