@@ -20,7 +20,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				"Mesa 02": [], // agregar más mesas si es necesario
 			},
 
-
 			tables: [],
 
 			menuData: {
