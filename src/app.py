@@ -13,6 +13,8 @@ from api.commands import setup_commands
 import cloudinary
 import cloudinary.uploader
 from cloudinary.utils import cloudinary_url
+from flask_jwt_extended import JWTManager
+from datetime import timedelta
 
 # from models import Person
 
@@ -68,9 +70,13 @@ setup_admin(app)
 # add the admin
 setup_commands(app)
 
+#-------------------------------------TOKEN----------------------------------------------------
+flask = JWTManager(app)
 # Add all endpoints form the API with a "api" prefix
 app.register_blueprint(api, url_prefix='/api')
-
+# app.register_blueprint(api.route, url_prefix='/user')
+app.config["SECRET_KEY"] = "clave secreta"
+app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(minutes=5)
 # Handle/serialize errors like a JSON object
 
 
