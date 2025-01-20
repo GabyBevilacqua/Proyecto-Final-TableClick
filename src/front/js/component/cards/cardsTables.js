@@ -10,11 +10,7 @@ export const CardsTable = () => {
                 <div className="card-header d-flex">
                     <h3 className="title col-10">Mesas:</h3>
                 </div>
-
-
-
                 <div className="card-body">
-
                     <blockquote className="blockquote mb-0 d-flex flex-wrap">
                     <div className="mesaItems col-4 border d-flex flex-column justify-content-center align-items-center">
                             <h4 className="card-title mb-4">Mesa 01:</h4>

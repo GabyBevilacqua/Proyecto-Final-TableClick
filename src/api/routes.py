@@ -7,6 +7,8 @@ from api.utils import generate_sitemap, APIException
 from flask_cors import CORS
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_bcrypt import Bcrypt
+from flask_jwt_extended import create_access_token
+
 
 api = Blueprint('api', __name__)
 bcrypt = Bcrypt()
@@ -61,9 +63,10 @@ def login():
     
     data = request.get_json()
     user = User.query.filter_by(username=data['username']).first()
-
     if user and bcrypt.check_password_hash(user.password, data['password']):
-        return jsonify({"user": user.serialize(), "authToken": "hola"}), 200
+        access_token = create_access_token(identity=str(user.id))
+        print(access_token)
+        return jsonify({"message": "Inicio de sesión exitoso","access_token":access_token}), 200
     else:
         return jsonify({"message": "Nombre de usuario o contraseña incorrectos"}), 401
 
