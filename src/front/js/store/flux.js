@@ -22,8 +22,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 
 			tables: [],
-			items: [
-				{
+
+			menuData: {
+
+
 				Bebidas: [
 					{
 						idProduct: "001", name: "Agua", description: "1L", price: "2,00€",
@@ -104,9 +106,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 						image: "https://imag.bonviveur.com/flan-de-huevo-listo-para-degustar.jpg", quantity: 1
 					},
 				],
-			}
-			], // Aquí almacenaremos los ítems
-			selectedItems: [], // Aquí almacenaremos los ítems seleccionados
+			},
+			items: [], // Aquí almacenaremos los ítems
+
+			selectedItems: [], // Aquí almacenaremos los productos seleccionados segun cantidad en la tabletMenu
 			registerUser: [],
 			selectedMenu: [],  // almacenamos el menu seleccionado
 			selectedTable: [], // almacenamos la mesa seleccionada
@@ -210,18 +213,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			// Acción para obtener los datos de un usuario por ID
+
 			getUserById: async (userId) => {
+				const store = getStore();
 				try {
-					const response = await fetch(process.env.BACKEND_URL + "${userId}", {
+					const response = await fetch(`${process.env.BACKEND_URL}api/user/${userId}`, {
 						method: "GET",
 						headers: {
-							"Content-Type": "application/json"
+							"Content-Type": "application/json",
+							//		"Authorization": `Bearer ${store.authToken}` // Incluir el token
 						}
 					});
 
 					if (response.ok) {
 						const data = await response.json();
-						setStore({ user: data });
+						// setStore({ user: data });
 						console.log("Datos del usuario cargados exitosamente:", data);
 						return data;
 					} else {
@@ -233,7 +239,30 @@ const getState = ({ getStore, getActions, setStore }) => {
 					return null;
 				}
 			},
-
+			/*			getUserById: async (userId) => {
+							try {
+								const response = await fetch(process.env.BACKEND_URL + "${userId}", {
+									method: "GET",
+									headers: {
+										"Content-Type": "application/json"
+									}
+								});
+			
+								if (response.ok) {
+									const data = await response.json();
+									setStore({ user: data });
+									console.log("Datos del usuario cargados exitosamente:", data);
+									return data;
+								} else {
+									console.error("Error al cargar los datos del usuario");
+									return null;
+								}
+							} catch (error) {
+								console.error("Error al cargar los datos del usuario:", error);
+								return null;
+							}
+						},
+			*/
 			// Acción para actualizar los datos de un usuario
 
 			updateUser: async (userId, formData) => {
@@ -315,99 +344,95 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			},
 
-			//------Accion para cargar la cantidad de los produstos en el pedido---------------------------------
+//----------Accion para "cargar" la cantidad de los productos q se seleccionan en la tablet y se vean en el dropdown
 
 			addSelectedItems: (item) => {
 				const store = getStore();
-				setStore({ selectedItems: [...store.selectedItems, item] }); // Añade el ítem al estado global
+				const existingItem = store.selectedItems.find(i => i.idProduct === item.idProduct);
 
-			},
-
-			//------Accion para cargar el pedido seleccionado en el dropdown---------------------------------
-			// Enviar pedido a cocina (para Mesa 01)
-
-			// Acción para enviar pedidos a una mesa específica
-			sendOrderToTable: (table) => {
-				const store = getStore();
-				const currentOrders = store.tablesOrders[table] || [];
-				setStore({
-					tablesOrders: {
-						...store.tablesOrders,
-						[table]: [...currentOrders, ...store.selectedItems],
-					},
-					selectedItems: [], // Limpia el dropdown después de enviar
-				});
-			},
-
-			// Acción para cerrar los pedidos de una mesa
-			clearTableOrders: (table) => {
-				const store = getStore();
-				setStore({
-					tablesOrders: {
-						...store.tablesOrders,
-						[table]: [], // Borra los pedidos de la mesa especificada
-					},
-				});
-			},
-
-
-			/*
-				sendOrderToKitchen: () => {
-				const store = getStore();
-				// Agregamos el contenido actual del dropdown (selectedItems) a selectedOrder
-				setStore({
-					selectedOrder: [...store.selectedItems],
-					selectedItems: [], // Limpiar el dropdown después de enviar
-				});
-			},
-			addSelectedOrder: (order) => {
-				const store = getStore();
-				setStore({ selectedOrder: [...store.selectedOrder, order] }); // Añade los ítems al estado global
-
-			}, */
-
-			//--------------------------------------------------------------------------------
-			// ACCIONES DE LA PAGINA DE menuItems.js
-
-			// Agregar una nueva mesa
-			addTable: (tableName) => {
-				const store = getStore();
-				setStore({ tables: [...store.tables, tableName] });
-			},
-
-			// Agregar un nuevo ítem
-			addItem: (item) => {
-				const store = getStore();
-				setStore({ items: [...store.items, item] }); // Añade el ítem al estado global
-
-			},
-
-			//ACCIONES DE LA PAGINA DE preLogin.js
-
-			loginUser: async (username, password) => {
-				try {
-					const response = await fetch(process.env.BACKEND_URL + "api/login", {
-						method: "POST",
-						headers: { "Content-Type": "application/json" },
-						body: JSON.stringify({ username, password })
-					});
-
-					if (response.ok) {
-						const data = await response.json();
-						setStore({ authToken: data.token, user: data.user });
-						console.log("Login successful!", data);
-						return true; // Indica éxito en el inicio de sesión 
-					} else {
-						console.log("Login failed!");
-						return false; // Indica fracaso en el inicio de sesión 
-					}
-				} catch (error) {
-					console.error("Error logging in", error);
-					return false;
+				if (existingItem) {
+					// Si el producto ya existe, actualiza la cantidad
+					const updatedItems = store.selectedItems.map(i =>
+						i.idProduct === item.idProduct
+							? { ...i, quantity: parseInt(i.quantity) + parseInt(item.quantity) }
+							: i
+					);
+					setStore({ selectedItems: updatedItems });
+				} else {
+					// Si no existe, agrégalo
+					setStore({ selectedItems: [...store.selectedItems, item] });
 				}
+			},
+
+		//------Accion para cargar el pedido seleccionado del dropdown al comedor---------
+		// Enviar pedido a cocina (para Mesa 01)
+
+		// Acción para enviar pedidos a una mesa específica
+		sendOrderToTable: (table) => {
+			const store = getStore();
+			const currentOrders = store.tablesOrders[table] || [];
+			setStore({
+				tablesOrders: {
+					...store.tablesOrders,
+					[table]: [...currentOrders, ...store.selectedItems],
+				},
+				selectedItems: [], // Limpia el dropdown después de enviar
+			});
+		},
+
+		// Acción para cerrar los pedidos de una mesa
+		clearTableOrders: (table) => {
+			const store = getStore();
+			setStore({
+				tablesOrders: {
+					...store.tablesOrders,
+					[table]: [], // Borra los pedidos de la mesa especificada
+				},
+			});
+		},
+
+		//--------------------------------------------------------------------------------
+		// ACCIONES DE LA PAGINA DE menuItems.js
+
+		// Agregar una nueva mesa
+		addTable: (tableName) => {
+			const store = getStore();
+			setStore({ tables: [...store.tables, tableName] });
+		},
+
+		// Agregar un nuevo ítem
+		addItem: (item) => {
+			const store = getStore();
+			setStore({ items: [...store.items, item] }); // Añade el ítem al estado global
+
+		},
+
+		//ACCIONES DE LA PAGINA DE preLogin.js
+
+		loginUser: async (username, password) => {
+			try {
+				const response = await fetch(process.env.BACKEND_URL + "api/login", {
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({ username, password })
+				});
+
+				if (response.ok) {
+					const data = await response.json();
+					setStore({ authToken: data.token, user: data.user });
+					console.log("Login successful!", data);
+					return true; // Indica éxito en el inicio de sesión 
+				} else {
+					console.log("Login failed!");
+					return false; // Indica fracaso en el inicio de sesión 
+				}
+			} catch (error) {
+				console.error("Error logging in", error);
+				return false;
 			}
 		}
-	};
+	}
+};
 };
 
 export default getState;

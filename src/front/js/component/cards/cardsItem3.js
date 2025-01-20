@@ -99,7 +99,7 @@ export const CardsItem3 = () => {
     };
 
     const renderItems = (items) => {
-        return store.items.map((item, index) => (
+        return items.map((item, index) => (
             <div className="container">
                 <div className="bodyCardItems row g-2 m-0">
 
@@ -186,11 +186,11 @@ export const CardsItem3 = () => {
             <div className="container">
                 <div className=" row g-2 m-0">
                     <div className="d-flex flex-wrap justify-content-between ">
-                        {Object.keys(store.items).map((category, idx) => (
+                    {store.items && Object.keys(store.items).map((category, idx) => (
                             <div className="card cardItems col-4 me-1 mb-1 rounded-4 p-0" style={{ width: '18rem' }} key={idx}>
                                 <div className="card cardItems rounded-4">
                                     <h2 className="card-title text-center">{category}</h2>
-                                    <div>{renderItems(store.items)}</div>
+                                    <div>{renderItems(store.items[category])}</div>
                                 </div>
                             </div>
                         ))}

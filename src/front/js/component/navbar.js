@@ -46,22 +46,23 @@ export const Navbar = ({ selectedItems = [] }) => {
                                     aria-expanded="false">
                                     {store.selectedTable} Cliente-1001 Pedidos 0
                                 </button>
-                                <div className="dropdown-menu dropdown-menu-end w-auto" aria-labelledby="dropdownMenuButton">
-                                    {store.selectedItems.map((item, index) => (
-                                        <div key={index} className="dropdown-item">
-                                            {item.idProduct} - {item.name} - {item.quantity} - {item.price}
-                                        </div>
-                                    ))}
-                                    <a className="dropdown-item space-between" href="#">
-                                        Pedido ------------
-                                        <button
-                                            className="buttonDropdown"
-                                            type="button"
-                                            onClick={handleSendOrders}>
+                                <ul className="dropdown-menu dropdown-menu-end w-auto" aria-labelledby="dropdownMenuButton">
+                                    {store.selectedItems.length > 0 ? (
+                                        store.selectedItems.map((item, index) => (
+                                            <li key={index} className="dropdown-item">
+                                                {item.idProduct} - {item.name} - {item.quantity} - {item.price}
+                                            </li>
+                                        ))
+                                    ) : (
+                                        <li className="dropdown-item">No hay elementos seleccionados</li>
+                                    )}
+                                    <li className="dropdown-divider"></li>
+                                    <li className="dropdown-item">
+                                        <button className="buttonDropdown" onClick={handleSendOrders}>
                                             Enviar pedido a cocina
                                         </button>
-                                    </a>
-                                </div>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </>

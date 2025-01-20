@@ -24,17 +24,40 @@ export const EditUser = () => {
 
     const handleOpenModal = () => setShowModal(true);
     const handleCloseModal = () => setShowModal(false);
+    /*
+        useEffect(() => {
+            const fetchUserData = async () => {
+                const userData = await actions.getUserById(userId);
+                if (userData) {
+                    setFormData(userData);
+                }
+            };
+    
+            fetchUserData();
+        }, [userId]);
+    */
 
-    useEffect(() => {
-        const fetchUserData = async () => {
-            const userData = await actions.getUserById(userId);
-            if (userData) {
-                setFormData(userData);
-            }
-        };
 
-        fetchUserData();
-    }, [userId]);
+        useEffect(() => {
+            const fetchUserData = async () => {
+                try {
+                    console.log("Fetching user with ID:", userId);
+                    const user = await actions.getUserById(userId);
+                    if (user) {
+                        console.log("Datos del usuario:", user);
+                        setFormData(user); // Actualiza el formulario con los datos
+                    } else {
+                        alert("No se pudo cargar los datos del usuario.");
+                    }
+                } catch (error) {
+                    console.error("Error al cargar los datos del usuario:", error);
+                }
+            };
+        
+            fetchUserData();
+        }, [userId, actions]);
+
+
 
     const handleChange = (e) => {
         const { id, value } = e.target;
@@ -225,14 +248,14 @@ export const EditUser = () => {
                                         Subir archivo
                                     </button>
                                     <button
-                                        id="subirArchivo"
+                                        id="cerrarSesion"
                                         type="button"
                                         className="button2 me-2"
                                     >
                                         Cerrar sesión
                                     </button>
                                     <button
-                                        id="subirArchivo"
+                                        id="eliminarUsuario"
                                         type="button"
                                         className="button2"
                                         onClick={handleDelete}
