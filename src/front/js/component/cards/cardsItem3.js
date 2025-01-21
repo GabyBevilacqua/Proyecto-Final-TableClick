@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Card, Tab, Tabs } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Context } from "../../store/appContext";
@@ -11,95 +11,24 @@ export const CardsItem3 = () => {
     const [selectedItems, setSelectedItems] = useState([]);
     const { store } = useContext(Context);
 
-    // const menuData = {
-    //     Bebidas: [
-    //         {
-    //             idProduct: "001", name: "Agua", description: "1L", price: "2,00€",
-    //             image: "https://tenda.elmasove.com/wp-content/uploads/2020/01/veri.png", quantity: 1
-    //         },
-    //         {
-    //             idProduct: "002", name: "Cerveza", description: "33Cl", price: "3,00€",
-    //             image: "https://yt3.googleusercontent.com/8fMR1gkzE7hf2sugNVo8Kjiykh8IoUZ1ICQ_-T0tZ6OZt9s13l1aLiTVTmJy4oQtumcmORD1=s900-c-k-c0x00ffffff-no-rj", quantity: 1
-    //         },
-    //         {
-    //             idProduct: "003", name: "Fanta", description: "33Cl", price: "2,50€",
-    //             image: "https://www.greekorico.com/wp-content/uploads/sites/652/2022/10/fanta-limon.png", quantity: 1
-    //         },
-    //         {
-    //             idProduct: "004", name: "Acuarius", description: "33Cl", price: "2,50€",
-    //             image: "https://www.lasansi.com/media/items/big/3c2c7-logomarcas-aquarius-naranja.jpg", quantity: 1
-    //         },
-    //         {
-    //             idProduct: "017", name: "Cerveza 0,0", description: "33Cl", price: "3,00€",
-    //             image: "https://yt3.googleusercontent.com/X9psilJdOXeD2-TrXTCBeFKN3In4v-ltfPypUYQst7wZAxM1f7EmQKjmaQLyNe8lRLaFvqlE=s900-c-k-c0x00ffffff-no-rj", quantity: 1
-    //         },
-    //         {
-    //             idProduct: "018", name: "Coca-cola", description: "33Cl", price: "2,80€",
-    //             image: "https://www.cocacolaep.com/assets/legacy-assets/Uploads/resources/Coca-Cola-1210.jpg", quantity: 1
-    //         },
-    //     ],
-    //     Entrantes: [
-    //         {
-    //             idProduct: "005", name: "Bruschetta", description: "Pan asado frotado con ajo y cubierto con AOVE . 2uds", price: "6,50€",
-    //             image: "https://mandolina.co/wp-content/uploads/2024/08/Bruschetta_de_tomates_cherry_y_mozzarella-1200x675.jpg", quantity: 1
-    //         },
-    //         {
-    //             idProduct: "006", name: "Buñuelos de bacalao", description: "5 uds", price: "9,50€",
-    //             image: "https://cdn7.recetasdeescandalo.com/wp-content/uploads/2018/03/Bunuelos-de-bacalao-esponjosos-y-crujientes-por-fuera.-Receta-tradicional.jpg", quantity: 1
-    //         },
-    //         {
-    //             idProduct: "007", name: "Croquetas de jamon", description: "4uds", price: "8,50€",
-    //             image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgBE9n13yJQjYNE63R2318tlwy31FM1BtfHcDKh9_gjcqOoRaI8DSW1SnfCYYtVUR46OC25SNELEVNq6lduyWA10S-dNOz2wH3cJ7vAQL6OaBmVRL6C86EmjDH1gzsNNnLy9D6QdSVX83mQ/s1600/croquetas+de+jamon+3.JPG", quantity: 1
-    //         },
-    //         {
-    //             idProduct: "008", name: "Cesar salad", description: "Lechuga, crutones, pollo, parmesano y salsa cremosa.", price: "11,50",
-    //             image: "https://imag.bonviveur.com/ensalada-cesar-casera.jpg", quantity: 1
-    //         },
-    //     ],
-    //     Principales: [
-    //         {
-    //             idProduct: "009", name: "c-Burguer", description: "Lechuga, tomate, 180g de carne queso.", price: "16,00€",
-    //             image: "https://plazaprincipal.com.co/wp-content/uploads/2021/04/SUPER-HAMBUERGUESA-DE-LA-CASA-X-300-GRS-02.jpeg", quantity: 1
-    //         },
-    //         {
-    //             idProduct: "010", name: "Solomillo a la pimienta", description: "Solomillo con salsa aromática de pimienta verde", price: "22,50€",
-    //             image: "https://s2.abcstatics.com/abc/sevilla/media/gurmesevilla/2015/05/solomillo-con-salsa-de-pimienta.jpg", quantity: 1
-    //         },
-    //         {
-    //             idProduct: "011", name: "Risotto trufado", description: "Arroz cremoso con parmesano y trufa.", price: "19,50€",
-    //             image: "https://content-cocina.lecturas.com/medio/2021/10/19/risotto-de-boletus-con-trufa_c4844e44_1200x1200.jpg", quantity: 1
-    //         },
-    //         {
-    //             idProduct: "012", name: "Bacalao al Pil-Pil", description: "Bacalao en emulsión de ajo, guindilla y aceite", price: "20,50€",
-    //             image: "https://i.ytimg.com/vi/tQXLOFzrIKw/maxresdefault.jpg", quantity: 1
-    //         },
-    //     ],
-    //     Postres: [
-    //         {
-    //             idProduct: "013", name: "Cheesecake", description: "Cremoso con mermelada de frutos arandanos.", price: "6,50€",
-    //             image: "https://lacocinademimadre.es/wp-content/uploads/2018/10/tarta-queso.jpg", quantity: 1
-    //         },
-    //         {
-    //             idProduct: "014", name: "Coulant", description: "Bizcocho con centro fundido y helado.", price: "8,00€",
-    //             image: "https://www.cocinatis.com/archivos/202207/CTIS0129-receta-coulant-de-chocolate_large_16x9.jpg", quantity: 1
-    //         },
-    //         {
-    //             idProduct: "015", name: "Tiramisu", description: "Mascarpone, café y bizcochos con cacao.", price: "7,50€",
-    //             image: "https://img.rtve.es/imagenes/receta-tiramisu-trucos-jugoso-facil-rapido/1684846876915.jpg", quantity: 1
-    //         },
-    //         {
-    //             idProduct: "016", name: "Flan casero", description: "Flan cremoso con caramelo líquido.", price: "5,50€",
-    //             image: "https://imag.bonviveur.com/flan-de-huevo-listo-para-degustar.jpg", quantity: 1
-    //         },
-    //     ],
-    // };
+    useEffect(() => {
+        if (store.menuData) {
+            setSelectedItems(Object.values(store.menuData).flat());
+        }
+    }, [store.menuData]);
 
     const handleAddItem = (item, quantity) => {
         setSelectedItems([...selectedItems, { ...item, quantity }]);
     };
 
+    const handleDelete = (index) => { 
+        const updatedItems = selectedItems.filter((_, itemIndex) => itemIndex !== index); 
+        setSelectedItems(updatedItems); 
+        console.log(`Elemento ${index} fue eliminado`); 
+    };
+    
     const renderItems = (items) => {
-        return items.map((item, index) => (
+        return selectedItems.map((item, index) => (
             <div className="container">
             <div className="bodyCardItems row g-2 m-0">
                 <div key={index} className="card cardItems col-3 me-1 mb-1 rounded-4 p-0"
@@ -146,7 +75,10 @@ export const CardsItem3 = () => {
                                 </div>
 
                                 <button className="noselect mx-auto ms-0 me-0 mt-0 col-5"
-                                    onClick={(e) => e.stopPropagation()}>
+                                    onClick={(e) => { 
+                                        e.stopPropagation(); 
+                                        handleDelete(index);
+                                    }}>
                                     <span className="text">Delete</span>
                                     <span className="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
