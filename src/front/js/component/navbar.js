@@ -13,8 +13,54 @@ export const Navbar = ({ selectedItems = [] }) => {
     const userId = user?.id || null
 
     const handleSendOrders = () => {
-        actions.sendOrderToTable("Mesa 01"); // Enviar los pedidos a Mesa 01
+        actions.sendOrderToTable("Mesa 01");
     };
+    // const handleNotification = () => {
+
+    //     <div className="notifications-container">
+    //     <div className="success">
+    //       <div className="flex">
+    //         <div className="flex-shrink-0">
+    //           <svg
+    //             aria-hidden="true"
+    //             fill="currentColor"
+    //             viewBox="0 0 20 20"
+    //             xmlns="http://www.w3.org/2000/svg"
+    //             className="success-svg"
+    //           >
+    //             <path
+    //               clip-rule="evenodd"
+    //               d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+    //               fill-rule="evenodd"
+    //             ></path>
+    //           </svg>
+    //         </div>
+    //         <div className="success-prompt-wrap">
+    //           <p className="success-prompt-heading">
+    //             Order completed
+    //             <span className="checkmark">✓</span>
+    //           </p>
+    //           <div className="success-prompt-prompt">
+    //             <h1>
+    //              PEDIDO ENVIADO CON ÉXITO!
+    //             </h1>
+    //           </div>
+    //           <div className="success-button-container">
+    //             <button className="success-button-main" type="button">View status</button>
+    //             <button className="success-button-secondary" type="button">
+    //               Dismiss
+    //             </button>
+    //           </div>
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </div>
+    //   };
+   
+    const deleteDropdownItem = ( index) => {
+        const updatedItems =  store.selectedItems.filter((_, i) => i !== index);
+        actions.updateSelectedItems(updatedItems);
+      };
 
     const renderNavbarContent = () => {
         switch (location.pathname) {
@@ -51,17 +97,64 @@ export const Navbar = ({ selectedItems = [] }) => {
                                 <ul className="dropdown-menu dropdown-menu-end w-auto" aria-labelledby="dropdownMenuButton">
                                     {store.selectedItems.length > 0 ? (
                                         store.selectedItems.map((item, index) => (
-                                            <li key={index} className="dropdown-item">
-                                                {item.idProduct} - {item.name} - {item.quantity} - {item.price}
+                                            <li key={index} className="dropdown-item d-flex">
+                                                <p className="col-10 ps-1 mt-1 me-1"> {item.idProduct} - {item.name} - {item.quantity} - {item.price} </p>
+                                                <button
+                                                    className="bin-button"
+                                                    onClick={() => deleteDropdownItem(index)}
+                                                >
+                                                    {/* Aquí va el contenido SVG */}
+                                                    <svg
+                                                        className="bin-top"
+                                                        viewBox="0 0 39 7"
+                                                        fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                    >
+                                                        <line
+                                                            y1="5"
+                                                            x2="39"
+                                                            y2="5"
+                                                            stroke="white"
+                                                            strokeWidth="4"
+                                                        ></line>
+                                                        <line
+                                                            x1="12"
+                                                            y1="1.5"
+                                                            x2="26.0357"
+                                                            y2="1.5"
+                                                            stroke="white"
+                                                            strokeWidth="3"
+                                                        ></line>
+                                                    </svg>
+                                                    <svg
+                                                        className="bin-bottom"
+                                                        viewBox="0 0 33 39"
+                                                        fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                    >
+                                                        <mask id="path-1-inside-1_8_19" fill="white">
+                                                            <path d="M0 0H33V35C33 37.2091 31.2091 39 29 39H4C1.79086 39 0 37.2091 0 35V0Z"></path>
+                                                        </mask>
+                                                        <path
+                                                            d="M0 0H33H0ZM37 35C37 39.4183 33.4183 43 29 43H4C-0.418278 43 -4 39.4183 -4 35H4H29H37ZM4 43C-0.418278 43 -4 39.4183 -4 35V0H4V35V43ZM37 0V35C37 39.4183 33.4183 43 29 43V35V0H37Z"
+                                                            fill="white"
+                                                            mask="url(#path-1-inside-1_8_19)"
+                                                        ></path>
+                                                        <path d="M12 6L12 29" stroke="white" strokeWidth="4"></path>
+                                                        <path d="M21 6V29" stroke="white" strokeWidth="4"></path>
+                                                    </svg>
+                                                </button>
                                             </li>
                                         ))
                                     ) : (
                                         <li className="dropdown-item">No hay elementos seleccionados</li>
                                     )}
                                     <li className="dropdown-divider"></li>
-                                    <li className="dropdown-item">
-                                        <button className="buttonDropdown" onClick={handleSendOrders}>
-                                            Enviar pedido a cocina
+                                    <li className="dropdown-item ">
+                                        <button className="buttonDropdown ms-5" 
+                                        onClick={handleSendOrders}
+                                        >
+                                            Enviar pedido
                                         </button>
                                     </li>
                                 </ul>
