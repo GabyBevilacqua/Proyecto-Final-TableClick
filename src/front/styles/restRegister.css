@@ -3,9 +3,9 @@
     background-color: #7297B4; /* Azul medio */
     color: #F4F0D1; /* Amarillo pálido */
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 5px;
     margin-top: 50px;
-    border: 5px solid #aec5ff; /* Borde delgado */
+    border: 3px solid #aec5ff; /* Borde delgado */
     /*background: radial-gradient(circle at 0 0, hsl(221, 47%, 23%), transparent),
     radial-gradient(circle at 100% 0, #7297B4, transparent),
     radial-gradient(circle at 0 100%, #6b385a, transparent),

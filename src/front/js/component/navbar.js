@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import imagenLogo from "../../img/imagenLogo.png";
 import "../../styles/navbar.css";
@@ -15,6 +15,29 @@ export const Navbar = ({ selectedItems = [] }) => {
     const handleSendOrders = () => {
         actions.sendOrderToTable("Mesa 01");
     };
+
+    const [formData, setFormData] = useState({
+        nombre_personal: "",
+        username: "",
+        nombre_restaurante: "",
+        direccion: "",
+        telefono: "",
+        email: "",
+        password: "",
+        codigo_admin: ""
+    });
+
+    useEffect(() => {
+        // Retrieve user data from localStorage
+        const user = JSON.parse(localStorage.getItem("user"));
+        if (user) {
+            setFormData((prevState) => ({
+                ...prevState,
+                ...user // Merge user data into formData
+            }));
+        }
+    }, []);
+
     // const handleNotification = () => {
 
     //     <div className="notifications-container">
@@ -69,9 +92,9 @@ export const Navbar = ({ selectedItems = [] }) => {
             case `/editUser/${userId}`:
                 return (
                     <>
-                        <h1 className="navbar-brand mb-0 d-flex" style={{ color: "white" }}>
+                        <h1 className="navbar-brand h1RestName mb-0 d-flex">
                             < DropNavigation />
-                            El Cangrejo
+                            {formData.nombre_restaurante || "El nombre de tu restaurante"}
                         </h1>
                         <img src={imagenLogo} alt="Logo" style={{ height: "60px" }} />
                     </>
@@ -79,9 +102,9 @@ export const Navbar = ({ selectedItems = [] }) => {
             case "/tableMenu":
                 return (
                     <>
-                        <h1 className="navbar-brand mb-0 d-flex me-3" style={{ color: "white" }}>
+                        <h1 className="navbar-brand h1RestName mb-0 d-flex me-3">
                             < DropNavigation />
-                            El Cangrejo
+                            {formData.nombre_restaurante || "El nombre de tu restaurante"}
                         </h1>
                         <img src={imagenLogo} alt="Logo" style={{ height: "60px" }} />
                         <div className="ml-auto">
@@ -165,9 +188,9 @@ export const Navbar = ({ selectedItems = [] }) => {
             case "/menuItems":
                 return (
                     <>
-                        <h1 className="navbar-brand mb-0 d-flex me-3" style={{ color: "white" }}>
+                        <h1 className="navbar-brand h1RestName mb-0 d-flex me-3">
                             < DropNavigation />
-                            El Cangrejo
+                            {formData.nombre_restaurante || "El nombre de tu restaurante"}
                         </h1>
                         <img src={imagenLogo} alt="Logo" style={{ height: "60px" }} />
                         <div className="ml-auto">
@@ -180,9 +203,9 @@ export const Navbar = ({ selectedItems = [] }) => {
             case "/diningView":
                 return (
                     <>
-                        <h1 className="navbar-brand mb-0 d-flex me-3" style={{ color: "white" }}>
+                        <h1 className="navbar-brand h1RestName mb-0 d-flex me-3">
                             < DropNavigation />
-                            El Cangrejo
+                            {formData.nombre_restaurante || "El nombre de tu restaurante"}
                         </h1>
                         <img src={imagenLogo} alt="Logo" style={{ height: "60px" }} />
                         <div className="ml-auto">

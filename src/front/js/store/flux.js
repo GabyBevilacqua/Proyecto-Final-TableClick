@@ -169,21 +169,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					throw error; // Lanza el error al componente
 				}
 			},
-			/*
-								if (response.ok) {
-									const data = await response.json();
-									console.log("Usuario registrado exitosamente:", data);
-									return true;
-								} else {
-									console.error("Error al registrar el usuario");
-									return false;
-								}
-							} catch (error) {
-								console.error("Error al registrar el usuario:", error);
-								return false;
-							}
-						},
-			*/
+			
 			//accion para taer todos los usuarios
 
 			getAllUsers: async () => {
@@ -238,30 +224,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					return null;
 				}
 			},
-			/*			getUserById: async (userId) => {
-							try {
-								const response = await fetch(process.env.BACKEND_URL + "${userId}", {
-									method: "GET",
-									headers: {
-										"Content-Type": "application/json"
-									}
-								});
 			
-								if (response.ok) {
-									const data = await response.json();
-									setStore({ user: data });
-									console.log("Datos del usuario cargados exitosamente:", data);
-									return data;
-								} else {
-									console.error("Error al cargar los datos del usuario");
-									return null;
-								}
-							} catch (error) {
-								console.error("Error al cargar los datos del usuario:", error);
-								return null;
-							}
-						},
-			*/
 			// Acción para actualizar los datos de un usuario
 
 			updateUser: async (userId, formData) => {
@@ -288,22 +251,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-			/*
-								if (response.ok) {
-									const data = await response.json();
-									setStore({ user: data });
-									console.log("Usuario actualizado exitosamente:", data);
-									return true;
-								} else {
-									console.error("Error al actualizar el usuario");
-									return false;
-								}
-							} catch (error) {
-								console.error("Error al actualizar el usuario:", error);
-								return false;
-							}
-						},
-			*/
 			// Acción para eliminar un usuario por ID
 			deleteUser: async (userId) => {
 				try {

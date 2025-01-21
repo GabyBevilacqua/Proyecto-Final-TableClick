@@ -231,13 +231,6 @@ export const EditUser = () => {
                                         Subir archivo
                                     </button>
                                     <button
-                                        id="cerrarSesion"
-                                        type="button"
-                                        className="button2 me-2"
-                                    >
-                                        Cerrar sesión
-                                    </button>
-                                    <button
                                         id="eliminarUsuario"
                                         type="button"
                                         className="button2"
