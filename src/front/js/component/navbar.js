@@ -10,8 +10,8 @@ export const Navbar = ({ selectedItems = [] }) => {
     const { actions, store } = useContext(Context);
     const navigate = useNavigate();
     const user = JSON.parse(localStorage.getItem("user"))
-    const userId = user.id
-
+    const userId = user?.id || null
+    
     const handleSendOrders = () => {
         actions.sendOrderToTable("Mesa 01"); // Enviar los pedidos a Mesa 01
     };
