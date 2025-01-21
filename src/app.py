@@ -15,6 +15,9 @@ import cloudinary.uploader
 from cloudinary.utils import cloudinary_url
 from flask_jwt_extended import JWTManager
 from datetime import timedelta
+from flask_mail import Mail, Message
+from flask_jwt_extended import JWTManager, jwt_required, create_access_token, get_jwt_identity
+import base64  
 
 # from models import Person
 
@@ -22,6 +25,17 @@ ENV = "development" if os.getenv("FLASK_DEBUG") == "1" else "production"
 static_file_dir = os.path.join(os.path.dirname(
     os.path.realpath(__file__)), '../public/')
 app = Flask(__name__)
+
+app.config.update(
+    MAIL_SERVER='smtp.gmail.com',
+    MAIL_PORT=587,
+    MAIL_USE_TLS=True,
+    MAIL_USERNAME='shaerkbladex@gmail.com',
+    MAIL_PASSWORD='rsgf dwgh clck icvc'
+)
+
+mail = Mail(app)
+jwt = JWTManager(app)
 app.url_map.strict_slashes = False
 
 # database condiguration
@@ -92,6 +106,49 @@ def sitemap():
     if ENV == "development":
         return generate_sitemap(app)
     return send_from_directory(static_file_dir, 'index.html')
+
+@app.route('/request-reset-password', methods=['POST'])
+def request_reset_password():
+    email = request.json.get("email")
+    token = create_access_token(identity=email, expires_delta=timedelta(minutes=3))
+    token_byte = token.encode('utf-8')
+    token = base64.b64encode(token_byte)
+    reset_link = f"https://automatic-disco-5g4579xjp97w2qgg-3000.app.github.dev/reset-password/{token}"
+    msg = Message(
+    'Recupera Contraseña',
+    sender=app.config["MAIL_USERNAME"],
+    recipients=[email]
+    )
+
+    msg.html = f'<p>Haga <a href="{reset_link}">click aqui</a> para restablecer contraseña</p>'
+
+    mail.send(msg)
+
+    return jsonify({"message":"Email enviado"})
+
+@app.route('/reset-password', methods=['POST'])
+@jwt_required()
+def reset_password():
+    user_data = request.get_json()
+    email = get_jwt_identity()
+    if user_data['password'] == user_data['confirm-password']:
+        None
+    return "ok", 200 
+
+@app.route('/test-email', methods=['GET'])
+def test_email():
+    email = request.json.get("email")
+    msg = Message(
+        'Recupera Contraseñá',
+        sender=app.config["MAIL_USERNAME"],
+        recipients=[email]
+    )
+
+    msg.html = f"<p>email de prueba</p>"
+
+    mail.send(msg)
+
+    return jsonify({"message":"Mensaje enviado correctamente"})
 
 # any other endpoint will try to serve it like a static file
 @app.route('/<path:path>', methods=['GET'])
