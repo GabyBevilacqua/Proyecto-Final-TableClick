@@ -348,7 +348,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			addSelectedItems: (item) => {
 				const store = getStore();
 				const existingItem = store.selectedItems.find(i => i.idProduct === item.idProduct);
-
+				
 				if (existingItem) {
 					// Si el producto ya existe, actualiza la cantidad
 					const updatedItems = store.selectedItems.map(i =>
@@ -365,6 +365,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 		//------Accion para cargar el pedido seleccionado del dropdown al comedor---------
 		// Enviar pedido a cocina (para Mesa 01)
+		
 
 		// Acción para enviar pedidos a una mesa específica
 		sendOrderToTable: (table) => {
