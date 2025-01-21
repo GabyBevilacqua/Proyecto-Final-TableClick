@@ -274,6 +274,34 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
+			uploadImageUser: async (file) => {
+				try {
+					const formData = new FormData();
+					formData.append("file", file);
+
+					const response = await fetch(process.env.BACKEND_URL + "upload-image", {
+						method: "POST",
+					
+						body: formData
+					});
+
+					if (response.ok) {
+
+						const data = await response.json();
+						console.log("Imagen subida exitosamente:", data);
+						
+					} else {
+						console.error("Error al subir la imagen");
+					}
+				} catch (error) {
+					console.error("Error al subir la imagen:", error);
+				}
+			},
+							
+
+
+
+
 			//------Accion para cargar la seleccion de la mesa---------------------------------
 
 			addSelectedTable: (table) => {

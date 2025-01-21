@@ -18,6 +18,7 @@ from datetime import timedelta
 from flask_mail import Mail, Message
 from flask_jwt_extended import JWTManager, jwt_required, create_access_token, get_jwt_identity
 import base64  
+from flask_cors import CORS
 
 # from models import Person
 
@@ -25,6 +26,8 @@ ENV = "development" if os.getenv("FLASK_DEBUG") == "1" else "production"
 static_file_dir = os.path.join(os.path.dirname(
     os.path.realpath(__file__)), '../public/')
 app = Flask(__name__)
+
+CORS(app)
 
 app.config.update(
     MAIL_SERVER='smtp.gmail.com',
@@ -63,10 +66,35 @@ cloudinary.config(
     secure=True
 )
 
+
+@app.route('/upload-image', methods=['POST'])
+def upload_image():
+    
+    if 'file' not in request.files:
+        return jsonify({'error': 'No file part in the request'}), 400
+
+    file = request.files['file']  # Este es un objeto tipo FileStorage
+
+    if file.filename == '':
+        return jsonify({'error': 'No selected file'}), 400
+
+    try:
+       #desde el objeto recibido
+        result = cloudinary.uploader.upload(file)
+        return jsonify({
+            'message': 'Image uploaded successfully',
+            'url': result['secure_url']
+        })
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+    
+    
 # Upload an image
 #upload_result = cloudinary.uploader.upload("src/front/img/imagenLogo.png",
  #                                          public_id="hat")
 #print(upload_result["secure_url"])
+
+
 
 # Optimize delivery by resizing and applying auto-format and auto-quality
 optimize_url, _ = cloudinary_url("hat", fetch_format="auto", quality="auto")
