@@ -10,6 +10,7 @@ from flask_bcrypt import Bcrypt
 from flask_jwt_extended import create_access_token
 
 
+
 api = Blueprint('api', __name__)
 bcrypt = Bcrypt()
 
@@ -51,7 +52,8 @@ def register():
         telefono=data['telefono'],
         email=data['email'],
         password=hashed_password,
-        codigo_admin=data['codigoAdmin']
+        codigo_admin=data['codigoAdmin'],
+        image=data['image']
     )
     db.session.add(new_user)
     db.session.commit()
@@ -135,4 +137,3 @@ def delete_user(user_id):
     db.session.delete(user)
     db.session.commit()
 
-    return jsonify({"message": "Usuario eliminado exitosamente"}), 200
