@@ -52,17 +52,11 @@ export const Navbar = ({ selectedItems = [] }) => {
                     <>
                         {/* <h1 className="navbar-brand h1RestName mb-0 d-flex"> */}
                             < DropNavigation />
-<<<<<<< HEAD
-                            {/* {formData.nombre_restaurante || "El nombre de tu restaurante"}
-                        </h1> */}
-                        <img src={imagenLogo} alt="Logo" style={{ height: "60px" }} />
-=======
                             {formData.nombre_restaurante || "El nombre de tu restaurante"}
-                        </h1>
+                       { /* {</h1>} */ }
                         <img 
                         src="https://i.ibb.co/Lg48MjM/imagen-Logo.png"  alt="Logo" 
                         style={{ height: "60px" }} />
->>>>>>> imagenAPI
                     </>
                 );
             case "/tableMenu":
@@ -70,15 +64,9 @@ export const Navbar = ({ selectedItems = [] }) => {
                     <>
                         {/* <h1 className="navbar-brand h1RestName mb-0 d-flex me-3"> */}
                             < DropNavigation />
-<<<<<<< HEAD
-                            {/* {formData.nombre_restaurante || "El nombre de tu restaurante"} */}
-                        {/* </h1> */}
-                        <img src={imagenLogo} alt="Logo" style={{ height: "60px" }} />
-=======
                             {formData.nombre_restaurante || "El nombre de tu restaurante"}
-                        </h1>
+                        {/*</h1>*/}
                         <img src="https://i.ibb.co/Lg48MjM/imagen-Logo.png" alt="Logo" style={{ height: "60px" }} />
->>>>>>> imagenAPI
                         <div className="ml-auto">
                             <div className="dropdown">
                                 <button className="buttonNavbar dropdown-toggle"
@@ -160,15 +148,9 @@ export const Navbar = ({ selectedItems = [] }) => {
                     <>
                         {/* <h1 className="navbar-brand h1RestName mb-0 d-flex me-3"> */}
                             < DropNavigation />
-<<<<<<< HEAD
-                            {/* {formData.nombre_restaurante || "El nombre de tu restaurante"} */}
-                        {/* </h1> */}
-                        <img src={imagenLogo} alt="Logo" style={{ height: "60px" }} />
-=======
                             {formData.nombre_restaurante || "El nombre de tu restaurante"}
-                        </h1>
+                        {/*</h1>*/}
                         <img src="https://i.ibb.co/Lg48MjM/imagen-Logo.png" alt="Logo" style={{ height: "60px" }} />
->>>>>>> imagenAPI
                         <div className="ml-auto">
                             <Link to="/diningView">
                                 <button className="buttonNavbar">Entrada a Comedor</button>
@@ -181,15 +163,9 @@ export const Navbar = ({ selectedItems = [] }) => {
                     <>
                         {/* <h1 className="navbar-brand h1RestName mb-0 d-flex me-3"> */}
                             < DropNavigation />
-<<<<<<< HEAD
-                            {/* {formData.nombre_restaurante || "El nombre de tu restaurante"} */}
-                        {/* </h1> */}
-                        <img src={imagenLogo} alt="Logo" style={{ height: "60px" }} />
-=======
                             {formData.nombre_restaurante || "El nombre de tu restaurante"}
-                        </h1>
+                        {/*</h1>*/}
                         <img src="https://i.ibb.co/Lg48MjM/imagen-Logo.png" alt="Logo" style={{ height: "60px" }} />
->>>>>>> imagenAPI
                         <div className="ml-auto">
                             <Link to="/menuItems">
                                 <button className="buttonNavbar">Regresar al Menu</button>

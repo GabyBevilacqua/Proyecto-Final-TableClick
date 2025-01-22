@@ -21,11 +21,7 @@ export const RestRegister = () => {
         email: "",
         password: "",
         codigoAdmin: "",
-<<<<<<< HEAD
         image: "",
-=======
-        image: ""
->>>>>>> imagenAPI
     });
 
     const handleOpenModal = () => setShowModal(true);
@@ -212,11 +208,6 @@ export const RestRegister = () => {
                                     />
                                 </div>
                             </div>
-<<<<<<< HEAD
-
-
-=======
->>>>>>> imagenAPI
                             <div className="row mb-3 align-items-center">
                                 <label htmlFor="subirArchivo" className="col-md-4 col-form-label text-end">
                                     Cargar imagen o logo del restaurante:
