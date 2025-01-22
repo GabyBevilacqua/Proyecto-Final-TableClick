@@ -81,6 +81,8 @@ def upload_image():
     try:
        #desde el objeto recibido
         result = cloudinary.uploader.upload(file)
+        
+        
         return jsonify({
             'message': 'Image uploaded successfully',
             'url': result['secure_url']

@@ -25,32 +25,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			menuData: {
 
 
-				Bebidas: [
-					{
-						idProduct: "001", name: "Agua", description: "1L", price: "2,50€",
-						image: "https://financialfood.es/wp-content/uploads/2024/04/Solan-de-Cabras_Campana-220424.jpg", quantity: 1
-					},
-					{
-						idProduct: "002", name: "Cerveza", description: "33Cl", price: "3,00€",
-						image: "https://yt3.googleusercontent.com/8fMR1gkzE7hf2sugNVo8Kjiykh8IoUZ1ICQ_-T0tZ6OZt9s13l1aLiTVTmJy4oQtumcmORD1=s900-c-k-c0x00ffffff-no-rj", quantity: 1
-					},
-					{
-						idProduct: "003", name: "Fanta", description: "33Cl", price: "2,50€",
-						image: "https://www.greekorico.com/wp-content/uploads/sites/652/2022/10/fanta-limon.png", quantity: 1
-					},
-					{
-						idProduct: "004", name: "Acuarius", description: "33Cl", price: "2,50€",
-						image: "https://www.lasansi.com/media/items/big/3c2c7-logomarcas-aquarius-naranja.jpg", quantity: 1
-					},
-					{
-						idProduct: "017", name: "Cerveza 0,0", description: "33Cl", price: "3,00€",
-						image: "https://yt3.googleusercontent.com/X9psilJdOXeD2-TrXTCBeFKN3In4v-ltfPypUYQst7wZAxM1f7EmQKjmaQLyNe8lRLaFvqlE=s900-c-k-c0x00ffffff-no-rj", quantity: 1
-					},
-					{
-						idProduct: "018", name: "Coca-cola", description: "33Cl", price: "2,80€",
-						image: "https://www.cocacolaep.com/assets/legacy-assets/Uploads/resources/Coca-Cola-1210.jpg", quantity: 1
-					},
-				],
+				
 				Entrantes: [
 					{
 						idProduct: "005", name: "Bruschetta", description: "Pan asado frotado con ajo y cubierto con AOVE . 2uds", price: "6,50€",
@@ -103,6 +78,32 @@ const getState = ({ getStore, getActions, setStore }) => {
 					{
 						idProduct: "016", name: "Flan casero", description: "Flan cremoso con caramelo líquido.", price: "5,50€",
 						image: "https://imag.bonviveur.com/flan-de-huevo-listo-para-degustar.jpg", quantity: 1
+					},
+				],
+				Bebidas: [
+					{
+						idProduct: "001", name: "Agua", description: "1L", price: "2,50€",
+						image: "https://financialfood.es/wp-content/uploads/2024/04/Solan-de-Cabras_Campana-220424.jpg", quantity: 1
+					},
+					{
+						idProduct: "002", name: "Cerveza", description: "33Cl", price: "3,00€",
+						image: "https://yt3.googleusercontent.com/8fMR1gkzE7hf2sugNVo8Kjiykh8IoUZ1ICQ_-T0tZ6OZt9s13l1aLiTVTmJy4oQtumcmORD1=s900-c-k-c0x00ffffff-no-rj", quantity: 1
+					},
+					{
+						idProduct: "003", name: "Fanta", description: "33Cl", price: "2,50€",
+						image: "https://www.greekorico.com/wp-content/uploads/sites/652/2022/10/fanta-limon.png", quantity: 1
+					},
+					{
+						idProduct: "004", name: "Acuarius", description: "33Cl", price: "2,50€",
+						image: "https://www.lasansi.com/media/items/big/3c2c7-logomarcas-aquarius-naranja.jpg", quantity: 1
+					},
+					{
+						idProduct: "017", name: "Cerveza 0,0", description: "33Cl", price: "3,00€",
+						image: "https://yt3.googleusercontent.com/X9psilJdOXeD2-TrXTCBeFKN3In4v-ltfPypUYQst7wZAxM1f7EmQKjmaQLyNe8lRLaFvqlE=s900-c-k-c0x00ffffff-no-rj", quantity: 1
+					},
+					{
+						idProduct: "018", name: "Coca-cola", description: "33Cl", price: "2,80€",
+						image: "https://www.cocacolaep.com/assets/legacy-assets/Uploads/resources/Coca-Cola-1210.jpg", quantity: 1
 					},
 				],
 			},

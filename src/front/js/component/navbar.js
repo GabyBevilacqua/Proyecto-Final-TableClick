@@ -96,7 +96,9 @@ export const Navbar = ({ selectedItems = [] }) => {
                             < DropNavigation />
                             {formData.nombre_restaurante || "El nombre de tu restaurante"}
                         </h1>
-                        <img src={imagenLogo} alt="Logo" style={{ height: "60px" }} />
+                        <img 
+                        src={imagenLogo} alt="Logo" 
+                        style={{ height: "60px" }} />
                     </>
                 );
             case "/tableMenu":
