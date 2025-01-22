@@ -226,7 +226,7 @@ export const RestRegister = () => {
                             <div className="text-center">
                                 <button type="submit"
                                     className="button2 w-100">
-                                    Salvar
+                                    Guardar
                                 </button>
                             </div>
                         </form>

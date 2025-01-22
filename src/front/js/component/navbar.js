@@ -1,6 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import imagenLogo from "../../img/imagenLogo.png";
 import "../../styles/navbar.css";
 import { Context } from '../store/appContext';
 import { DropNavigation } from "./dropNavigation";
@@ -38,48 +37,6 @@ export const Navbar = ({ selectedItems = [] }) => {
         }
     }, []);
 
-    // const handleNotification = () => {
-
-    //     <div className="notifications-container">
-    //     <div className="success">
-    //       <div className="flex">
-    //         <div className="flex-shrink-0">
-    //           <svg
-    //             aria-hidden="true"
-    //             fill="currentColor"
-    //             viewBox="0 0 20 20"
-    //             xmlns="http://www.w3.org/2000/svg"
-    //             className="success-svg"
-    //           >
-    //             <path
-    //               clip-rule="evenodd"
-    //               d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-    //               fill-rule="evenodd"
-    //             ></path>
-    //           </svg>
-    //         </div>
-    //         <div className="success-prompt-wrap">
-    //           <p className="success-prompt-heading">
-    //             Order completed
-    //             <span className="checkmark">✓</span>
-    //           </p>
-    //           <div className="success-prompt-prompt">
-    //             <h1>
-    //              PEDIDO ENVIADO CON ÉXITO!
-    //             </h1>
-    //           </div>
-    //           <div className="success-button-container">
-    //             <button className="success-button-main" type="button">View status</button>
-    //             <button className="success-button-secondary" type="button">
-    //               Dismiss
-    //             </button>
-    //           </div>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </div>
-    //   };
-   
     const deleteDropdownItem = ( index) => {
         const updatedItems =  store.selectedItems.filter((_, i) => i !== index);
         actions.updateSelectedItems(updatedItems);
@@ -97,7 +54,7 @@ export const Navbar = ({ selectedItems = [] }) => {
                             {formData.nombre_restaurante || "El nombre de tu restaurante"}
                         </h1>
                         <img 
-                        src={imagenLogo} alt="Logo" 
+                        src="https://i.ibb.co/Lg48MjM/imagen-Logo.png"  alt="Logo" 
                         style={{ height: "60px" }} />
                     </>
                 );
@@ -108,7 +65,7 @@ export const Navbar = ({ selectedItems = [] }) => {
                             < DropNavigation />
                             {formData.nombre_restaurante || "El nombre de tu restaurante"}
                         </h1>
-                        <img src={imagenLogo} alt="Logo" style={{ height: "60px" }} />
+                        <img src="https://i.ibb.co/Lg48MjM/imagen-Logo.png" alt="Logo" style={{ height: "60px" }} />
                         <div className="ml-auto">
                             <div className="dropdown">
                                 <button className="buttonNavbar dropdown-toggle"
@@ -194,7 +151,7 @@ export const Navbar = ({ selectedItems = [] }) => {
                             < DropNavigation />
                             {formData.nombre_restaurante || "El nombre de tu restaurante"}
                         </h1>
-                        <img src={imagenLogo} alt="Logo" style={{ height: "60px" }} />
+                        <img src="https://i.ibb.co/Lg48MjM/imagen-Logo.png" alt="Logo" style={{ height: "60px" }} />
                         <div className="ml-auto">
                             <Link to="/diningView">
                                 <button className="buttonNavbar">Entrada a Comedor</button>
@@ -209,7 +166,7 @@ export const Navbar = ({ selectedItems = [] }) => {
                             < DropNavigation />
                             {formData.nombre_restaurante || "El nombre de tu restaurante"}
                         </h1>
-                        <img src={imagenLogo} alt="Logo" style={{ height: "60px" }} />
+                        <img src="https://i.ibb.co/Lg48MjM/imagen-Logo.png" alt="Logo" style={{ height: "60px" }} />
                         <div className="ml-auto">
                             <Link to="/menuItems">
                                 <button className="buttonNavbar">Regresar al Menu</button>
