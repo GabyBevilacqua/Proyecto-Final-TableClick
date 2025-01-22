@@ -3,7 +3,7 @@ import { Context } from "../store/appContext";
 import "../../styles/home.css";
 import "../../styles/preLogin.css"
 import { Link, useNavigate } from "react-router-dom";
-import tableClick01 from "../../img/tableClick01.png";
+
 
 //formulario de entrada para admin con su codigo o para las tables
 
@@ -32,7 +32,7 @@ export const SecLogin = () => {
     return (
         <div>
             <div className="text-center mt-3">
-                <img src={tableClick01} alt="Logoapp" style={{ height: "120px" }} />
+                <img src="https://i.ibb.co/JkMCt7P/table-Click01.png" alt="Logoapp" style={{ height: "120px" }} />
             </div>
 
 
