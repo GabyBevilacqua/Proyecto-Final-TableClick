@@ -63,7 +63,7 @@ export const PreLogin = () => {
 								
 							</div>
 							<div className="text-center mt-5 mb-3">
-								<Link to="/">
+								<Link to="/request-reset-password">
 									<span className="span text-white text-center">Recuperar contraseña</span>
 								</Link>
 							</div>
