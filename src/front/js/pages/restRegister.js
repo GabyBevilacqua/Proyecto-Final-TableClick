@@ -11,6 +11,7 @@ export const RestRegister = () => {
     const { actions } = useContext(Context);
     const navigate = useNavigate()
     const [error, setError] = useState("");
+    const [showModal, setShowModal] = useState(false);
     const [formData, setFormData] = useState({
         nombrePersonal: "",
         username: "",
@@ -20,12 +21,12 @@ export const RestRegister = () => {
         email: "",
         password: "",
         codigoAdmin: "",
+<<<<<<< HEAD
         image: "",
+=======
+        image: ""
+>>>>>>> imagenAPI
     });
-
-
-
-    const [showModal, setShowModal] = useState(false);
 
     const handleOpenModal = () => setShowModal(true);
     const handleCloseModal = () => setShowModal(false);
@@ -34,41 +35,6 @@ export const RestRegister = () => {
         const { id, value } = e.target;
         setFormData({ ...formData, [id]: value });
     };
-
-    /*  
-    
-    
-    const handleSubmit = async (e) => {
-          e.preventDefault();
-          const response = await fetch("http://localhost:5000/api/register", {
-              method: "POST",
-              headers: {
-                  "Content-Type": "application/json"
-              },
-              body: JSON.stringify(formData)
-          });
-  
-          if (response.ok) {
-              navigate("/secLogin");
-          } else {
-              alert("Error al registrar el usuario");
-          }
-      }; 
-      
-                 const data = await response.json();
-              setError(data.message);
-  
-    const handleSubmit = async (e) => {
-          e.preventDefault();
-          const success = await actions.registerUser(formData);
-          if (success) {
-              navigate("/menusView");
-          } else {
-              alert("Error al registrar el usuario");
-          }
-      };
-  
-      */
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -246,8 +212,11 @@ export const RestRegister = () => {
                                     />
                                 </div>
                             </div>
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> imagenAPI
                             <div className="row mb-3 align-items-center">
                                 <label htmlFor="subirArchivo" className="col-md-4 col-form-label text-end">
                                     Cargar imagen o logo del restaurante:
@@ -266,7 +235,7 @@ export const RestRegister = () => {
                             <div className="text-center">
                                 <button type="submit"
                                     className="button2 w-100">
-                                    Salvar
+                                    Guardar
                                 </button>
                             </div>
                         </form>
