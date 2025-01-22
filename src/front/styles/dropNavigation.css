@@ -5,7 +5,6 @@
     width: fit-content;
     display: flex;
     list-style: none;
-    
   }
   
   .menu a {
@@ -83,6 +82,7 @@
     pointer-events: auto;
     border-top: transparent;
     border-color: #0a3cff;
+    
   }
   
   .menu .item:hover .link {
@@ -139,6 +139,7 @@
   .submenu .submenu-link:hover:before {
     transform: scaleX(1);
     transform-origin: right;
+    
   }
   
   .submenu .submenu-link:hover {

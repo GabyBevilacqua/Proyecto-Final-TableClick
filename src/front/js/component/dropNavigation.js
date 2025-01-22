@@ -43,10 +43,10 @@ export const DropNavigation = () => {
 
 
     return (
-        <div className="menu">
+        <div className="menu ">
             <div className="item">
-                <a href="#" className="link">
-                    <span>{formData.nombre_restaurante || "El nombre de tu restaurante"}</span>
+                <a href="#" className="link mt-2">
+                    <span><h1>{formData.nombre_restaurante || "El nombre de tu restaurante"}</h1></span>
                     <svg viewBox="0 0 360 360" xmlSpace="preserve">
                         <g id="SVGRepo_iconCarrier">
                             <path
@@ -56,7 +56,7 @@ export const DropNavigation = () => {
                         </g>
                     </svg>
                 </a>
-                <div className="submenu">
+                <div className="submenu ">
                     <div className="submenu-item">
                         <Link to="/">
                             <a href="#" className="submenu-link"> Home </a>
