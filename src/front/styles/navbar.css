@@ -1,0 +1,361 @@
+.buttonNavbar {
+  display: inline-block;
+  transition: all 0.2s ease-in;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  color: #090909;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 0.5em;
+  background: #e8e8e8;
+  border: 1px solid #e8e8e8;
+  /* box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff; */
+}
+
+.buttonNavbar:active {
+  color: #666;
+  box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+}
+
+.buttonNavbar:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) scaleY(1) scaleX(1.25);
+  top: 100%;
+  width: 140%;
+  height: 180%;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 50%;
+  display: block;
+  transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+  z-index: -1;
+}
+
+.buttonNavbar:after {
+  content: "";
+  position: absolute;
+  left: 55%;
+  transform: translateX(-50%) scaleY(1) scaleX(1.45);
+  top: 180%;
+  width: 160%;
+  height: 190%;
+  background-color: #203953;
+  border-radius: 50%;
+  display: block;
+  transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+  z-index: -1;
+}
+
+.buttonNavbar:hover {
+  color: #ffffff;
+  border: 1px solid #203953;
+}
+
+.buttonNavbar:hover:before {
+  top: -35%;
+  background-color: #203953;
+  transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+}
+
+.buttonNavbar:hover:after {
+  top: -45%;
+  background-color: #203953;
+  transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+}
+
+.dropdown-menu {
+  background-color: #0F2C3D !important;
+  /* Fondo del dropdown */
+  /*color: #ffffff; /* Color del texto */
+
+}
+
+.dropdown-menu .dropdown-item {
+  color: #ffffff;
+  /* Color del texto  */
+}
+
+.dropdown-menu .dropdown-item:hover {
+  background-color: #184661;
+  /* Fondo del elemento al pasar el cursor */
+  color: #ffffff;
+  /* Color del texto al pasar el cursor */
+}
+
+.space-between {
+  display: flex;
+  /* Habilita el modelo de caja flexbox */
+  justify-content: space-between;
+  /* Agrega espacio entre el texto y el botón */
+  align-items: center;
+  /* Alinea verticalmente los elementos */
+}
+
+.buttonDropdown {
+  display: inline-block;
+  transition: all 0.2s ease-in;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  color: #090909;
+  /*padding: 0.5em 1em;*/
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 0.5em;
+  background: #90abc5;
+  border: 1px solid #e8e8e8;
+  /* box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff; */
+}
+
+.buttonDropdown:active {
+  color: #666;
+  box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+}
+
+.buttonDropdown:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) scaleY(1) scaleX(1.25);
+  top: 100%;
+  width: 140%;
+  height: 180%;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 50%;
+  display: block;
+  transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+  z-index: -1;
+}
+
+.buttonDropdown:after {
+  content: "";
+  position: absolute;
+  left: 55%;
+  transform: translateX(-50%) scaleY(1) scaleX(1.45);
+  top: 180%;
+  width: 160%;
+  height: 190%;
+  background-color: #203953;
+  border-radius: 50%;
+  display: block;
+  transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+  z-index: -1;
+}
+
+.buttonDropdown:hover {
+  color: #ffffff;
+  border: 1px solid #203953;
+}
+
+.buttonDropdown:hover:before {
+  top: -35%;
+  background-color: #203953;
+  transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+}
+
+.buttonDropdown:hover:after {
+  top: -45%;
+  background-color: #203953;
+  transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+}
+
+
+.bin-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 35px;
+  border-radius: 15px;
+  background-color: rgb(255, 95, 95);
+  cursor: pointer;
+  border: 3px solid rgb(255, 201, 201);
+  transition-duration: 0.3s;
+}
+
+.bin-bottom {
+  width: 15px;
+}
+
+.bin-top {
+  width: 17px;
+  transform-origin: right;
+  transition-duration: 0.3s;
+}
+
+.bin-button:hover .bin-top {
+  transform: rotate(45deg);
+}
+
+.bin-button:hover {
+  background-color: rgb(255, 0, 0);
+}
+
+.bin-button:active {
+  transform: scale(0.9);
+}
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////**/
+
+.notifications-container {
+  width: 320px;
+  height: auto;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  animation: slideIn 0.4s ease-out;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+
+.success {
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+  background-color: rgb(240 253 244);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(74, 222, 128, 0.2);
+}
+
+.success:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.success-svg {
+  color: rgb(74 222 128);
+  width: 1.5rem;
+  height: 1.5rem;
+  filter: drop-shadow(0 0 8px rgba(74, 222, 128, 0.4));
+  animation: pulse 2s infinite;
+}
+
+.success-prompt-wrap {
+  margin-left: 1rem;
+}
+
+.success-prompt-heading {
+  font-weight: 700;
+  color: rgb(22 101 52);
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.checkmark {
+  color: rgb(74 222 128);
+  animation: scaleCheck 0.3s ease-in-out;
+}
+
+.success-prompt-prompt {
+  margin-top: 0.75rem;
+  color: rgb(21 128 61);
+  line-height: 1.5;
+}
+
+.success-button-container {
+  display: flex;
+  margin-top: 1rem;
+  gap: 0.75rem;
+}
+
+.success-button-main {
+  padding: 0.5rem 1rem;
+  background-color: rgb(22 101 52);
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  border: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(22, 101, 52, 0.2);
+}
+
+.success-button-main:hover {
+  background-color: rgb(21 128 61);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(22, 101, 52, 0.3);
+}
+
+.success-button-secondary {
+  padding: 0.5rem 1rem;
+  background-color: rgb(240 253 244);
+  color: rgb(22 101 52);
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(22, 101, 52, 0.2);
+  transition: all 0.2s ease;
+}
+
+.success-button-secondary:hover {
+  background-color: rgb(220, 243, 234);
+  border-color: rgba(22, 101, 52, 0.3);
+  transform: translateY(-1px);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleCheck {
+  0% {
+    transform: scale(0);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Dodajemy efekt ripple dla przycisków */
+.success-button-main:active,
+.success-button-secondary:active {
+  transform: scale(0.95);
+}
+
+.h1RestName {
+  color: white;
+  font-size: 2.5rem;
+  font-family: "Kanit", serif;
+  font-style: normal;
+}

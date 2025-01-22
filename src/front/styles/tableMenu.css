@@ -1,0 +1,134 @@
+/* Estilo general del contenedor */
+.menu-container {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contenedorImagen {
+    background-image: url('/workspaces/Proyecto-final-G-J-C-F/src/front/img/fondoComida01.jpg');
+    /* Ruta a tu imagen */
+    background-size: cover;
+    /* Ajusta la imagen para cubrir todo el contenedor */
+    background-repeat: no-repeat;
+    /* No repite la imagen */
+    background-position: center;
+    /* Centra la imagen */
+}
+
+/* Título del menú */
+.menu-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+/* Tabs */
+.menu-tabs .nav-link {
+    color: #ffffff;
+}
+
+.menu-tabs .nav-link.active {
+    background-color: #7297B4;
+    color: #fff;
+    border: none;
+}
+
+/* Estilo de los items del menú */
+.menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #7297B4;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.menu-item-info {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.menu-item-info h5 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.menu-item-info p {
+    font-size: 14px;
+    color: #6c757d;
+}
+
+/* Imagen del menú */
+.menu-item-image {
+    width: 170px;
+    height: 120px;
+    background-color: #eaeaea;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 12px;
+    color: #6c757d;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+/* Acciones del menú */
+.menu-item-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* centrados */
+    gap: 8px;
+    /* Espacio entre los elementos */
+}
+
+.menu-item-quantity {
+    width: 60px;
+    text-align: center;
+}
+
+.welcome-tab {
+    background-color: #7297B4;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    height: 550px;
+    text-align: center;
+    margin: 5px;
+}
+
+.welcome-tab h2 {
+    text-align: center;
+    color: white;
+
+}
+
+.welcome-tab text {
+    fill: white;
+}
+
+.welcome-tab p {
+    color: white;
+}
+
+.carousel {
+    max-height: 200px;
+    /* Ajusta esta altura según tus necesidades */
+    overflow: hidden;
+}
+
+.carousel img {
+    max-height: 200px;
+    /* Asegúrate de que las imágenes no excedan la altura del carrusel */
+    object-fit: cover;
+    /* Ajusta la imagen para cubrir el contenedor sin distorsionarse */
+    width: 100%;
+    /* Asegúrate de que las imágenes ocupen todo el ancho del carrusel */
+}

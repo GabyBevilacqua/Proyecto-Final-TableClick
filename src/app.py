@@ -10,6 +10,15 @@ from api.models import db
 from api.routes import api
 from api.admin import setup_admin
 from api.commands import setup_commands
+import cloudinary
+import cloudinary.uploader
+from cloudinary.utils import cloudinary_url
+from flask_jwt_extended import JWTManager
+from datetime import timedelta
+from flask_mail import Mail, Message
+from flask_jwt_extended import JWTManager, jwt_required, create_access_token, get_jwt_identity
+import base64  
+from flask_cors import CORS
 
 # from models import Person
 
@@ -17,6 +26,19 @@ ENV = "development" if os.getenv("FLASK_DEBUG") == "1" else "production"
 static_file_dir = os.path.join(os.path.dirname(
     os.path.realpath(__file__)), '../public/')
 app = Flask(__name__)
+
+CORS(app)
+
+app.config.update(
+    MAIL_SERVER='smtp.gmail.com',
+    MAIL_PORT=587,
+    MAIL_USE_TLS=True,
+    MAIL_USERNAME='shaerkbladex@gmail.com',
+    MAIL_PASSWORD='rsgf dwgh clck icvc'
+)
+
+mail = Mail(app)
+jwt = JWTManager(app)
 app.url_map.strict_slashes = False
 
 # database condiguration
@@ -31,15 +53,72 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 MIGRATE = Migrate(app, db, compare_type=True)
 db.init_app(app)
 
+#------------------------------------------------------------------------------------------
+
+#https://res.cloudinary.com/dzqgni1qi/image/upload/v1737052700/hat.png
+
+# cloudinary configuration
+# Configuration       
+cloudinary.config( 
+    cloud_name = "dzqgni1qi", 
+    api_key = "782366222663955", 
+    api_secret = os.getenv("CLOUDINARY_API_SECRET"), # Click 'View API Keys' above to copy your API secret
+    secure=True
+)
+
+
+@app.route('/upload-image', methods=['POST'])
+def upload_image():
+    
+    if 'file' not in request.files:
+        return jsonify({'error': 'No file part in the request'}), 400
+
+    file = request.files['file']  # Este es un objeto tipo FileStorage
+
+    if file.filename == '':
+        return jsonify({'error': 'No selected file'}), 400
+
+    try:
+       #desde el objeto recibido
+        result = cloudinary.uploader.upload(file)
+        return jsonify({
+            'message': 'Image uploaded successfully',
+            'url': result['secure_url']
+        })
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+    
+    
+# Upload an image
+#upload_result = cloudinary.uploader.upload("src/front/img/imagenLogo.png",
+ #                                          public_id="hat")
+#print(upload_result["secure_url"])
+
+
+
+# Optimize delivery by resizing and applying auto-format and auto-quality
+optimize_url, _ = cloudinary_url("hat", fetch_format="auto", quality="auto")
+print(optimize_url)
+
+# Transform the image: auto-crop to square aspect_ratio
+auto_crop_url, _ = cloudinary_url("hat", width=500, height=500, crop="auto", gravity="auto")
+print(auto_crop_url)
+
+#------------------------------------------------------------------------------------------
+
 # add the admin
 setup_admin(app)
 
 # add the admin
 setup_commands(app)
 
+#-------------------------------------TOKEN----------------------------------------------------
+flask = JWTManager(app)
 # Add all endpoints form the API with a "api" prefix
 app.register_blueprint(api, url_prefix='/api')
-
+# app.register_blueprint(api.route, url_prefix='/user')
+app.config["SECRET_KEY"] = "clave secreta"
+app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(minutes=5)
 # Handle/serialize errors like a JSON object
 
 
@@ -55,6 +134,49 @@ def sitemap():
     if ENV == "development":
         return generate_sitemap(app)
     return send_from_directory(static_file_dir, 'index.html')
+
+@app.route('/request-reset-password', methods=['POST'])
+def request_reset_password():
+    email = request.json.get("email")
+    token = create_access_token(identity=email, expires_delta=timedelta(minutes=3))
+    token_byte = token.encode('utf-8')
+    token = base64.b64encode(token_byte)
+    reset_link = f"https://automatic-disco-5g4579xjp97w2qgg-3000.app.github.dev/reset-password/{token}"
+    msg = Message(
+    'Recupera Contraseña',
+    sender=app.config["MAIL_USERNAME"],
+    recipients=[email]
+    )
+
+    msg.html = f'<p>Haga <a href="{reset_link}">click aqui</a> para restablecer contraseña</p>'
+
+    mail.send(msg)
+
+    return jsonify({"message":"Email enviado"})
+
+@app.route('/reset-password', methods=['POST'])
+@jwt_required()
+def reset_password():
+    user_data = request.get_json()
+    email = get_jwt_identity()
+    if user_data['password'] == user_data['confirm-password']:
+        None
+    return "ok", 200 
+
+@app.route('/test-email', methods=['GET'])
+def test_email():
+    email = request.json.get("email")
+    msg = Message(
+        'Recupera Contraseñá',
+        sender=app.config["MAIL_USERNAME"],
+        recipients=[email]
+    )
+
+    msg.html = f"<p>email de prueba</p>"
+
+    mail.send(msg)
+
+    return jsonify({"message":"Mensaje enviado correctamente"})
 
 # any other endpoint will try to serve it like a static file
 @app.route('/<path:path>', methods=['GET'])

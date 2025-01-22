@@ -1,0 +1,333 @@
+.bodyMenuItens{
+    background-color: #203953;
+}
+
+.tituloNombreMenu{
+    color: white;
+    background-color: #567164 ;
+    align-items: center;
+    text-align: center;
+}
+
+.bodyCardItems{
+    align-items: center;
+    
+}
+.cardItems{
+    background-color: #F4F0D1 !important;
+    color: white; 
+}
+
+.liMenuItems{
+    background-color: #F4F0D1 !important;
+    width: 100%;
+    
+}
+.btn-borrar{
+    background-color: #567164;
+    color: white;
+}
+.mesaItems{
+    text-align: center;
+    justify-content: flex-start;
+    width: 155px !important
+    ;
+}
+.inputModalItems{
+    background-color: #F4F0D1;
+}
+
+
+/* //------------------------------------------------// */
+/* //------------------------------------------------// */
+.noselect {
+    width: 100px; /* Reducir ancho */
+    height: 40px; /* Reducir alto */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    background: red;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+    background: #e62222;
+    transition: background 500ms ease; /* Transición más lenta para el fondo */
+}
+
+.noselect, button span {
+    transition: 500ms ease; /* Transición más lenta para todo */
+}
+
+.noselect .text {
+    transform: translateX(25px); /* Ajustar posición del texto */
+    color: white;
+    font-weight: bold;
+    font-size: 0.9rem; /* Reducir tamaño de fuente */
+    transition: color 500ms ease, transform 500ms ease; /* Transición más lenta */
+}
+
+.noselect .icon {
+    position: absolute;
+    border-left: 1px solid #c41b1b;
+    transform: translateX(70px); /* Ajustar posición inicial del icono */
+    height: 30px; /* Reducir alto del icono */
+    width: 30px; /* Reducir ancho del icono */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: width 500ms ease, transform 500ms ease; /* Transición más lenta */
+}
+
+.noselect svg {
+    width: 12px; /* Reducir tamaño del SVG */
+    fill: #eee;
+    transition: transform 500ms ease; /* Transición más lenta */
+}
+
+.noselect:hover {
+    background: #ff3636;
+}
+
+.noselect:hover .text {
+    color: transparent;
+}
+
+.noselect:hover .icon {
+    width: 100px; /* Ajustar para coincidir con el nuevo ancho */
+    transform: translateX(0);
+}
+
+.noselect:focus {
+    outline: none;
+}
+
+.noselect:active .icon svg {
+    transform: scale(0.8);
+}
+
+   
+/* //------------------------------------------------// */
+/* //------------------------------------------------// */
+.edit-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgb(20, 20, 20);
+    border: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+    cursor: pointer;
+    transition-duration: 0.3s;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none !important;
+  }
+  
+  .edit-svgIcon {
+    width: 17px;
+    transition-duration: 0.3s;
+  }
+  
+  .edit-svgIcon path {
+    fill: white;
+  }
+  
+  .edit-button:hover {
+    width: 120px;
+    border-radius: 50px;
+    transition-duration: 0.3s;
+    background-color: rgb(255, 69, 69);
+    align-items: center;
+  }
+  
+  .edit-button:hover .edit-svgIcon {
+    width: 20px;
+    transition-duration: 0.3s;
+    transform: translateY(60%);
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+  
+  .edit-button::before {
+    display: none;
+    content: "Edit";
+    color: white;
+    transition-duration: 0.3s;
+    font-size: 2px;
+  }
+  
+  .edit-button:hover::before {
+    display: block;
+    padding-right: 10px;
+    font-size: 13px;
+    opacity: 1;
+    transform: translateY(0px);
+    transition-duration: 0.3s;
+  }
+  /* //------------------------------------------------// */
+/* //------------------------------------------------// */
+.toggler {
+    width: 72px;
+    margin: 40px auto;
+  }
+  
+  .toggler input {
+    display: none;
+  }
+  
+  .toggler label {
+    display: block;
+    position: relative;
+    width: 72px;
+    height: 36px;
+    border: 1px solid #d6d6d6;
+    border-radius: 36px;
+    background: #e4e8e8;
+    cursor: pointer;
+  }
+  
+  .toggler label::after {
+    display: block;
+    border-radius: 100%;
+    background-color: #d7062a;
+    content: '';
+    animation-name: toggler-size;
+    animation-duration: 0.15s;
+    animation-timing-function: ease-out;
+    animation-direction: forwards;
+    animation-iteration-count: 1;
+    animation-play-state: running;
+  }
+  
+  .toggler label::after, .toggler label .toggler-on, .toggler label .toggler-off {
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    width: 26px;
+    height: 26px;
+    transform: translateY(-50%) translateX(-50%);
+    transition: left 0.15s ease-in-out, background-color 0.2s ease-out, width 0.15s ease-in-out, height 0.15s ease-in-out, opacity 0.15s ease-in-out;
+  }
+  
+  .toggler input:checked + label::after, .toggler input:checked + label .toggler-on, .toggler input:checked + label .toggler-off {
+    left: 75%;
+  }
+  
+  .toggler input:checked + label::after {
+    background-color: #50ac5d;
+    animation-name: toggler-size2;
+  }
+  
+  .toggler .toggler-on, .toggler .toggler-off {
+    opacity: 1;
+    z-index: 2;
+  }
+  
+  .toggler input:checked + label .toggler-off, .toggler input:not(:checked) + label .toggler-on {
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  
+  .toggler .path {
+    fill: none;
+    stroke: #fefefe;
+    stroke-width: 7px;
+    stroke-linecap: round;
+    stroke-miterlimit: 10;
+  }
+  
+  @keyframes toggler-size {
+    0%, 100% {
+      width: 26px;
+      height: 26px;
+    }
+  
+    50% {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  
+  @keyframes toggler-size2 {
+    0%, 100% {
+      width: 26px;
+      height: 26px;
+    }
+  
+    50% {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+    /* //------------------------------------------------// */
+/* //------------------------------------------------// */
+.card44 {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    perspective: 1000px;
+    box-shadow: 0 0 0 5px #ffffff80;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  .card44 svg {
+    width: 48px;
+    fill: #333;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  .card44:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+  }
+  
+  .card__content44 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #f2f2f2;
+    transform: rotateX(-90deg);
+    transform-origin: bottom;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  .card44:hover .card__content44 {
+    transform: rotateX(0deg);
+  }
+  
+  .card__title44 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+    font-weight: 700;
+  }
+  
+  .card44:hover svg {
+    scale: 0;
+  }
+  
+  .card__description44 {
+    margin: 10px 0 0;
+    font-size: 14px;
+    color: #777;
+    line-height: 1.4;
+  }
+  
