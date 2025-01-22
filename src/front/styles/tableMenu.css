@@ -7,7 +7,6 @@
 }
 
 .contenedorImagen {
-    background-image: url('/workspaces/Proyecto-final-G-J-C-F/src/front/img/fondoComida01.jpg');
     /* Ruta a tu imagen */
     background-size: cover;
     /* Ajusta la imagen para cubrir todo el contenedor */
