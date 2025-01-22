@@ -17,9 +17,10 @@ export const CardsItem3 = () => {
         }
     }, [store.menuData]);
 
-    const handleAddItem = (item, quantity) => {
-        setSelectedItems([...selectedItems, { ...item, quantity }]);
-    };
+    // const handleAddItem = (item, quantity) => {
+    //     setSelectedItems([...selectedItems, { ...item, quantity }]);
+    // };
+    
 
     const handleDelete = (index) => { 
         const updatedItems = selectedItems.filter((_, itemIndex) => itemIndex !== index); 
