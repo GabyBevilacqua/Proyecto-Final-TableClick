@@ -19,6 +19,7 @@ import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import ResetPassword from "./pages/resetPassword";
+import RequestPasswordReset from "./pages/requestPasswordRest";
 
 
 //create your first component
@@ -53,7 +54,8 @@ const Layout = () => {
                         <Route element={<TableMenu />} path="/tableMenu" />
                         <Route element={<Demo />} path="/demo" />
                         <Route element={<Single />} path="/single/:theid" />
-                        <Route element={<ResetPassword />} path="/reset-password/:token" />
+                        <Route element={<RequestPasswordReset />} path="/request-reset-password" />
+                        <Route element={<ResetPassword />} path="/reset-password/:encoded_token" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                     <Footer />

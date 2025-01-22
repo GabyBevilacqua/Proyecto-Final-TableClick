@@ -6,7 +6,7 @@ from flask import Flask, request, jsonify, url_for, send_from_directory
 from flask_migrate import Migrate
 from flask_swagger import swagger
 from api.utils import APIException, generate_sitemap
-from api.models import db
+from api.models import db, User
 from api.routes import api
 from api.admin import setup_admin
 from api.commands import setup_commands
@@ -18,6 +18,9 @@ from datetime import timedelta
 from flask_mail import Mail, Message
 from flask_jwt_extended import JWTManager, jwt_required, create_access_token, get_jwt_identity
 import base64  
+from werkzeug.security import generate_password_hash
+from flask_cors import CORS
+
 
 # from models import Person
 
@@ -25,7 +28,9 @@ ENV = "development" if os.getenv("FLASK_DEBUG") == "1" else "production"
 static_file_dir = os.path.join(os.path.dirname(
     os.path.realpath(__file__)), '../public/')
 app = Flask(__name__)
+CORS(app) 
 
+# esta parte es para la configuracion de el flask-mail
 app.config.update(
     MAIL_SERVER='smtp.gmail.com',
     MAIL_PORT=587,
@@ -107,13 +112,23 @@ def sitemap():
         return generate_sitemap(app)
     return send_from_directory(static_file_dir, 'index.html')
 
+
+
 @app.route('/request-reset-password', methods=['POST'])
 def request_reset_password():
     email = request.json.get("email")
+    print(email)
+    
+    user = User.query.filter_by(email=email).first()
+    if not user:
+        return jsonify({"message":"El email no está en la base de datos"})
+    
     token = create_access_token(identity=email, expires_delta=timedelta(minutes=3))
     token_byte = token.encode('utf-8')
-    token = base64.b64encode(token_byte)
-    reset_link = f"https://automatic-disco-5g4579xjp97w2qgg-3000.app.github.dev/reset-password/{token}"
+    encoded_token = base64.b64encode(token_byte)
+    print(token)
+
+    reset_link = f"https://automatic-disco-5g4579xjp97w2qgg-3000.app.github.dev/reset-password/{encoded_token}"
     msg = Message(
     'Recupera Contraseña',
     sender=app.config["MAIL_USERNAME"],
@@ -127,28 +142,35 @@ def request_reset_password():
     return jsonify({"message":"Email enviado"})
 
 @app.route('/reset-password', methods=['POST'])
+# @jwt_required(): 
+# hace que la solicitud requiera un token JWT válido el cual identifica al usuario de la solicitud
 @jwt_required()
 def reset_password():
-    user_data = request.get_json()
+    
+# Aqui sacamos el email guardado con la informacion del usuario en el token
     email = get_jwt_identity()
-    if user_data['password'] == user_data['confirm-password']:
+
+# Aqui extraemos la informacion con las contraseñas del usuario en formato JSON
+    user_data = request.get_json()
+    if not user_data:
+        return jsonify({"error":"Faltan datos :c"}), 400
+
+    print(email)
+    print(user_data)
+
+# Aqui hacemos que sean iguales las contraseñas 
+    if user_data['password'] == user_data['confirmPassword']:
         None
-    return "ok", 200 
 
-@app.route('/test-email', methods=['GET'])
-def test_email():
-    email = request.json.get("email")
-    msg = Message(
-        'Recupera Contraseñá',
-        sender=app.config["MAIL_USERNAME"],
-        recipients=[email]
-    )
+# Aqui sacamos la informacion de la contraseña del usuario
+    password = user_data.get("password")
+    print(password)
 
-    msg.html = f"<p>email de prueba</p>"
-
-    mail.send(msg)
-
-    return jsonify({"message":"Mensaje enviado correctamente"})
+# Aqui generamos un hash para el password
+    user_data.password = generate_password_hash(password)
+# Guardamos los cambios en la base de datos
+    db.session.commit() 
+    return "ok", 200    
 
 # any other endpoint will try to serve it like a static file
 @app.route('/<path:path>', methods=['GET'])
