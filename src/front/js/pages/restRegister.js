@@ -19,7 +19,8 @@ export const RestRegister = () => {
         telefono: "",
         email: "",
         password: "",
-        codigoAdmin: ""
+        codigoAdmin: "",
+        image: "",
     });
 
 
@@ -224,6 +225,22 @@ export const RestRegister = () => {
                                         id="codigoAdmin"
                                         placeholder="Código admin"
                                         value={formData.codigoAdmin}
+                                        onChange={handleChange}
+                                        required
+                                    />
+                                </div>
+                            </div>
+                            <div className="row mb-3 align-items-center">
+                                <label htmlFor="image" className="col-md-4 col-form-label text-end">
+                                    Imagen:
+                                </label>
+                                <div className="col-md-8">
+                                    <input
+                                        type="text"
+                                        className="form-control inputStyle"
+                                        id="image"
+                                        placeholder="Imagen"
+                                        value={formData.image}
                                         onChange={handleChange}
                                         required
                                     />
