@@ -5,22 +5,21 @@
     flex-direction: row; /* Organiza de izquierda a derecha */
     justify-content: space-evenly;
     padding-top: 20px;
-    background-color: #213852; /* Fondo azul oscuro */
     height: 85vh;
 }
 
 /* Estilo de las tarjetas */
 .cardDining {
-    background-color: #F4F0D1 !important; /* Fondo beige */
-    color: #213852; /* Texto oscuro */
+    background-color: #F4F0D1; /* Fondo beige */
     border-radius: 10px;
+    border-color: #213852;
+    border: 20px;
     padding: 15px;
     width: 245px; /* Tarjetas estrechas */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .containerDining ul {

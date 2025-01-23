@@ -24,37 +24,24 @@ export const EditUser = () => {
 
     const handleOpenModal = () => setShowModal(true);
     const handleCloseModal = () => setShowModal(false);
-    /*
-        useEffect(() => {
-            const fetchUserData = async () => {
-                const userData = await actions.getUserById(userId);
-                if (userData) {
-                    setFormData(userData);
-                }
-            };
-    
-            fetchUserData();
-        }, [userId]);
-    */
 
-
-        useEffect(() => {
-            const fetchUserData = async () => {
-                try {
-                    const user = await actions.getUserById(userId);
-                    if (user) {
-                        console.log("Datos del usuario:", user);
-                        setFormData(user); // Actualiza el formulario con los datos
-                    } else {
-                        alert("No se pudo cargar los datos del usuario.");
-                    }
-                } catch (error) {
-                    console.error("Error al cargar los datos del usuario:", error);
+    useEffect(() => {
+        const fetchUserData = async () => {
+            try {
+                const user = await actions.getUserById(userId);
+                if (user) {
+                    console.log("Datos del usuario:", user);
+                    setFormData(user); // Actualiza el formulario con los datos
+                } else {
+                    alert("No se pudo cargar los datos del usuario.");
                 }
-            };
-        
-            fetchUserData();
-        }, []);
+            } catch (error) {
+                console.error("Error al cargar los datos del usuario:", error);
+            }
+        };
+
+        fetchUserData();
+    }, []);
 
 
 
@@ -68,7 +55,8 @@ export const EditUser = () => {
         try {
             const success = await actions.updateUser(userId, formData);
             if (success) {
-               // navigate("/editUser"); // Navega después de un registro exitoso
+                alert("Usuario actualizado con éxito");
+                // navigate("/editUser"); // Navega después de un registro exitoso
             }
         } catch (error) {
             // Muestra el mensaje de error en una alerta
@@ -76,21 +64,11 @@ export const EditUser = () => {
         }
     };
 
-    /*
-        const handleSubmit = async (e) => {
-            e.preventDefault();
-            const success = await actions.updateUser(userId, formData);
-            if (success) {
-                navigate("/editUser");
-            } else {
-                alert("Error al registrar el usuario");
-            }
-        };
-    */
     const handleDelete = async () => {
         const success = await actions.deleteUser(userId);
         if (success) {
             navigate("/");
+            alert("Usuario eliminado con éxito");
         } else {
             alert("Error al eliminar el usuario");
         }

@@ -192,7 +192,7 @@ export const RestRegister = () => {
                                     />
                                 </div>
                             </div>
-                            <div className="row mb-3 align-items-center">
+                            {     /*   <div className="row mb-3 align-items-center">
                                 <label htmlFor="image" className="col-md-4 col-form-label text-end">
                                     Imagen:
                                 </label>
@@ -207,22 +207,7 @@ export const RestRegister = () => {
                                         required
                                     />
                                 </div>
-                            </div>
-                            <div className="row mb-3 align-items-center">
-                                <label htmlFor="subirArchivo" className="col-md-4 col-form-label text-end">
-                                    Cargar imagen o logo del restaurante:
-                                </label>
-                                <div className="col-md-8 d-flex">
-                                    <button
-                                        id="subirArchivo"
-                                        type="button"
-                                        className="button2"
-                                        onClick={handleOpenModal}
-                                    >
-                                        Subir archivo
-                                    </button>
-                                </div>
-                            </div>
+                            </div>  */}
                             <div className="text-center">
                                 <button type="submit"
                                     className="button2 w-100">
@@ -233,8 +218,6 @@ export const RestRegister = () => {
 
                     </div>
                 </div>
-                {/* Modal Component */}
-                {showModal && <ModalImg onClose={handleCloseModal} />}
             </div>
         </div>
     );

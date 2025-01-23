@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { ModalMenu } from "../modals/modalMenu";
 import { Link } from "react-router-dom";
+import "../../../styles/menusView.css";
 
 const CardMenu = ({ menu, onEdit, onDelete }) => {
     const [showModal, setShowModal] = useState(false);
@@ -11,21 +12,22 @@ const CardMenu = ({ menu, onEdit, onDelete }) => {
     };
 
     return (
-        <div className="card mt-2" style={{ backgroundColor: "#677a9c" }}>
-            <div className="card-body menusViewCard">
+        <div className="card " style={{ backgroundColor: "#7297B4" }}>
+            <div className="card-body menusViewCard" style={{ backgroundColor: "#7297B4" }}>
                 {/* <a className="card-title cardTitleMenusView text-center text-white">
                     {menuName}
                 </a> */}
                 <Link to="/menuItems">
-                    <span className="card-title cardTitleMenusView text-white">{menu.menuName}</span>
+                    <h3 className="card-title cardTitleMenusView text-center text-white">{menu.menuName}</h3>
                 </Link>
                 <div className="d-flex flex-column">
-                    <button
-                        className="button2 m-2"
-                        onClick={() => setShowModal(true)}
-                    >
-                        Editar
-                    </button>
+                    <Link to="/menuItems">
+                        <button
+                            className="button1 m-2 col-11"
+                        >
+                            Editar
+                        </button>
+                    </Link>
                     <button
                         className="button3 m-2"
                         onClick={() => onDelete(menu.id)}

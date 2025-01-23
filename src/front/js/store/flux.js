@@ -25,7 +25,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			menuData: {
 
 
-				
+
 				Entrantes: [
 					{
 						idProduct: "005", name: "Bruschetta", description: "Pan asado frotado con ajo y cubierto con AOVE . 2uds", price: "6,50€",
@@ -170,7 +170,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					throw error; // Lanza el error al componente
 				}
 			},
-			
+
 			//accion para taer todos los usuarios
 
 			getAllUsers: async () => {
@@ -225,7 +225,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					return null;
 				}
 			},
-			
+
 			// Acción para actualizar los datos de un usuario
 
 			updateUser: async (userId, formData) => {
@@ -282,15 +282,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 					const response = await fetch(process.env.BACKEND_URL + "upload-image", {
 						method: "POST",
-					
+
 						body: formData
 					});
 
 					if (response.ok) {
 
 						const data = await response.json();
-						console.log("Imagen subida exitosamente:", data);
-						
+						console.log("Imagen subida exitosamente:", data); // viejo
+
+						await getActions().updateUserProfileImage(data.url); // nuevo
+						return data.url;  //nuevo
+
+						//
 					} else {
 						console.error("Error al subir la imagen");
 					}
@@ -298,9 +302,33 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.error("Error al subir la imagen:", error);
 				}
 			},
-							
 
+			// Acción para actualizar la imagen de perfil del usuario   NUEVO CODIGO
 
+			updateUserProfileImage: async (imageUrl) => {
+				const store = getStore();
+				try {
+					const response = await fetch(`${process.env.BACKEND_URL}update-user-image`, {
+						method: 'PUT',
+						headers: {
+							'Content-Type': 'application/json',
+							'Authorization': `Bearer ${localStorage.getItem('authToken')}` // Incluir el token
+						},
+						body: JSON.stringify({ profile_image: imageUrl })
+					});
+
+					if (response.ok) {
+						const data = await response.json();
+						// Update the user data in the store
+					
+						
+						setStore({ user: { ...store.user, image: imageUrl } });
+						return data;
+					}
+				} catch (error) {
+					console.error("Error updating user image:", error);
+				}
+			},
 
 
 			//------Accion para cargar la seleccion de la mesa---------------------------------
@@ -319,12 +347,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			},
 
-//----------Accion para "cargar" la cantidad de los productos q se seleccionan en la tablet y se vean en el dropdown
+			//----------Accion para "cargar" la cantidad de los productos q se seleccionan en la tablet y se vean en el dropdown
 
 			addSelectedItems: (item) => {
 				const store = getStore();
 				const existingItem = store.selectedItems.find(i => i.idProduct === item.idProduct);
-				
+
 				if (existingItem) {
 					// Si el producto ya existe, actualiza la cantidad
 					const updatedItems = store.selectedItems.map(i =>
@@ -339,78 +367,78 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-		//------Accion para cargar el pedido seleccionado del dropdown al comedor---------
-		// Enviar pedido a cocina (para Mesa 01)
-		
+			//------Accion para cargar el pedido seleccionado del dropdown al comedor---------
+			// Enviar pedido a cocina (para Mesa 01)
 
-		// Acción para enviar pedidos a una mesa específica
-		sendOrderToTable: (table) => {
-			const store = getStore();
-			const currentOrders = store.tablesOrders[table] || [];
-			setStore({
-				tablesOrders: {
-					...store.tablesOrders,
-					[table]: [...currentOrders, ...store.selectedItems],
-				},
-				selectedItems: [], // Limpia el dropdown después de enviar
-			});
-		},
 
-		// Acción para cerrar los pedidos de una mesa
-		clearTableOrders: (table) => {
-			const store = getStore();
-			setStore({
-				tablesOrders: {
-					...store.tablesOrders,
-					[table]: [], // Borra los pedidos de la mesa especificada
-				},
-			});
-		},
-
-		//--------------------------------------------------------------------------------
-		// ACCIONES DE LA PAGINA DE menuItems.js
-
-		// Agregar una nueva mesa
-		addTable: (tableName) => {
-			const store = getStore();
-			setStore({ tables: [...store.tables, tableName] });
-		},
-
-		// Agregar un nuevo ítem
-		addItem: (item) => {
-			const store = getStore();
-			setStore({ items: [...store.items, item] }); // Añade el ítem al estado global
-
-		},
-
-		//ACCIONES DE LA PAGINA DE preLogin.js
-
-		loginUser: async (username, password) => {
-			try {
-				const response = await fetch(process.env.BACKEND_URL + "api/login", {
-					method: "POST",
-					headers: { "Content-Type": "application/json" },
-					body: JSON.stringify({ username, password })
+			// Acción para enviar pedidos a una mesa específica
+			sendOrderToTable: (table) => {
+				const store = getStore();
+				const currentOrders = store.tablesOrders[table] || [];
+				setStore({
+					tablesOrders: {
+						...store.tablesOrders,
+						[table]: [...currentOrders, ...store.selectedItems],
+					},
+					selectedItems: [], // Limpia el dropdown después de enviar
 				});
+			},
 
-				if (response.ok) {
-					const data = await response.json();
-					setStore({ authToken: data.access_token, user: data.user });
-					localStorage.setItem("authToken", data.access_token); // Guarda el token en el almacenamiento local
-					localStorage.setItem("user", JSON.stringify(data.user)); // Guarda los datos del usuario
-					console.log("Login successful!", data);
-					return true; // Indica éxito en el inicio de sesión 
-				} else {
-					console.log("Login failed!");
-					return false; // Indica fracaso en el inicio de sesión 
+			// Acción para cerrar los pedidos de una mesa
+			clearTableOrders: (table) => {
+				const store = getStore();
+				setStore({
+					tablesOrders: {
+						...store.tablesOrders,
+						[table]: [], // Borra los pedidos de la mesa especificada
+					},
+				});
+			},
+
+			//--------------------------------------------------------------------------------
+			// ACCIONES DE LA PAGINA DE menuItems.js
+
+			// Agregar una nueva mesa
+			addTable: (tableName) => {
+				const store = getStore();
+				setStore({ tables: [...store.tables, tableName] });
+			},
+
+			// Agregar un nuevo ítem
+			addItem: (item) => {
+				const store = getStore();
+				setStore({ items: [...store.items, item] }); // Añade el ítem al estado global
+
+			},
+
+			//ACCIONES DE LA PAGINA DE preLogin.js
+
+			loginUser: async (username, password) => {
+				try {
+					const response = await fetch(process.env.BACKEND_URL + "api/login", {
+						method: "POST",
+						headers: { "Content-Type": "application/json" },
+						body: JSON.stringify({ username, password })
+					});
+
+					if (response.ok) {
+						const data = await response.json();
+						setStore({ authToken: data.access_token, user: data.user });
+						localStorage.setItem("authToken", data.access_token); // Guarda el token en el almacenamiento local
+						localStorage.setItem("user", JSON.stringify(data.user)); // Guarda los datos del usuario
+						console.log("Login successful!", data);
+						return true; // Indica éxito en el inicio de sesión 
+					} else {
+						console.log("Login failed!");
+						return false; // Indica fracaso en el inicio de sesión 
+					}
+				} catch (error) {
+					console.error("Error logging in", error);
+					return false;
 				}
-			} catch (error) {
-				console.error("Error logging in", error);
-				return false;
 			}
 		}
-	}
-};
+	};
 };
 
 export default getState;

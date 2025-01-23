@@ -20,6 +20,7 @@ from flask_jwt_extended import JWTManager, jwt_required, create_access_token, ge
 import base64  
 from werkzeug.security import generate_password_hash
 from flask_cors import CORS
+from datetime import timedelta
 
 
 # from models import Person
@@ -40,6 +41,7 @@ app.config.update(
 )
 
 mail = Mail(app)
+app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(days=1)
 jwt = JWTManager(app)
 app.url_map.strict_slashes = False
 
@@ -90,6 +92,31 @@ def upload_image():
             'url': result['secure_url']
         })
     except Exception as e:
+        return jsonify({'error': str(e)}), 500
+    
+@app.route('/update-user-image', methods=['PUT'])
+@jwt_required()
+def update_user_image():
+    current_user_id = get_jwt_identity()
+    data = request.get_json()
+    profile_image = data.get('profile_image')
+    
+    print(profile_image)
+    try:
+        user = User.query.get(current_user_id)
+        if user:
+           
+            user.image = profile_image
+            print(user)
+            db.session.commit()
+            return jsonify({
+                'message': 'Profile image updated successfully',
+                'image': profile_image
+            }), 200
+        else:
+            return jsonify({'error': 'User not found'}), 404
+    except Exception as e:
+        db.session.rollback()
         return jsonify({'error': str(e)}), 500
     
     
