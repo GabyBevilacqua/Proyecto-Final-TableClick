@@ -31,6 +31,12 @@ export const RestRegister = () => {
         const { id, value } = e.target;
         setFormData({ ...formData, [id]: value });
     };
+    // para la barra de ls contrasenas
+    const handleChangeBarr = (e) => {
+        const { id, value } = e.target;
+        setFormData({ ...formData, [id]: value });
+        evaluateStrength(value);
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -43,6 +49,38 @@ export const RestRegister = () => {
         } catch (error) {
             // Mostrar el mensaje de error del servidor
             alert(error.message || "Error al registrar el usuario");
+        }
+    };
+    // para la barra de ls contrasenas
+    const [password, setPassword] = useState('');
+    const [strength, setStrength] = useState(0);
+
+    const evaluateStrength = (pwd) => {
+        let score = 0;
+
+        if (pwd.length >= 8) score++; // Longitud mínima
+        if (/[A-Z]/.test(pwd)) score++; // Contiene mayúsculas
+        if (/[a-z]/.test(pwd)) score++; // Contiene minúsculas
+        if (/[0-9]/.test(pwd)) score++; // Contiene números
+        if (/[^A-Za-z0-9]/.test(pwd)) score++; // Contiene caracteres especiales
+
+        setStrength(score);
+    };
+
+    const getProgressBarColor = () => {
+        switch (strength) {
+            case 1:
+                return 'bg-danger'; // Rojo
+            case 2:
+                return 'bg-warning'; // Amarillo
+            case 3:
+                return 'bg-info'; // Azul
+            case 4:
+                return 'bg-primary'; // Azul fuerte
+            case 5:
+                return 'bg-success'; // Verde
+            default:
+                return 'bg-secondary'; // Gris
         }
     };
 
@@ -171,9 +209,22 @@ export const RestRegister = () => {
                                         id="password"
                                         placeholder="Ingrese la contraseña"
                                         value={formData.password}
-                                        onChange={handleChange}
+                                        onChange={handleChangeBarr}
                                         required
                                     />
+                                </div>
+                                <div className="col-md-8 mt-2 offset-md-4">
+                                    <div className="progress" style={{ height: '6px' }}>
+                                        <div
+                                            className={`progress-bar ${getProgressBarColor()}`}
+                                            role="progressbar"
+                                            style={{ width: `${(strength / 5) * 100}%` }}
+                                            aria-valuenow={strength}
+                                            aria-valuemin="0"
+                                            aria-valuemax="5"
+                                        ></div>
+                                    </div>
+
                                 </div>
                             </div>
                             <div className="row mb-3 align-items-center">

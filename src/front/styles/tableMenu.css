@@ -1,17 +1,18 @@
 /* Estilo general del contenedor */
 .menu-container {
-    
+
     padding: 5px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-/* .product-grid {
+
+.product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 10px;
     margin-top: 5px;
-  } */
-  
+}
+
 .contenedorImagen {
     /* Ruta a tu imagen */
     background-size: cover;
@@ -40,7 +41,7 @@
 .menu-tabs .nav-link.active {
     background-color: #203953d0;
     color: #fff;
-   
+
 }
 
 .menu-item {
@@ -79,7 +80,7 @@
     text-align: center;
     color: #6c757d;
     border-radius: 4px;
-   
+
 }
 
 /* Acciones del menú */
@@ -137,18 +138,21 @@
     font-optical-sizing: auto;
     font-weight: 700;
     font-style: normal;
-  }
+}
 
-  @keyframes zoomInOut {
-    0%, 100% {
-      transform: scale(1);
+@keyframes zoomInOut {
+
+    0%,
+    100% {
+        transform: scale(1);
     }
+
     50% {
-      transform: scale(1.1);
+        transform: scale(1.1);
     }
-  }
-  
-  .zoom-text {
+}
+
+.zoom-text {
     display: inline-block;
     animation: zoomInOut 2s infinite;
-  }
+}
