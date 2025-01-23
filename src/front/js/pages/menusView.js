@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ModalMenu } from "../component/modals/modalMenu";
 import CardMenu from "../component/cards/cardsMenus";
+import "../../styles/menusView.css";
 
 export const MenusView = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
