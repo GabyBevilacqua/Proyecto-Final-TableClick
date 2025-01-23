@@ -5,6 +5,8 @@
     width: fit-content;
     display: flex;
     list-style: none;
+    position: relative;
+    z-index: 10;
   }
   
   .menu a {
@@ -35,7 +37,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #0a3cff !important;
+    background-color: #203953d2 !important;
     z-index: -1;
     transform: scaleX(0);
     transform-origin: left;
@@ -47,7 +49,7 @@
     width: 14px;
     height: 14px;
     fill: #000000;
-    transition: all 0.78s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: all 0.98s cubic-bezier(0.23, 1, 0.32, 1);
   }
   
   .menu .item {
@@ -68,11 +70,11 @@
     opacity: 0;
     visibility: hidden;
     transform: translateY(-12px);
-    transition: all 0.78s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: all 0.98s cubic-bezier(0.23, 1, 0.32, 1);
     z-index: 1;
     pointer-events: none;
     list-style: none;
-    background-color: rgba(216, 230, 233, 0.675);
+    background-color: rgba(216, 230, 233, 0.74);
   }
   
   .menu .item:hover .submenu {
@@ -81,7 +83,7 @@
     transform: translateY(0);
     pointer-events: auto;
     border-top: transparent;
-    border-color: #0a3cff;
+    border-color: #203953d2;
     
   }
   
@@ -104,7 +106,7 @@
   
   .submenu .submenu-item {
     width: 100%;
-    transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: all 0.98s cubic-bezier(0.23, 1, 0.32, 1);
     
   }
   
@@ -114,7 +116,7 @@
     width: 100%;
     position: relative;
     text-align: center;
-    transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: all 0.98s cubic-bezier(0.23, 1, 0.32, 1);
     
   }
   
@@ -133,7 +135,7 @@
     background-color: #203953d2;
     z-index: -1;
     transform-origin: left;
-    transition: transform 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: transform 0.98s cubic-bezier(0.23, 1, 0.32, 1);
   }
   
   .submenu .submenu-link:hover:before {
