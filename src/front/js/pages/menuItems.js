@@ -51,7 +51,6 @@ export const MenuItems = () => {
                     </svg>
                 </button>
             </div>
-
             <CardsTable />
             <ModalTable />
             <CardsItem3 />
