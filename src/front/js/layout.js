@@ -11,6 +11,7 @@ import { DiningView } from "./pages/diningView";
 import { SecLogin } from "./pages/secLogin";
 import { TableMenu } from "./pages/tableMenu";
 import { EditUser } from "./pages/editUser";
+import { CardsItem2 } from "./component/cards/cardsItem2";
 
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
@@ -20,6 +21,8 @@ import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import ResetPassword from "./pages/resetPassword";
 import RequestPasswordReset from "./pages/requestPasswordRest";
+
+
 
 
 //create your first component
@@ -56,6 +59,7 @@ const Layout = () => {
                         <Route element={<Single />} path="/single/:theid" />
                         <Route element={<RequestPasswordReset />} path="/request-reset-password" />
                         <Route element={<ResetPassword />} path="/reset-password/:encoded_token" />
+                        <Route element={<CardsItem2 />} path="/newMenu" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                     <Footer />

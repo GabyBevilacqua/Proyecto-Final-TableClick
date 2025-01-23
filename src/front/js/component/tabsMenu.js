@@ -76,8 +76,8 @@ export const TabsMenu = () => {
       <div className="product-grid">
         {items.map((item, index) => (
           <div key={index} className="menu-item">
-            <div className="menu-item-image" onClick={() => handleImageClick(item)}>
-              <img src={item.image} alt={item.name} style={{ width: "190px", height: "140px" }} />
+            <div className="menu-item-image " onClick={() => handleImageClick(item)}>
+              <img  src={item.image} alt={item.name} style={{ width: "190px", height: "140px" }} />
             </div>
             <div className="menu-item-info text-white mt-2">
               <h5>{item.name}</h5>
