@@ -19,7 +19,7 @@ body {
     transition: all 0.2s ease-in;
     position: relative;
     overflow: hidden;
-    z-index: 1;
+    z-index: 0;
     color: #090909;
     padding: 0.5em 1em;
     cursor: pointer;
