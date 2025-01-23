@@ -50,10 +50,7 @@ export const Navbar = ({ selectedItems = [] }) => {
             case `/editUser/${userId}`:
                 return (
                     <>
-                        {/* <h1 className="navbar-brand h1RestName d-flex"> */}
                         < DropNavigation />
-                        { /* {formData.nombre_restaurante || "El nombre de tu restaurante"}
-                        </h1> */}
                         <img
                             src={store.user?.image || "https://i.ibb.co/Lg48MjM/imagen-Logo.png"}
                             alt="Logo"
