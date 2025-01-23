@@ -5,7 +5,6 @@
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -79,9 +78,13 @@
     justify-content: center;
     text-align: center;
     color: #6c757d;
-    border-radius: 4px;
-
+    border-radius: 4px; 
 }
+.menu-item-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+    pointer-events: visible;
+  }
 
 /* Acciones del menú */
 .menu-item-actions {

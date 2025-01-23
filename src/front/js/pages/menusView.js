@@ -52,6 +52,8 @@ export const MenusView = () => {
                             <div className="col-lg-3 col-md-4 col-sm-6" key={menu.id}>
                                 <CardMenu
                                     menu={menu}
+                                    type="button"
+                                   
                                     onEdit={handleEditMenu}
                                     onDelete={handleDeleteMenu}
                                 />
@@ -61,7 +63,7 @@ export const MenusView = () => {
                     <div className="col-lg-3 col-md-4 col-sm-6">
                         <div className="card menu-container text-center">
                             <div className="card-body d-flex flex-column justify-content-center align-items-center">
-                                <p>Dale al boton para crear un menu nuevo</p>
+                                <p>Presione el botón si desea crear un nuevo menú.</p>
                                 <button
                                     onClick={openModal}
                                     className="button1"
@@ -74,7 +76,7 @@ export const MenusView = () => {
                     <div className="col-lg-3 col-md-4 col-sm-6">
                         <div className="card menu-container text-center">
                             <div className="card-body d-flex flex-column justify-content-center align-items-center">
-                                <p>Dale al boton para subir la imagen o logo de tu restaurante</p>
+                                <p>Por favor, haga clic en el botón para cargar la imagen o el logotipo de su restaurante.</p>
                                 <button
                                     id="subirArchivo"
                                     type="button"

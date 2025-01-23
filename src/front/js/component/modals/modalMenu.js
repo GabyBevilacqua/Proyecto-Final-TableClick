@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 export const ModalMenu = ({ isOpen, onClose, onSave }) => {
     if (!isOpen) return null;
@@ -119,9 +120,11 @@ export const ModalMenu = ({ isOpen, onClose, onSave }) => {
                                     <button type="button" className="btn btn-secondary" onClick={onClose}>
                                         Cerrar
                                     </button>
+                                    <Link to="/newMenu">
                                     <button type="submit" className="btn btn-primary">
                                         Guardar
                                     </button>
+                                    </Link>
                                 </div>
                             </form>
                         </div>

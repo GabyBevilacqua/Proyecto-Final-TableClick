@@ -142,6 +142,7 @@ export const Navbar = ({ selectedItems = [] }) => {
                     </>
                 );
             case "/menuItems":
+            case "/newMenu":
                 return (
                     <>
                         < DropNavigation />

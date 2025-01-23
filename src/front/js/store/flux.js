@@ -87,23 +87,35 @@ const getState = ({ getStore, getActions, setStore }) => {
 					},
 					{
 						idProduct: "002", name: "Cerveza", description: "33Cl", price: "3,00€",
-						image: "https://yt3.googleusercontent.com/8fMR1gkzE7hf2sugNVo8Kjiykh8IoUZ1ICQ_-T0tZ6OZt9s13l1aLiTVTmJy4oQtumcmORD1=s900-c-k-c0x00ffffff-no-rj", quantity: 1
+						image: "https://ambar.com/wp-content/uploads/2019/05/Cerveza-scaled.jpg", quantity: 1
 					},
 					{
-						idProduct: "003", name: "Fanta", description: "33Cl", price: "2,50€",
-						image: "https://www.greekorico.com/wp-content/uploads/sites/652/2022/10/fanta-limon.png", quantity: 1
+						idProduct: "003", name: "Fanta Limon", description: "33Cl", price: "2,50€",
+						image: "https://148603807.cdn6.editmysite.com/uploads/1/4/8/6/148603807/s940416327557988909_p34_i2_w500.png", quantity: 1
 					},
 					{
-						idProduct: "004", name: "Acuarius", description: "33Cl", price: "2,50€",
-						image: "https://www.lasansi.com/media/items/big/3c2c7-logomarcas-aquarius-naranja.jpg", quantity: 1
+						idProduct: "004", name: "Aquarius", description: "33Cl", price: "2,50€",
+						image: "https://m.media-amazon.com/images/I/415L5IQwk1L._AC_SY350_.jpg", quantity: 1
 					},
 					{
-						idProduct: "017", name: "Cerveza 0,0", description: "33Cl", price: "3,00€",
-						image: "https://yt3.googleusercontent.com/X9psilJdOXeD2-TrXTCBeFKN3In4v-ltfPypUYQst7wZAxM1f7EmQKjmaQLyNe8lRLaFvqlE=s900-c-k-c0x00ffffff-no-rj", quantity: 1
+						idProduct: "017", name: "Coca cola ZERO", description: "33Cl", price: "3,00€",
+						image: "https://st4.depositphotos.com/1010386/22266/i/450/depositphotos_222667692-stock-photo-london-august-2018-plastic-bottle.jpg", quantity: 1
 					},
 					{
 						idProduct: "018", name: "Coca-cola", description: "33Cl", price: "2,80€",
-						image: "https://www.cocacolaep.com/assets/legacy-assets/Uploads/resources/Coca-Cola-1210.jpg", quantity: 1
+						image: "https://media01.stockfood.com/largepreviews/NTg4NzU4Mg==/00189922-A-glass-of-Coca-Cola.jpg", quantity: 1
+					},
+					{
+						idProduct: "019", name: "Vino blanco", description: "D.O Rueda", price: "4,75€",
+						image: "https://cdn0.uncomo.com/es/posts/7/5/6/tipos_de_vino_blanco_41657_600.jpg", quantity: 1
+					},
+					{
+						idProduct: "020", name: "Vino tinto", description: "D.O Rioja", price: "5,00€",
+						image: "https://fishsolutions.pescanova.es/wp-content/uploads/2022/04/formacion-vinos-copa-fish-solutions.jpg", quantity: 1
+					},
+					{
+						idProduct: "021", name: "Vino rosado", description: "D.O Penedes", price: "4,50€",
+						image: "https://www.campusdelvino.com/media/k2/items/cache/b8292acafd72142128a3481ac4b0abff_XL.jpg", quantity: 1
 					},
 				],
 			},
