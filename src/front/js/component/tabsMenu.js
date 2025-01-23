@@ -107,7 +107,7 @@ export const TabsMenu = () => {
   };
 
   return (
-    <div className="menu-container col-md-9 mx-auto">
+    <div className="menu-container mx-auto">
       <h1 className="menu-title">
         Menú seleccionado: {store.selectedMenu}
       </h1>
@@ -115,14 +115,14 @@ export const TabsMenu = () => {
         {/* Tab adicional de bienvenida */}
         <Tab eventKey="Bienvenida" title="Bienvenida">
           <div className="welcome-tab">
-            <h2><strong>BIENVENIDOS A ESTA EXPERIENCIA</strong></h2>
-            <p><strong>
+            <h2 className="texo dancing-script pt-2">Bienvenidos a esta Experiencia Culinaria</h2>
+            <p>
               Disfruta de nuestra variedad de platos y bebidas.<br />
               Navega por las pestañas y veras todos los productos.<br />
               Pincha en la imagen pon cantidad "Cargar".<br />
               Puedes ver lo seleccionado en el boton de arriba a la derecha "Mesa Cliente".<br />
               Cuando estes seguro de tu seleccion pincha en el boton "Enviar Pedido".<br />
-              Y lo recibiremos en la cocina para preparar tu pedido.<br /></strong>
+              Y lo recibiremos en la cocina para preparar tu pedido.<br />
             </p>
             <Carousel>
               {renderCarouselItems()}

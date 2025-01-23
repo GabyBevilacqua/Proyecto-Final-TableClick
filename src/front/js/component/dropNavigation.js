@@ -41,7 +41,6 @@ export const DropNavigation = () => {
         }
     }, []);
 
-
     return (
         <div className="menu ">
             <div className="item">

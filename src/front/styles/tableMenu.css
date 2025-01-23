@@ -1,7 +1,7 @@
 /* Estilo general del contenedor */
 .menu-container {
     
-    padding: 15px;
+    padding: 5px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -16,7 +16,7 @@
 /* Título del menú */
 .menu-title {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     font-size: 24px;
     font-weight: bold;
     color: #ffffff;
@@ -29,23 +29,17 @@
 }
 
 .menu-tabs .nav-link.active {
-    background-color: #7297B4;
+    background-color: #203953d0;
     color: #fff;
    
 }
 
-/* Estilo de los items del menú 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 10px;
-*/
 .menu-item {
     text-align: center;
     padding: 15px;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
-    background-color: #7297B4;
+    background-color: #203953d0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -93,7 +87,7 @@
 }
 
 .welcome-tab {
-    background-color: #7297B4;
+    background-color: #203953d0;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
     height: 550px;
@@ -104,7 +98,6 @@
 .welcome-tab h2 {
     text-align: center;
     color: white;
-
 }
 
 .welcome-tab text {
@@ -116,7 +109,7 @@
 }
 
 .carousel {
-    max-height: 200px;
+    max-height: 350px;
     /* Ajusta esta altura según tus necesidades */
     overflow: hidden;
 }
@@ -129,3 +122,24 @@
     width: 100%;
     /* Asegúrate de que las imágenes ocupen todo el ancho del carrusel */
 }
+
+.dancing-script {
+    font-family: "Dancing Script", serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  @keyframes zoomInOut {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+  }
+  
+  .zoom-text {
+    display: inline-block;
+    animation: zoomInOut 2s infinite;
+  }

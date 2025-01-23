@@ -55,7 +55,7 @@ export const Navbar = ({ selectedItems = [] }) => {
                         { /* {formData.nombre_restaurante || "El nombre de tu restaurante"}
                         </h1> */}
                         <img
-                            src={store.user?.image || "https://i.ibb.co/Lg48MjM/imagen-Logo.png"}
+                            src={store.user?.image || "https://i.ibb.co/JkMCt7P/table-Click01.png"}
                             alt="Logo"
                             style={{ height: "60px" }} />
                     </>
@@ -64,7 +64,10 @@ export const Navbar = ({ selectedItems = [] }) => {
                 return (
                     <>
                         < DropNavigation />
-                        <img src="https://i.ibb.co/Lg48MjM/imagen-Logo.png" alt="Logo" style={{ height: "60px" }} />
+                        <img
+                            src={store.user?.image || "https://i.ibb.co/JkMCt7P/table-Click01.png"}
+                            alt="Logo"
+                            style={{ height: "60px" }} />
                         <div className="ml-auto">
                             <div className="dropdown">
                                 <button className="buttonNavbar dropdown-toggle"
@@ -145,7 +148,10 @@ export const Navbar = ({ selectedItems = [] }) => {
                 return (
                     <>
                         < DropNavigation />
-                        <img src="https://i.ibb.co/Lg48MjM/imagen-Logo.png" alt="Logo" style={{ height: "60px" }} />
+                        <img
+                            src={store.user?.image || "https://i.ibb.co/JkMCt7P/table-Click01.png"}
+                            alt="Logo"
+                            style={{ height: "60px" }} />
                         <div className="ml-auto">
                             <Link to="/diningView">
                                 <button className="buttonNavbar">Entrada a Comedor</button>
@@ -157,7 +163,10 @@ export const Navbar = ({ selectedItems = [] }) => {
                 return (
                     <>
                         < DropNavigation />
-                        <img src="https://i.ibb.co/Lg48MjM/imagen-Logo.png" alt="Logo" style={{ height: "60px" }} />
+                        <img
+                            src={store.user?.image || "https://i.ibb.co/JkMCt7P/table-Click01.png"}
+                            alt="Logo"
+                            style={{ height: "60px" }} />
                         <div className="ml-auto">
                             <Link to="/menuItems">
                                 <button className="buttonNavbar">Regresar al Menu</button>

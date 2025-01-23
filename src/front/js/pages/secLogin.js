@@ -26,6 +26,7 @@ export const SecLogin = () => {
 
     const handleClick = () => { // Función para añadir la mesa      
         actions.addSelectedMenu(menu);
+        actions.addSelectedTable(table);
         navigate("/tableMenu");
     }
 
