@@ -67,7 +67,7 @@ export const TabsMenu = () => {
   };
 
   const handleClick = () => {
-    alert("¡En camino el camarero!");
+    alert("¡Camarero en camino!");
   };
 
 

@@ -43,7 +43,7 @@ export const CardsItem3 = () => {
                     <ul className="ulMenuItems list-group list-group-flush">
                         <li
                             key={index}
-                            className="liMenuItems list-group-item p-0 rounded-4"
+                            className="liMenuItems list-group-item p-0 rounded-4 text-white"
                         >
                              
                             <div className="">
@@ -56,10 +56,10 @@ export const CardsItem3 = () => {
                             </div>
                             
                             <div className="menu-item-info d-flex mb-0">
-                                <h3 className='card__title44 col-9 ms-2 mt-1 mb-2'>{item.name}</h3>
-                                <p className='ms-3 mt-1 mb-2'>#{item.idProduct}</p>
+                                <h3 className='card__title44 col-9 ms-2 mt-1 mb-2 text-white'>{item.name}</h3>
+                                <p className='ms-3 mt-1 mb-2 text-white'>#{item.idProduct}</p>
                             </div>
-                            <p className='card__description44 ms-2 mt-0'>{item.description}</p>
+                            <p className='card__description44 ms-2 mt-0 text-white'>{item.description}</p>
                             <strong className='ms-2'>{item.price}</strong>
 
                             <div className="d-flex justify-content-center align-items-center gap-2 mt-2 mb-2">

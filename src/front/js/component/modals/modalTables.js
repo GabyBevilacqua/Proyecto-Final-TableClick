@@ -34,7 +34,7 @@ export const ModalTable = () => {
             aria-hidden="true"
         >
             <div className="modal-dialog">
-                <div className="modal-content cardItems">
+                <div className="modal-content cardItemsModal text-white">
                     <div className="modal-header">
                         <h1 className="modal-title fs-5" id="exampleModalLabel">
                             AÑADIR MESA
