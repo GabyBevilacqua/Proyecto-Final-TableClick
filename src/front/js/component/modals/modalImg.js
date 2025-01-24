@@ -8,12 +8,22 @@ export const ModalImg = ({ onClose }) => {
 
 
     const handleImageUp = (e) => {
-        console.log(e.target.files[0])
         const file = e.target.files[0];
-        actions.uploadImageUser(file);
-
+        if (file) {
+            // Directly call the uploadImageUser method from actions
+            actions.uploadImageUser(file)
+                .then(result => {
+                    console.log("Image uploaded successfully", result);
+                    // Optionally handle successful upload (e.g., close modal)
+                    onClose();
+                })
+                .catch(error => {
+                    console.error("Error uploading image", error);
+                });
+        }
     }
 
+    
     return (
 
         <div

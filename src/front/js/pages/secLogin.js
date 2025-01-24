@@ -26,13 +26,14 @@ export const SecLogin = () => {
 
     const handleClick = () => { // Función para añadir la mesa      
         actions.addSelectedMenu(menu);
+        actions.addSelectedTable(table);
         navigate("/tableMenu");
     }
 
     return (
         <div>
             <div className="text-center mt-3">
-                <img src="https://i.ibb.co/JkMCt7P/table-Click01.png" alt="Logoapp" style={{ height: "120px" }} />
+                <img src="https://i.ibb.co/JkMCt7P/table-Click01.png"  alt="Logoapp" style={{ height: "120px" }} />
             </div>
 
 

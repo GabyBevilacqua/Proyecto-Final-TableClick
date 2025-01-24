@@ -11,6 +11,7 @@ export const RestRegister = () => {
     const { actions } = useContext(Context);
     const navigate = useNavigate()
     const [error, setError] = useState("");
+    const [showModal, setShowModal] = useState(false);
     const [formData, setFormData] = useState({
         nombrePersonal: "",
         username: "",
@@ -23,10 +24,6 @@ export const RestRegister = () => {
         image: "",
     });
 
-
-
-    const [showModal, setShowModal] = useState(false);
-
     const handleOpenModal = () => setShowModal(true);
     const handleCloseModal = () => setShowModal(false);
 
@@ -34,41 +31,12 @@ export const RestRegister = () => {
         const { id, value } = e.target;
         setFormData({ ...formData, [id]: value });
     };
-
-    /*  
-    
-    
-    const handleSubmit = async (e) => {
-          e.preventDefault();
-          const response = await fetch("http://localhost:5000/api/register", {
-              method: "POST",
-              headers: {
-                  "Content-Type": "application/json"
-              },
-              body: JSON.stringify(formData)
-          });
-  
-          if (response.ok) {
-              navigate("/secLogin");
-          } else {
-              alert("Error al registrar el usuario");
-          }
-      }; 
-      
-                 const data = await response.json();
-              setError(data.message);
-  
-    const handleSubmit = async (e) => {
-          e.preventDefault();
-          const success = await actions.registerUser(formData);
-          if (success) {
-              navigate("/menusView");
-          } else {
-              alert("Error al registrar el usuario");
-          }
-      };
-  
-      */
+    // para la barra de ls contrasenas
+    const handleChangeBarr = (e) => {
+        const { id, value } = e.target;
+        setFormData({ ...formData, [id]: value });
+        evaluateStrength(value);
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -83,11 +51,43 @@ export const RestRegister = () => {
             alert(error.message || "Error al registrar el usuario");
         }
     };
+    // para la barra de ls contrasenas
+    const [password, setPassword] = useState('');
+    const [strength, setStrength] = useState(0);
+
+    const evaluateStrength = (pwd) => {
+        let score = 0;
+
+        if (pwd.length >= 8) score++; // Longitud mínima
+        if (/[A-Z]/.test(pwd)) score++; // Contiene mayúsculas
+        if (/[a-z]/.test(pwd)) score++; // Contiene minúsculas
+        if (/[0-9]/.test(pwd)) score++; // Contiene números
+        if (/[^A-Za-z0-9]/.test(pwd)) score++; // Contiene caracteres especiales
+
+        setStrength(score);
+    };
+
+    const getProgressBarColor = () => {
+        switch (strength) {
+            case 1:
+                return 'bg-danger'; // Rojo
+            case 2:
+                return 'bg-warning'; // Amarillo
+            case 3:
+                return 'bg-info'; // Azul
+            case 4:
+                return 'bg-primary'; // Azul fuerte
+            case 5:
+                return 'bg-success'; // Verde
+            default:
+                return 'bg-secondary'; // Gris
+        }
+    };
 
     return (
         <div className="container mt-2">
             <div className="text mt-2">
-                <Link to="/">
+                {/* <Link to="/">
                     <button className="btn m-2">
                         Return to preLogin
                     </button>
@@ -96,7 +96,7 @@ export const RestRegister = () => {
                     <button className="btn">
                         Go to menusView
                     </button>
-                </Link>
+                </Link> */}
                 <div className="row justify-content-center">
                     <div className="col-md-8 form-container containerRegister mt-5">
                         <h2 className="text-center mb-4">Formulario de Registro</h2>
@@ -209,9 +209,22 @@ export const RestRegister = () => {
                                         id="password"
                                         placeholder="Ingrese la contraseña"
                                         value={formData.password}
-                                        onChange={handleChange}
+                                        onChange={handleChangeBarr}
                                         required
                                     />
+                                </div>
+                                <div className="col-md-8 mt-2 offset-md-4">
+                                    <div className="progress" style={{ height: '6px' }}>
+                                        <div
+                                            className={`progress-bar ${getProgressBarColor()}`}
+                                            role="progressbar"
+                                            style={{ width: `${(strength / 5) * 100}%` }}
+                                            aria-valuenow={strength}
+                                            aria-valuemin="0"
+                                            aria-valuemax="5"
+                                        ></div>
+                                    </div>
+
                                 </div>
                             </div>
                             <div className="row mb-3 align-items-center">
@@ -230,7 +243,7 @@ export const RestRegister = () => {
                                     />
                                 </div>
                             </div>
-                            <div className="row mb-3 align-items-center">
+                            {     /*   <div className="row mb-3 align-items-center">
                                 <label htmlFor="image" className="col-md-4 col-form-label text-end">
                                     Imagen:
                                 </label>
@@ -245,36 +258,17 @@ export const RestRegister = () => {
                                         required
                                     />
                                 </div>
-                            </div>
-
-
-                            <div className="row mb-3 align-items-center">
-                                <label htmlFor="subirArchivo" className="col-md-4 col-form-label text-end">
-                                    Cargar imagen o logo del restaurante:
-                                </label>
-                                <div className="col-md-8 d-flex">
-                                    <button
-                                        id="subirArchivo"
-                                        type="button"
-                                        className="button2"
-                                        onClick={handleOpenModal}
-                                    >
-                                        Subir archivo
-                                    </button>
-                                </div>
-                            </div>
+                            </div>  */}
                             <div className="text-center">
                                 <button type="submit"
                                     className="button2 w-100">
-                                    Salvar
+                                    Guardar
                                 </button>
                             </div>
                         </form>
 
                     </div>
                 </div>
-                {/* Modal Component */}
-                {showModal && <ModalImg onClose={handleCloseModal} />}
             </div>
         </div>
     );

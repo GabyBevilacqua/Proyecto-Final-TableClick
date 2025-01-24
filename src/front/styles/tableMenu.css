@@ -1,9 +1,15 @@
 /* Estilo general del contenedor */
 .menu-container {
-    margin-top: 20px;
-    padding: 20px;
+
+    padding: 5px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    margin-top: 5px;
 }
 
 .contenedorImagen {
@@ -19,7 +25,7 @@
 /* Título del menú */
 .menu-title {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     font-size: 24px;
     font-weight: bold;
     color: #ffffff;
@@ -28,24 +34,21 @@
 /* Tabs */
 .menu-tabs .nav-link {
     color: #ffffff;
+    font-weight: bold;
 }
 
 .menu-tabs .nav-link.active {
-    background-color: #7297B4;
+    background-color: #203953d0;
     color: #fff;
-    border: none;
+
 }
 
-/* Estilo de los items del menú */
 .menu-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
+    text-align: center;
+    padding: 15px;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
-    background-color: #7297B4;
-    margin-bottom: 10px;
+    background-color: #203953d0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -56,7 +59,7 @@
 
 .menu-item-info h5 {
     font-size: 18px;
-    margin-bottom: 5px;
+    margin-bottom: 5px 0;
 }
 
 .menu-item-info p {
@@ -66,27 +69,29 @@
 
 /* Imagen del menú */
 .menu-item-image {
-    width: 170px;
-    height: 120px;
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
     background-color: #eaeaea;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    font-size: 12px;
     color: #6c757d;
-    border-radius: 4px;
-    margin-right: 10px;
+    border-radius: 4px; 
 }
+.menu-item-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+    pointer-events: visible;
+  }
 
 /* Acciones del menú */
 .menu-item-actions {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    /* centrados */
-    gap: 8px;
-    /* Espacio entre los elementos */
+    gap: 10px;
 }
 
 .menu-item-quantity {
@@ -95,7 +100,7 @@
 }
 
 .welcome-tab {
-    background-color: #7297B4;
+    background-color: #203953d0;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
     height: 550px;
@@ -106,7 +111,6 @@
 .welcome-tab h2 {
     text-align: center;
     color: white;
-
 }
 
 .welcome-tab text {
@@ -118,7 +122,7 @@
 }
 
 .carousel {
-    max-height: 200px;
+    max-height: 350px;
     /* Ajusta esta altura según tus necesidades */
     overflow: hidden;
 }
@@ -130,4 +134,28 @@
     /* Ajusta la imagen para cubrir el contenedor sin distorsionarse */
     width: 100%;
     /* Asegúrate de que las imágenes ocupen todo el ancho del carrusel */
+}
+
+.dancing-script {
+    font-family: "Dancing Script", serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+@keyframes zoomInOut {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.zoom-text {
+    display: inline-block;
+    animation: zoomInOut 2s infinite;
 }

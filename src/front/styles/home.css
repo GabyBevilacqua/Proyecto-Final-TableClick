@@ -6,7 +6,12 @@
     on that page only (the ones not reused in other pages).
 */
 body {
-    background-color: #203953  !important; /* Color azul oscuro de fondo */
+    background-color: #203953  !important; /* Color azul oscuro de fondo     https://i.ibb.co/Ttw82wc/fondo-Pantalla.jpg                                 */
+    background-image:  url("https://img.freepik.com/foto-gratis/marco-plano-laico-mariscos-espacio-copia_23-2148308063.jpg?t=st=1737653839~exp=1737657439~hmac=aabc7f44517fa3bb05266cae156751e33acb1db6693943b30f7bb1e71073013d&w=996" );
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-size: cover; /* Hace que la imagen cubra todo el fondo */
+    background-position: center; /* Centra la imagen en el fondo */
+    background-attachment: fixed; /* Fija la imagen para que no se mueva al hacer scroll */
   }
   
 .button2 {
@@ -14,7 +19,7 @@ body {
     transition: all 0.2s ease-in;
     position: relative;
     overflow: hidden;
-    z-index: 1;
+    z-index: 0;
     color: #090909;
     padding: 0.5em 1em;
     cursor: pointer;

@@ -41,12 +41,11 @@ export const DropNavigation = () => {
         }
     }, []);
 
-
     return (
-        <div className="menu ">
-            <div className="item">
-                <a href="#" className="link mt-2">
-                    <span><h1>{formData.nombre_restaurante || "El nombre de tu restaurante"}</h1></span>
+        <div className="menu">
+            <div className="item ms-2 p-0">
+                <a className="link pb-0 pt-1 pe-4">
+                    <span><h1 className='h1RestName'>{formData.nombre_restaurante || "El nombre de tu restaurante"}</h1></span>
                     <svg viewBox="0 0 360 360" xmlSpace="preserve">
                         <g id="SVGRepo_iconCarrier">
                             <path
@@ -56,50 +55,50 @@ export const DropNavigation = () => {
                         </g>
                     </svg>
                 </a>
-                <div className="submenu ">
-                    <div className="submenu-item">
+                <div className="submenu">
+                    {/* <div className="submenu-item">
                         <Link to="/">
-                            <a href="#" className="submenu-link"> Home </a>
+                            <div  className="submenu-link"> Home </div>
                         </Link>
-                    </div>
+                    </div> */}
                     <div className="submenu-item">
                         <Link to="/secLogin">
-                            <a href="#" className="submenu-link"> Admin </a>
+                            <div  className="submenu-link"> Admin </div>
                         </Link>
                     </div>
                     <div className="submenu-item">
                         <Link to="/menusView">
-                            <a href="#" className="submenu-link"> Menus Creados </a>
+                            <div  className="submenu-link"> Menus Creados </div>
                         </Link>
                     </div>
                     <div className="submenu-item">
                         <Link to="/menuItems">
-                            <a href="#" className="submenu-link"> Carta del dia </a>
+                            <div  className="submenu-link"> Carta del dia </div>
                         </Link>
                     </div>
                     <div className="submenu-item">
                         <Link to="/tableMenu">
-                            <a href="#" className="submenu-link"> Tablet </a>
+                            <div  className="submenu-link"> Tablet </div>
                         </Link>
                     </div>
                     <div className="submenu-item">
                         <Link to="/diningView">
-                            <a href="#" className="submenu-link"> Comedor </a>
+                            <div  className="submenu-link"> Comedor </div>
                         </Link>
                     </div>
                     <div className="submenu-item">
                         <Link to={`/editUser/${userId}`}>
-                            <a href="#" className="submenu-link"> Edit user </a>
+                            <div  className="submenu-link"> Edit user </div>
                         </Link>
                     </div>
                     <div className="submenu-item">
                         <Link to="/">
-                            <a href="#"
+                            <div
                                 className="submenu-link"
                                 onClick={handleLogout}
                             >
                                 Cerrar sesion
-                            </a>
+                            </div>
                         </Link>
                     </div>
                 </div>

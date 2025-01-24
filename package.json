@@ -77,6 +77,8 @@
 		"@cloudinary/url-gen": "^1.21.0",
 		"bcrypt": "^5.1.1",
 		"bootstrap": "^5.3.3",
+		"gsap": "^3.12.7",
+		"jsonwebtoken": "^9.0.2",
 		"prop-types": "^15.6.1",
 		"react": "^16.8.4",
 		"react-bootstrap": "^2.10.8",

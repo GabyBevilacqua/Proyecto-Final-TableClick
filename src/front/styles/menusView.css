@@ -5,44 +5,21 @@
     one more css for each page that will contain the selected used 
     on that page only (the ones not reused in other pages).
 */
-.menu-container {
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #F4F0D1;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
 
-  .containerpreLogin {
-    background-color: #203953;
+.form-control {
+  background-color: #F4F0D1;
 }
 
-.form-control{
-    background-color: #F4F0D1;
-}
 /* 
     General Styles used on every website (Don't Repeat Yourself)
 */
-#menus-creados{
-    background-color: #7d9bbb;
-    text-align: center;
-    margin-left: 35%;
-    margin-right: 35%;
-    padding-top: 5px;
-    padding-bottom: 10px;
-    border-radius: 20px;
+.cardTitleMenusView {
+  text-underline-offset: none;
+  text-decoration: none;
 }
 
-.card-menusView{
-    height: 200px;
-    place-items: center;
-    place-self: center;
-    background-color: #F4F0D1;
-    border-radius: 20px;
-}
-
-.button1{
-    display: inline-block;
+.button1 {
+  display: inline-block;
   transition: all 0.2s ease-in;
   position: relative;
   overflow: hidden;
@@ -57,53 +34,97 @@
 }
 
 .button1:active {
-    color: #666;
-    box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
-  }
-  
-  .button1:before {
-    content: "";
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%) scaleY(1) scaleX(1.25);
-    top: 100%;
-    width: 140%;
-    height: 180%;
-    background-color: rgba(0, 0, 0, 0.05);
-    border-radius: 50%;
-    display: block;
-    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
-    z-index: -1;
-  }
-  
-  .button1:after {
-    content: "";
-    position: absolute;
-    left: 55%;
-    transform: translateX(-50%) scaleY(1) scaleX(1.45);
-    top: 180%;
-    width: 160%;
-    height: 190%;
-    background-color: #203953;
-    border-radius: 50%;
-    display: block;
-    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
-    z-index: -1;
-  }
-  
-  .button1:hover {
-    color: #ffffff;
-    border: 1px solid #203953;
-  }
-  
-  .button1:hover:before {
-    top: -35%;
-    background-color: #203953;
-    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
-  }
-  
-  .button1:hover:after {
-    top: -45%;
-    background-color: #203953;
-    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
-  }
+  color: #666;
+  box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+}
+
+.button1:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) scaleY(1) scaleX(1.25);
+  top: 100%;
+  width: 140%;
+  height: 180%;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 50%;
+  display: block;
+  transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+  z-index: -1;
+}
+
+.button1:after {
+  content: "";
+  position: absolute;
+  left: 55%;
+  transform: translateX(-50%) scaleY(1) scaleX(1.45);
+  top: 180%;
+  width: 160%;
+  height: 190%;
+  background-color: #203953;
+  border-radius: 50%;
+  display: block;
+  transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+  z-index: -1;
+}
+
+.button1:hover {
+  color: #ffffff;
+  border: 1px solid #203953;
+}
+
+.button1:hover:before {
+  top: -35%;
+  background-color: #203953;
+  transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+}
+
+.button1:hover:after {
+  top: -45%;
+  background-color: #203953;
+  transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+}
+
+/*--------------------------------------------------------------------------*/
+
+.contView {
+  background-color: #203953a1;
+  height: 300px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+}
+
+.menu-grid {
+  justify-content: center;
+  display: flex;
+
+}
+
+.menu-grid .card {
+  background-color: #7297B4;
+  /* Color del fondo */
+  color: #F4F0D1;
+  /* Color del texto */
+  border: none;
+  /* Sin bordes */
+  border-radius: 12px;
+  /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  /* Sombra */
+  transition: transform 0.3s ease;
+  justify-content: center;
+}
+
+.menu-grid .card:hover {
+  transform: scale(1.05);
+  /* Efecto de zoom al pasar el mouse */
+}
+
+.menu-grid .card img {
+  border-radius: 12px 12px 0 0;
+  /* Imagen con bordes superiores redondeados */
+  height: 150px;
+  object-fit: cover;
+  /* Asegura que la imagen no se deforme */
+}

@@ -10,7 +10,7 @@ export const Navbar = ({ selectedItems = [] }) => {
     const navigate = useNavigate();
     const user = JSON.parse(localStorage.getItem("user"))
     const userId = user?.id || null
-    
+
     const handleSendOrders = () => {
         actions.sendOrderToTable("Mesa 01");
     };
@@ -37,53 +37,17 @@ export const Navbar = ({ selectedItems = [] }) => {
         }
     }, []);
 
-    // const handleNotification = () => {
-
-    //     <div className="notifications-container">
-    //     <div className="success">
-    //       <div className="flex">
-    //         <div className="flex-shrink-0">
-    //           <svg
-    //             aria-hidden="true"
-    //             fill="currentColor"
-    //             viewBox="0 0 20 20"
-    //             xmlns="http://www.w3.org/2000/svg"
-    //             className="success-svg"
-    //           >
-    //             <path
-    //               clip-rule="evenodd"
-    //               d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-    //               fill-rule="evenodd"
-    //             ></path>
-    //           </svg>
-    //         </div>
-    //         <div className="success-prompt-wrap">
-    //           <p className="success-prompt-heading">
-    //             Order completed
-    //             <span className="checkmark">✓</span>
-    //           </p>
-    //           <div className="success-prompt-prompt">
-    //             <h1>
-    //              PEDIDO ENVIADO CON ÉXITO!
-    //             </h1>
-    //           </div>
-    //           <div className="success-button-container">
-    //             <button className="success-button-main" type="button">View status</button>
-    //             <button className="success-button-secondary" type="button">
-    //               Dismiss
-    //             </button>
-    //           </div>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </div>
-    //   };
-   
-    const deleteDropdownItem = ( index) => {
+    // const deleteDropdownItem = (index) => {
+    //     const updatedItems = [...store.selectedItems];
+    //     updatedItems.splice(index, 1);
+    //     actions.setSelectedItems(updatedItems);
+    // };
+    const deleteDropdownItem = (index) => {
         const updatedItems = [...store.selectedItems];
         updatedItems.splice(index, 1);
+        console.log("Updated items:", updatedItems); // Para verificar que se elimina correctamente
         actions.setSelectedItems(updatedItems);
-      };
+    };
 
     const renderNavbarContent = () => {
         switch (location.pathname) {
@@ -92,21 +56,21 @@ export const Navbar = ({ selectedItems = [] }) => {
             case `/editUser/${userId}`:
                 return (
                     <>
-                        {/* <h1 className="navbar-brand h1RestName mb-0 d-flex"> */}
-                            < DropNavigation />
-                            {/* {formData.nombre_restaurante || "El nombre de tu restaurante"}
-                        </h1> */}
-                        <img src="https://i.ibb.co/Lg48MjM/imagen-Logo.png" alt="Logo" style={{ height: "60px" }} />
+                        < DropNavigation />
+                        <img
+                            src={store.user?.image || "https://i.ibb.co/JkMCt7P/table-Click01.png"}
+                            alt="Logo"
+                            style={{ height: "60px" }} />
                     </>
                 );
             case "/tableMenu":
                 return (
                     <>
-                        {/* <h1 className="navbar-brand h1RestName mb-0 d-flex me-3"> */}
-                            < DropNavigation />
-                            {/* {formData.nombre_restaurante || "El nombre de tu restaurante"} */}
-                        {/* </h1> */}
-                        <img src="https://i.ibb.co/Lg48MjM/imagen-Logo.png" alt="Logo" style={{ height: "60px" }} />
+                        < DropNavigation />
+                        <img
+                            src={store.user?.image || "https://i.ibb.co/JkMCt7P/table-Click01.png"}
+                            alt="Logo"
+                            style={{ height: "60px" }} />
                         <div className="ml-auto">
                             <div className="dropdown">
                                 <button className="buttonNavbar dropdown-toggle"
@@ -123,7 +87,10 @@ export const Navbar = ({ selectedItems = [] }) => {
                                             <li key={index} className="dropdown-item d-flex">
                                                 <p className="col-10 ps-1 mt-1 me-1"> {item.idProduct} - {item.name} - {item.quantity} - {item.price} </p>
                                                 <button
-                                                    className="bin-button" onClick={() => deleteDropdownItem(index)}>
+                                                    className="bin-button" onClick={(e) => {
+                                                        e.stopPropagation()
+                                                        deleteDropdownItem(index)
+                                                    }}>
                                                     {/* Aquí va el contenido SVG */}
                                                     <svg
                                                         className="bin-top"
@@ -172,8 +139,8 @@ export const Navbar = ({ selectedItems = [] }) => {
                                     )}
                                     <li className="dropdown-divider"></li>
                                     <li className="dropdown-item ">
-                                        <button className="buttonDropdown ms-5" 
-                                        onClick={handleSendOrders}
+                                        <button className="buttonDropdown ms-5"
+                                            onClick={handleSendOrders}
                                         >
                                             Enviar pedido
                                         </button>
@@ -184,13 +151,14 @@ export const Navbar = ({ selectedItems = [] }) => {
                     </>
                 );
             case "/menuItems":
+            case "/newMenu":
                 return (
                     <>
-                        {/* <h1 className="navbar-brand h1RestName mb-0 d-flex me-3"> */}
-                            < DropNavigation />
-                            {/* {formData.nombre_restaurante || "El nombre de tu restaurante"} */}
-                        {/* </h1> */}
-                        <img src="https://i.ibb.co/Lg48MjM/imagen-Logo.png" alt="Logo" style={{ height: "60px" }} />
+                        < DropNavigation />
+                        <img
+                            src={store.user?.image || "https://i.ibb.co/JkMCt7P/table-Click01.png"}
+                            alt="Logo"
+                            style={{ height: "60px" }} />
                         <div className="ml-auto">
                             <Link to="/diningView">
                                 <button className="buttonNavbar">Entrada a Comedor</button>
@@ -201,11 +169,11 @@ export const Navbar = ({ selectedItems = [] }) => {
             case "/diningView":
                 return (
                     <>
-                        {/* <h1 className="navbar-brand h1RestName mb-0 d-flex me-3"> */}
-                            < DropNavigation />
-                            {/* {formData.nombre_restaurante || "El nombre de tu restaurante"} */}
-                        {/* </h1> */}
-                        <img src="https://i.ibb.co/Lg48MjM/imagen-Logo.png" alt="Logo" style={{ height: "60px" }} />
+                        < DropNavigation />
+                        <img
+                            src={store.user?.image || "https://i.ibb.co/JkMCt7P/table-Click01.png"}
+                            alt="Logo"
+                            style={{ height: "60px" }} />
                         <div className="ml-auto">
                             <Link to="/menuItems">
                                 <button className="buttonNavbar">Regresar al Menu</button>
@@ -254,39 +222,4 @@ https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server
 Juan David González
 19:17
 https://flet.dev/
-https://reactnative.dev/
-
-
-<div className="dropdown-menu dropdown-menu-end w-auto" aria-labelledby="dropdownMenuButton">
-                                    <a className="dropdown-item" href="#">Pedido ---------------Cantidad-----Estatus------Precio</a>
-                                    <p className="dropdown-item mb-0">
-                                        ----------------------------------------------------<br />
-                                        Bebida: Coca-cola---------02-------Servido--------5$<br />
-                                        Bebida: Cuba libre--------01-------Servido--------6$<br />
-                                        Entrante: Ensalada--------01-------Servido--------12$<br />
-                                        Entrante: Patatas---------02-------Servido--------25$
-                                    </p>
-                                    <a className="dropdown-item" href="#">Pedido 01</a>
-                                    <p className="dropdown-item mb-0">
-                                        ----------------------------------------------------<br />
-                                        Principal: Hamburguesa----02------En cocción-----40$<br />
-                                        Principal: Entrecot--------01-----En cocción--------20$
-                                    </p>
-                                    <a className="dropdown-item" href="#">Pedido 02</a>
-                                    <p className="dropdown-item mb-0">
-                                        ----------------------------------------------------<br />
-                                        Postre: Helado--------01--------En espera--------6$<br />
-                                        Postre: Copa---------02---------En espera--------12$
-                                    </p>
-                                    <a className="dropdown-item space-between" href="#">
-                                        Pedido 03
-                                        <button className="buttonDropdown" type="button">Enviar pedido a cocina</button>
-                                    </a>
-                                    <p className="dropdown-item mb-0">
-                                        Subtotal -----------------------------------------180$
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-*/
+https://reactnative.dev/ */
