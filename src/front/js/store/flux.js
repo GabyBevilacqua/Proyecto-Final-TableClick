@@ -43,6 +43,47 @@ const getState = ({ getStore, getActions, setStore }) => {
 						idProduct: "008", name: "Cesar salad", description: "Lechuga, crutones, pollo, parmesano y salsa cremosa.", price: "11,50",
 						image: "https://imag.bonviveur.com/ensalada-cesar-casera.jpg", quantity: 1
 					},
+					{
+						idProduct: "042", name: "Tortilla de Patatas", description: "Tortilla española con cebolla y patatas", price: "6,00€",
+						image: "https://www.gerardcoma.com/wp-content/uploads/2024/07/tortilla-de-patats.jpg", quantity: 1
+					},
+					{
+						idProduct: "043", name: "Sopa de Ajo", description: "Sopa castellana con ajo, pan y huevo escalfado", price: "5,00€",
+						image: "https://s3.abcstatics.com/abc/sevilla/media/gurmesevilla/2013/02/sopa-ajo-castellana.jpg", quantity: 1
+					},
+					{
+						idProduct: "044", name: "Callos a la Madrileña", description: "Callos guisados con chorizo y morcilla", price: "8,50€",
+						image: "https://static.wixstatic.com/media/3a8b46_0dea844302e940b2a9c7ece6fe1b99f9~mv2.jpg/v1/fill/w_480,h_270,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/3a8b46_0dea844302e940b2a9c7ece6fe1b99f9~mv2.jpg", quantity: 1
+					},
+					{
+						idProduct: "045", name: "Huevos Rotos", description: "Huevos fritos sobre patatas y jamón ibérico", price: "7,50€",
+						image: "https://www.aceitesdeolivadeespana.com/wp-content/uploads/2024/03/huevos-rotos-con-jamon.png", quantity: 1
+					},
+					{
+						idProduct: "046", name: "Oreja a la Plancha", description: "Oreja de cerdo a la plancha con ajo y perejil", price: "7,00€",
+						image: "https://s1.elespanol.com/2023/02/14/como/741436034_230892244_1706x1280.jpg", quantity: 1
+					},
+					{
+						idProduct: "047", name: "Gambas al Ajillo", description: "Gambas salteadas en aceite de ajo y guindilla", price: "9,00€",
+						image: "https://saboratierraymar.es/wp-content/uploads/2024/08/como-hacer-gambas-al-ajillo-en-cazuela-de-barro.jpg", quantity: 1
+					},
+					{
+						idProduct: "048", name: "Pimientos del Piquillo Rellenos", description: "Pimientos rellenos de bacalao o carne", price: "8,00€",
+						image: "https://www.pequerecetas.com/wp-content/uploads/2017/09/pimientos-del-piquillo-rellenos-de-bacalao-receta.jpg", quantity: 1
+					},
+					{
+						idProduct: "049", name: "Boquerones en Vinagre", description: "Boquerones marinados en vinagre y ajo", price: "6,50€",
+						image: "https://recetasdecocina.elmundo.es/wp-content/uploads/2024/06/boquerones-en-vinagre-receta.jpg", quantity: 1
+					},
+					{
+						idProduct: "050", name: "Torreznos", description: "Crujiente panceta frita al estilo tradicional", price: "5,50€",
+						image: "https://www.hogarmania.com/archivos/202401/torreznos-de-soria-1280x720x80xX.jpg", quantity: 1
+					},
+					{
+						idProduct: "051", name: "Cazón en Adobo", description: "Pescado marinado y frito, típico del sur", price: "7,50€",
+						image: "https://www.infobae.com/new-resizer/G5REXzUuwVHaUYyGL_mWoMTfvcA=/arc-anglerfish-arc2-prod-infobae/public/4GXOZZLFQBFONL5ZDOHIHJ35LQ.jpg", quantity: 1
+					}
+					
 				],
 				Principales: [
 					{
@@ -61,6 +102,47 @@ const getState = ({ getStore, getActions, setStore }) => {
 						idProduct: "012", name: "Bacalao al Pil-Pil", description: "Bacalao en emulsión de ajo, guindilla y aceite", price: "20,50€",
 						image: "https://i.ytimg.com/vi/tQXLOFzrIKw/maxresdefault.jpg", quantity: 1
 					},
+					{
+						idProduct: "022", name: "Paella Valenciana", description: "Arroz con mariscos y pollo", price: "12,50€",
+						image: "https://cuidateplus.marca.com/sites/default/files/cms/paella-valenciana-receta.jpg", quantity: 1
+					},
+					{
+						idProduct: "023", name: "Patatas al horno", description: "Patatas al horno gratinadas con queso", price: "6,50€",
+						image: "https://www.hogarmania.com/archivos/201501/patatas-al-horno-668x400x80xX.jpg", quantity: 1
+					},
+					{
+						idProduct: "024", name: "Gazpacho Andaluz", description: "Sopa fría de tomate y verduras", price: "4,50€",
+						image: "https://content-cocina.lecturas.com/medio/2021/03/11/paso-a-paso-para-hacer-gazpacho-andaluz-con-trocitos-de-verduras-resultado-final_afebd712_1200x630.jpg", quantity: 1
+					},
+					{
+						idProduct: "025", name: "Pulpo a la Gallega", description: "Pulpo servido con pimentón y aceite de oliva", price: "14,00€",
+						image: "https://cdn.blogsthermomix.es/media/Posts/attachments/5aac55838af65dfb51e9497d2e9c5869.jpg", quantity: 1
+					},
+					{
+						idProduct: "026", name: "Alubiada", description: "Alubias rojas alavesas", price: "8,00€",
+						image: "https://www.getariakotxakolina.eus/wp-content/uploads/2020/12/Alubias-de-Tolosa-BLOG.png", quantity: 1
+					},
+					{
+						idProduct: "027", name: "Cochinillo Asado", description: "Tierno cochinillo al horno", price: "18,50€",
+						image: "https://upload.wikimedia.org/wikipedia/commons/0/07/Cochinillo_asado-Madrid.jpg", quantity: 1
+					},
+					{
+						idProduct: "028", name: "Calamares a la Romana", description: "Calamares fritos en tempura", price: "10,00€",
+						image: "https://www.annarecetasfaciles.com/files/calamares-a-la-romana-scaled.jpg", quantity: 1
+					},
+					{
+						idProduct: "029", name: "Fabada Asturiana", description: "Plato típico con fabes, chorizo y morcilla", price: "11,00€",
+						image: "https://imag.bonviveur.com/fabada-asturiana.jpg", quantity: 1
+					},
+					{
+						idProduct: "030", name: "Chuletón", description: "Corte de lomo alto de calidad", price: "5,00€",
+						image: "https://www.nimataniengorda.com/wp-content/uploads/2017/01/ChuletonBuey.jpg", quantity: 1
+					},
+					{
+						idProduct: "031", name: "Chuletillas de Cordero", description: "Tarta de almendra tradicional gallega", price: "6,00€",
+						image: "https://recetasdecocina.elmundo.es/wp-content/uploads/2023/12/chuletas-de-cordero-a-la-plancha.jpg", quantity: 1
+					}
+					
 				],
 				Postres: [
 					{
@@ -79,6 +161,46 @@ const getState = ({ getStore, getActions, setStore }) => {
 						idProduct: "016", name: "Flan casero", description: "Flan cremoso con caramelo líquido.", price: "5,50€",
 						image: "https://imag.bonviveur.com/flan-de-huevo-listo-para-degustar.jpg", quantity: 1
 					},
+					{
+						idProduct: "032", name: "Crema Catalana", description: "Postre tradicional con crema y caramelo quemado", price: "4,50€",
+						image: "https://recetasdecocina.elmundo.es/wp-content/uploads/2023/10/crema-catalana.jpg", quantity: 1
+					},
+					{
+						idProduct: "033", name: "Flan de Huevo", description: "Clásico flan con caramelo líquido", price: "3,50€",
+						image: "https://s1.eestatic.com/2015/02/11/cocinillas/cocinillas_10259007_115776427_1706x960.jpg", quantity: 1
+					},
+					{
+						idProduct: "034", name: "Arroz con Leche", description: "Postre de arroz, leche y canela", price: "4,00€",
+						image: "https://www.cocinacaserayfacil.net/wp-content/uploads/2018/01/Arroz-con-leche.jpg", quantity: 1
+					},
+					{
+						idProduct: "035", name: "Batido de chocolate", description: "Batido de chocolate con nata", price: "5,50€",
+						image: "https://quierochocolate.com/wp-content/uploads/2017/08/batido-chocolate-casero.jpg", quantity: 1
+					},
+					{
+						idProduct: "036", name: "Panna Cotta", description: "Delicada panna cotta de vainilla", price: "4,50€",
+						image: "https://assets.epicurious.com/photos/62d6c513077a952f4a8c338c/4:3/w_3668,h_2751,c_limit/PannaCotta_RECIPE_04142022_9822_final.jpg", quantity: 1
+					},
+					{
+						idProduct: "037", name: "Brownie de Chocolate", description: "Brownie con nueces y chocolate fundido", price: "5,00€",
+						image: "https://recetasdecocina.elmundo.es/wp-content/uploads/2016/11/brownie-de-chocolate.jpg", quantity: 1
+					},
+					{
+						idProduct: "038", name: "Helado Artesanal", description: "Helado de diferentes sabores", price: "3,50€",
+						image: "https://cdn.prod.website-files.com/642f26ea0d34e0594a51fef5/642f26ea0d34e06e2e520136_63e14efcd861144083954869_courtney-cook-QYsRxRPygwU-unsplash.jpg", quantity: 1
+					},
+					{
+						idProduct: "039", name: "Profiteroles", description: "Bollos rellenos de crema y chocolate", price: "4,00€",
+						image: "https://i.blogs.es/de2f7d/profiteroles/840_560.jpg", quantity: 1
+					},
+					{
+						idProduct: "040", name: "Yogur casero con fresas", description: "Yogur casero con trozitos de fresas cortadas", price: "5,50€",
+						image: "https://img-global.cpcdn.com/recipes/4bc336e297885603/1200x630cq70/photo.jpg", quantity: 1
+					},
+					{
+						idProduct: "041", name: "Fruta de Temporada", description: "Selección de fruta fresca de temporada", price: "3,00€",
+						image: "https://www.alinur.es/wp-content/uploads/2021/05/fruta.varidad.jpeg", quantity: 1
+					}					
 				],
 				Bebidas: [
 					{
@@ -117,6 +239,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						idProduct: "021", name: "Vino rosado", description: "D.O Penedes", price: "4,50€",
 						image: "https://www.campusdelvino.com/media/k2/items/cache/b8292acafd72142128a3481ac4b0abff_XL.jpg", quantity: 1
 					},
+					
 				],
 			},
 			items: [], // Aquí almacenaremos los ítems
