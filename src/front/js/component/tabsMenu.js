@@ -1,10 +1,10 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { Tab, Tabs } from 'react-bootstrap';
 import Carousel from 'react-bootstrap/Carousel';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../styles/tableMenu.css';
 import "../../styles/home.css";
-import '/workspaces/Proyecto-final-G-J-C-F/src/front/styles/modalProduct.css';
+import "../../styles/modalProduct.css";
 import { Context } from '../store/appContext';
 import { ModalProduct } from './modals/modalProduct';
 
