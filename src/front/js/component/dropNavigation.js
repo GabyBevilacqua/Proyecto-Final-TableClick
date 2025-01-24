@@ -71,11 +71,11 @@ export const DropNavigation = () => {
                             <div  className="submenu-link"> Menus Creados </div>
                         </Link>
                     </div>
-                    <div className="submenu-item">
+                    {/* <div className="submenu-item">
                         <Link to="/menuItems">
                             <div  className="submenu-link"> Carta del dia </div>
                         </Link>
-                    </div>
+                    </div> */}
                     <div className="submenu-item">
                         <Link to="/tableMenu">
                             <div  className="submenu-link"> Tablet </div>

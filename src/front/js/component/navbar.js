@@ -10,9 +10,11 @@ export const Navbar = ({ selectedItems = [] }) => {
     const navigate = useNavigate();
     const user = JSON.parse(localStorage.getItem("user"))
     const userId = user?.id || null
+    const [count, setCount] = useState(0);
 
     const handleSendOrders = () => {
         actions.sendOrderToTable("Mesa 01");
+        setCount(count + 1);
     };
 
     const [formData, setFormData] = useState({
@@ -37,11 +39,6 @@ export const Navbar = ({ selectedItems = [] }) => {
         }
     }, []);
 
-    // const deleteDropdownItem = (index) => {
-    //     const updatedItems = [...store.selectedItems];
-    //     updatedItems.splice(index, 1);
-    //     actions.setSelectedItems(updatedItems);
-    // };
     const deleteDropdownItem = (index) => {
         const updatedItems = [...store.selectedItems];
         updatedItems.splice(index, 1);
@@ -79,7 +76,7 @@ export const Navbar = ({ selectedItems = [] }) => {
                                     data-bs-toggle="dropdown"
                                     aria-haspopup="true"
                                     aria-expanded="false">
-                                    {store.selectedTable} Cliente-1001 Pedidos 0
+                                    {store.selectedTable} Cliente-1001 Pedidos {count}
                                 </button>
                                 <ul className="dropdown-menu dropdown-menu-end w-auto" aria-labelledby="dropdownMenuButton">
                                     {store.selectedItems.length > 0 ? (

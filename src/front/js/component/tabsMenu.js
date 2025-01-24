@@ -7,7 +7,7 @@ import "../../styles/home.css";
 import '/workspaces/Proyecto-final-G-J-C-F/src/front/styles/modalProduct.css';
 import { Context } from '../store/appContext';
 import { ModalProduct } from './modals/modalProduct';
-import { gsap } from "gsap";
+
 
 export const TabsMenu = () => {
   const [selectedItems, setSelectedItems] = useState([]);
@@ -24,42 +24,8 @@ export const TabsMenu = () => {
       quantity: parseInt(item.quantity) || 1, // Asegúrate de que la cantidad sea un número
     };
     actions.addSelectedItems(itemToAdd);
+  }
 
-    // Crear animación
-    const imgElement = document.querySelector(".menu-item-image img");
-    const navbarButton = document.querySelector(".navbar-button"); // Selector del botón del navbar
-
-    if (imgElement && navbarButton) {
-      const imgRect = imgElement.getBoundingClientRect();
-      const navbarRect = navbarButton.getBoundingClientRect();
-
-      const clone = imgElement.cloneNode(true); // Clona la imagen
-      document.body.appendChild(clone);
-
-      gsap.set(clone, {
-        position: "absolute",
-        top: imgRect.top,
-        left: imgRect.left,
-        width: imgRect.width,
-        height: imgRect.height,
-        zIndex: 1000,
-      });
-
-      gsap.to(clone, {
-        top: navbarRect.top + navbarRect.height / 2,
-        left: navbarRect.left + navbarRect.width / 2,
-        width: 0,
-        height: 0,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power2.out",
-        onComplete: () => {
-          document.body.removeChild(clone); // Elimina la imagen clonada después de la animación
-        },
-      });
-    }
-
-  };
 
   const handleImageClick = (item) => {
     setSelectedItem(item);

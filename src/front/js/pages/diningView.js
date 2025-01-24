@@ -28,7 +28,7 @@ export const DiningView = () => {
                         content={
                             table.title === "Mesa 01" && store.tablesOrders["Mesa 01"].length > 0 ? (
                                 <div>
-                                    <p>Cliente mesa01001</p>
+                                    <p>Cliente 01001</p>
                                     <ul>
                                         {store.tablesOrders["Mesa 01"].map((order, idx) => (
                                             <li key={idx}>

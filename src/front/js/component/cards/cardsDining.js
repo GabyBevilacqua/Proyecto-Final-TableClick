@@ -2,7 +2,9 @@ import React from "react";
 
 
 export const CardsDining = ({ title, content, buttonLabel, onButtonClick }) => {
+    
 
+    
 
     return (
         <div className="card cardDining">
