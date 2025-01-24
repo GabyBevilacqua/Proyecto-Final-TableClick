@@ -5,14 +5,16 @@
     one more css for each page that will contain the selected used 
     on that page only (the ones not reused in other pages).
 */
-body {
-    background-color: #203953  !important; /* Color azul oscuro de fondo     https://i.ibb.co/Ttw82wc/fondo-Pantalla.jpg                                 */
-    background-image:  url("https://img.freepik.com/foto-gratis/marco-plano-laico-mariscos-espacio-copia_23-2148308063.jpg?t=st=1737653839~exp=1737657439~hmac=aabc7f44517fa3bb05266cae156751e33acb1db6693943b30f7bb1e71073013d&w=996" );
+body { /* Color azul oscuro de fondo     https://i.ibb.co/Ttw82wc/fondo-Pantalla.jpg                                 */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.712), rgba(0, 0, 0, 0.445)) ,url("https://c.wallhere.com/photos/2a/5e/food_vegetables_tomatoes_salad_Pepper_Garlic_Paprika-1949021.jpg!d");
+    background-size: cover; /* Escala la imagen para cubrir toda la pantalla */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
-    background-size: cover; /* Hace que la imagen cubra todo el fondo */
-    background-position: center; /* Centra la imagen en el fondo */
-    background-attachment: fixed; /* Fija la imagen para que no se mueva al hacer scroll */
+    background-position: center center; /* Centra la imagen */
+    image-rendering: crisp-edges;
+    object-fit: cover;
+    background-attachment: fixed;
   }
+  
   
 .button2 {
     display: inline-block;
