@@ -28,7 +28,7 @@ const ResetPassword = () => {
         }
     }, [encoded_token]);
     const alertPassword = () => { alert("Contraseña cambiada") 
-        navigate("/secLogin") } 
+        navigate("/") } 
     //Aqui vamos con el codigo de la reset password
     const handleResetPassword = async (event) => {
         event.preventDefault();
