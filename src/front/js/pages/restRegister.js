@@ -87,7 +87,7 @@ export const RestRegister = () => {
     return (
         <div className="container mt-2">
             <div className="text mt-2">
-                <Link to="/">
+                {/* <Link to="/">
                     <button className="btn m-2">
                         Return to preLogin
                     </button>
@@ -96,7 +96,7 @@ export const RestRegister = () => {
                     <button className="btn">
                         Go to menusView
                     </button>
-                </Link>
+                </Link> */}
                 <div className="row justify-content-center">
                     <div className="col-md-8 form-container containerRegister mt-5">
                         <h2 className="text-center mb-4">Formulario de Registro</h2>
