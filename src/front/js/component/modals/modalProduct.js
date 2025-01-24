@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Modal, Button } from "react-bootstrap";
+import { Modal, Button, Alert } from "react-bootstrap";
 import '/workspaces/Proyecto-final-G-J-C-F/src/front/styles/modalProduct.css';
+
 
 
 export const ModalProduct = ({ show, onHide, item, handleAddItem }) => {
@@ -12,7 +13,10 @@ export const ModalProduct = ({ show, onHide, item, handleAddItem }) => {
   const handleAddToCart = () => {
     handleAddItem({ ...item, quantity });
     onHide(); // Cierra el modal después de agregar el producto
+    onClose()
   };
+
+
 
   return (
     <Modal show={show} onHide={onHide} centered animation>

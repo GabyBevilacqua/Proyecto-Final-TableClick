@@ -37,9 +37,15 @@ export const Navbar = ({ selectedItems = [] }) => {
         }
     }, []);
 
+    // const deleteDropdownItem = (index) => {
+    //     const updatedItems = [...store.selectedItems];
+    //     updatedItems.splice(index, 1);
+    //     actions.setSelectedItems(updatedItems);
+    // };
     const deleteDropdownItem = (index) => {
         const updatedItems = [...store.selectedItems];
         updatedItems.splice(index, 1);
+        console.log("Updated items:", updatedItems); // Para verificar que se elimina correctamente
         actions.setSelectedItems(updatedItems);
     };
 
@@ -81,7 +87,10 @@ export const Navbar = ({ selectedItems = [] }) => {
                                             <li key={index} className="dropdown-item d-flex">
                                                 <p className="col-10 ps-1 mt-1 me-1"> {item.idProduct} - {item.name} - {item.quantity} - {item.price} </p>
                                                 <button
-                                                    className="bin-button" onClick={() => deleteDropdownItem(index)}>
+                                                    className="bin-button" onClick={(e) => {
+                                                        e.stopPropagation()
+                                                        deleteDropdownItem(index)
+                                                    }}>
                                                     {/* Aquí va el contenido SVG */}
                                                     <svg
                                                         className="bin-top"

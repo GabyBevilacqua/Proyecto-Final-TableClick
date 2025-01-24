@@ -56,11 +56,11 @@ export const DropNavigation = () => {
                     </svg>
                 </a>
                 <div className="submenu">
-                    <div className="submenu-item">
+                    {/* <div className="submenu-item">
                         <Link to="/">
                             <div  className="submenu-link"> Home </div>
                         </Link>
-                    </div>
+                    </div> */}
                     <div className="submenu-item">
                         <Link to="/secLogin">
                             <div  className="submenu-link"> Admin </div>

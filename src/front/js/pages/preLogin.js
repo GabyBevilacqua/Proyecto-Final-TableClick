@@ -26,14 +26,14 @@ export const PreLogin = () => {
 	return (
 		<div>
 			<div className="text-center mt-2 mb-3">
-				<Link to="/restRegister">
+				{/* <Link to="/restRegister">
 					<button type="button" className="btn">Go to restaurant register</button>
 				</Link>
 				<Link to="/secLogin">
 					<button type="button" className="btn m-2">Go to secLogin </button>
-				</Link>
+				</Link> */}
 			</div>
-			<div className="text-center mt-2">
+			<div className="text-center mt-5">
 				<img src="https://i.ibb.co/JkMCt7P/table-Click01.png" alt="Logoapp" style={{ height: "120px" }} />
 			</div>
 
