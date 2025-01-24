@@ -201,7 +201,8 @@ def request_reset_password():
     
     # Este es el enlace para el restablecimiento de contraseña
     # IMPORTANTE!! Cambiar cada uno a su backend url
-    reset_link = f"https://automatic-disco-5g4579xjp97w2qgg-3000.app.github.dev/reset-password/{token_url_safe}"
+    # reset_link = f"https://fantastic-space-parakeet-v6gwvwgwr6762p5xp-3001.app.github.dev/reset-password/{token_url_safe}"
+    reset_link = f"https://fantastic-space-parakeet-v6gwvwgwr6762p5xp-3000.app.github.dev/reset-password"
 
     # Enviar el correo con el enlace para restablecer la contraseña
     msg = Message(

@@ -58,7 +58,8 @@ const Layout = () => {
                         <Route element={<Demo />} path="/demo" />
                         <Route element={<Single />} path="/single/:theid" />
                         <Route element={<RequestPasswordReset />} path="/request-reset-password" />
-                        <Route element={<ResetPassword />} path="/reset-password/:encoded_token" />
+                        {/* <Route element={<ResetPassword />} path="/reset-password/:encoded_token" /> */}
+                        <Route element={<ResetPassword />} path="/reset-password" />
                         <Route element={<CardsItem2 />} path="/newMenu" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>

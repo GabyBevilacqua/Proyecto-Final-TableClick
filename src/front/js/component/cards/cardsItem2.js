@@ -13,7 +13,7 @@ export const CardsItem2 = (menu) => {
   const [selectedItems, setSelectedItems] = useState([]);
   const { store } = useContext(Context);
   const [isEditing, setIsEditing] = useState(false); // Estado para saber si estamos editando
-  const [headerText, setHeaderText] = useState("CARTA PRINCIPAL"); // Estado para el contenido del h5
+  const [headerText, setHeaderText] = useState("MENU NAVIDEÑO"); // Estado para el contenido del h5
 
   useEffect(() => {
     if (store.menuData) {
@@ -58,14 +58,14 @@ export const CardsItem2 = (menu) => {
       closeModal();
   };
 
-  const handleEditMenu = (id, newName) => {
+  const handleEditMenu = (id, newName, menus) => {
       const updatedMenus = menus.map(menu =>
           menu.id === id ? { ...menu, menuName: newName } : menu
       );
       setMenus(updatedMenus);
   }
 
-  const handleDeleteMenu = (id) => {
+  const handleDeleteMenu = (id, menus) => {
       const filteredMenus = menus.filter(menu => menu.id !== id);
       setMenus(filteredMenus);
   };
@@ -144,7 +144,7 @@ export const CardsItem2 = (menu) => {
                 {isEditing ? (
                     <input
                         type="text"
-                        value={menu.menuName}
+                        value={headerText}
                         onChange={handleInputChange} // Actualizar el estado con el valor del input
                         onBlur={handleBlur} // Salir del modo edición al perder el foco
                         className="tituloNombreMenu text-white m-3 p-3"
@@ -152,7 +152,7 @@ export const CardsItem2 = (menu) => {
                     />
                 ) : (
                     <h3 className="tituloNombreMenu text-white m-3 p-3">
-                        {menu.menuName}
+                       {headerText}
                     </h3>
                 )}
                 <button
