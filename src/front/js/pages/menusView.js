@@ -60,20 +60,20 @@ export const MenusView = () => {
                             </div>
                         ))
                     )}
-                    <div className="col-lg-3 col-md-4 col-sm-6">
+                    <div className="col-lg-3 col-md-4 col-sm-6 h-100">
                         <div className="card menu-container text-center">
                             <div className="card-body d-flex flex-column justify-content-center align-items-center">
                                 <p>Presione el botón si desea crear un nuevo menú.</p>
                                 <button
                                     onClick={openModal}
-                                    className="button1"
+                                    className="button2 col-11"
                                 >
                                     Crear Menú
                                 </button>
                             </div>
                         </div>
                     </div>
-                    <div className="col-lg-3 col-md-4 col-sm-6">
+                    <div className="col-lg-3 col-md-4 col-sm-6 h-100">
                         <div className="card menu-container text-center">
                             <div className="card-body d-flex flex-column justify-content-center align-items-center">
                                 <p>Por favor, haga clic en el botón para cargar la imagen o el logotipo de su restaurante.</p>
@@ -81,7 +81,7 @@ export const MenusView = () => {
                                     id="subirArchivo"
                                     type="button"
                                     onClick={handleOpenModal}
-                                    className="button1"
+                                    className="button2 col-11"
                                 >
                                     Subir imagen
                                 </button>

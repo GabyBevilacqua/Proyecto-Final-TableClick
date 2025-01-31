@@ -5,7 +5,6 @@ import "../../styles/tableMenu.css";
 import { Link, useNavigate } from "react-router-dom";
 import { TabsMenu } from "../component/tabsMenu";
 
-// aqui estara el dropdown para hacer los pedidos
 
 export const TableMenu = () => {
 

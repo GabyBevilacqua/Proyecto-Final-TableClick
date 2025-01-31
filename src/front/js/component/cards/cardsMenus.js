@@ -23,7 +23,7 @@ const CardMenu = ({ menu, onEdit, onDelete }) => {
                 <div className="d-flex flex-column">
                 <Link to="/menuItems">
                         <button
-                            className="button1 m-2 col-11"
+                            className="button2 m-2 col-11"
                             onClick={(e) => e.stopPropagation()}
                         >
                             Editar

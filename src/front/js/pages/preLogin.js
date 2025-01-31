@@ -25,23 +25,13 @@ export const PreLogin = () => {
 
 	return (
 		<div>
-			<div className="text-center mt-2 mb-3">
-				{/* <Link to="/restRegister">
-					<button type="button" className="btn">Go to restaurant register</button>
-				</Link>
-				<Link to="/secLogin">
-					<button type="button" className="btn m-2">Go to secLogin </button>
-				</Link> */}
-			</div>
 			<div className="text-center mt-5">
 				<img src="https://i.ibb.co/JkMCt7P/table-Click01.png" alt="Logoapp" style={{ height: "120px" }} />
 			</div>
-
-
 			<div className="container outer mt-5">
 
 				<div className="dot1"></div>
-				<div className="card card2">
+				<div className="card2">
 
 					<div className="containerLogin">
 
@@ -58,9 +48,9 @@ export const PreLogin = () => {
 								<h1>Inicia sesión</h1>
 								<input type="text" className="form-control mt-3" onChange={(e) => setUsername(e.target.value)} placeholder="Usuario" />
 								<input type="password" className="form-control mt-3" onChange={(e) => setPassword(e.target.value)} placeholder="Contraseña" />
-								
-									<button className="button2 mt-3" onClick={handleLogin}>Click aquí</button>
-								
+
+								<button className="button2 mt-3" onClick={handleLogin}>Click aquí</button>
+
 							</div>
 							<div className="text-center mt-5 mb-3">
 								<Link to="/request-reset-password">

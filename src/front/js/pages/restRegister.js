@@ -87,20 +87,10 @@ export const RestRegister = () => {
     return (
         <div className="container mt-2">
             <div className="text mt-2">
-                {/* <Link to="/">
-                    <button className="btn m-2">
-                        Return to preLogin
-                    </button>
-                </Link>
-                <Link to="/menusView">
-                    <button className="btn">
-                        Go to menusView
-                    </button>
-                </Link> */}
                 <div className="row justify-content-center">
                     <div className="col-md-8 form-container containerRegister mt-5">
                         <h2 className="text-center mb-4">Formulario de Registro</h2>
-                        {/*error && <div className="alert alert-danger">{error}</div>*/}
+                        
                         <form onSubmit={handleSubmit}>
                             <div className="row mb-3 align-items-center">
                                 <label htmlFor="nombrePersonal" className="col-md-4 col-form-label text-end">
@@ -243,22 +233,6 @@ export const RestRegister = () => {
                                     />
                                 </div>
                             </div>
-                            {     /*   <div className="row mb-3 align-items-center">
-                                <label htmlFor="image" className="col-md-4 col-form-label text-end">
-                                    Imagen:
-                                </label>
-                                <div className="col-md-8">
-                                    <input
-                                        type="text"
-                                        className="form-control inputStyle"
-                                        id="image"
-                                        placeholder="Imagen"
-                                        value={formData.image}
-                                        onChange={handleChange}
-                                        required
-                                    />
-                                </div>
-                            </div>  */}
                             <div className="text-center">
                                 <button type="submit"
                                     className="button2 w-100">

@@ -1,8 +1,8 @@
 .tituloNombreMenu{
     align-items: center;
     text-align: center;
-    background-color: #7d9bbb;
-    border-radius: 20px;
+    background-color: #203953a1;
+    border-radius: 10px;
     position: relative;
     display: flex;
     justify-content: center;
@@ -15,6 +15,30 @@
   transform: scale(1.05);
   box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
   pointer-events: visible;
+}
+
+.info-tab {
+  background-color: #203953d0;
+  border-radius: 8px;
+  height: auto; /* Cambia de altura fija a auto */
+  text-align: center;
+  margin: 0 auto; /* Centrar el div horizontalmente */
+  padding: 20px; /* Añadir un poco de espaciado */
+ 
+  width: 100%; /* Para que no sea más grande que su contenedor */
+}
+
+.info-tab h2 {
+  text-align: center;
+  color: white;
+}
+
+.info-tab text {
+  fill: white;
+}
+
+.info-tab p {
+  color: white;
 }
 
 .bodyCardItems{
@@ -39,8 +63,8 @@
 .mesaItems{
     text-align: center;
     justify-content: flex-start;
-    width: 155px !important
-    ;
+    width: 155px !important;
+    height: 200px;
 }
 .inputModalItems{
     background-color: #F4F0D1;
@@ -64,11 +88,11 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    background: red;
+    background: rgb(18, 23, 39);
     border: none;
     border-radius: 5px;
     box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
-    background: #e62222;
+    background: rgb(18, 23, 39);
     transition: background 500ms ease; /* Transición más lenta para el fondo */
 }
 .noselect, button span {
@@ -83,7 +107,7 @@
 }
 .noselect .icon {
     position: absolute;
-    border-left: 1px solid #c41b1b;
+    border-left: 1px solid rgb(18, 23, 39);
     transform: translateX(70px); /* Ajustar posición inicial del icono */
     height: 30px; /* Reducir alto del icono */
     width: 30px; /* Reducir ancho del icono */
@@ -119,7 +143,7 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: rgb(20, 20, 20);
+    background-color: rgb(18, 23, 39);
     border: none;
     font-weight: 600;
     display: flex;
@@ -146,7 +170,7 @@
     width: 120px;
     border-radius: 50px;
     transition-duration: 0.3s;
-    background-color: rgb(255, 69, 69);
+    background-color: rgb(138, 153, 182);
     align-items: center;
   }
   
@@ -199,7 +223,7 @@
   .toggler label::after {
     display: block;
     border-radius: 100%;
-    background-color: #d7062a;
+    background-color: rgb(18, 23, 39);
     content: '';
     animation-name: toggler-size;
     animation-duration: 0.15s;

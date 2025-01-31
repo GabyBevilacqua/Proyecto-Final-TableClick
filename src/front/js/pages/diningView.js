@@ -54,21 +54,3 @@ export const DiningView = () => {
     );
 };
 
-/* 
-
-
- <div className="container containerDining">
-                
-                {tables.map((table, index) => (
-                    <CardsDining
-                        key={index}
-                        title={table.title}
-                        content={table.content}
-                        buttonLabel={table.buttonLabel}
-                        onButtonClick={() => console.log(`${table.title} cerrado`)}
-                    />
-                ))}
-            </div>
-
-
-*/

@@ -37,10 +37,10 @@ export const SecLogin = () => {
             </div>
 
 
-            <div className="container justify-content-center outer mt-5">
+            <div className="container justify-content-center outer mt-3">
 
                 <div className="dot1"></div>
-                <div className="card aling-self-center card2">
+                <div className="aling-self-center card2">
 
                     <div className="containerpreLogin">
                         <div className="row mt-5 justify-content-center">

@@ -186,7 +186,7 @@ export const Navbar = ({ selectedItems = [] }) => {
     return (
         <>
             {location.pathname !== "/preLogin" && location.pathname !== "/restRegister" && (
-                <nav className="navbar" style={{ backgroundColor: "#3F617C" }}>
+                <nav className="navbar" style={{ backgroundColor: "#142635" }}>
                     <div className="container d-flex justify-content-between align-items-center">
                         {renderNavbarContent()}
                     </div>
@@ -199,18 +199,6 @@ export const Navbar = ({ selectedItems = [] }) => {
 
 /*
 
-
-   <a className="dropdown-item space-between" href="#">
-                                        Pedido ------------
-                                        <button
-                                            className="buttonDropdown"
-                                            type="button"
-                                            onClick={() => handleSendOrders(store.selectedOrder)}>
-                                            Enviar pedido a cocina
-                                        </button>
-                                    </a>
-                                </div>
-                                
 
 Juan David González
 18:51

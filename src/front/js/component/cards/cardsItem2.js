@@ -96,7 +96,7 @@ export const CardsItem2 = (menu) => {
                 <p className='card__description44 ms-2 mt-0 text-white'>description</p>
                 <strong className='ms-2'>price</strong>
                 <div className="d-flex justify-content-center align-items-center gap-2 mt-2 mb-2">
-                  <div className="toggler text-start ms-0 mt-2 me-2 mb-2 col-3"
+                  <div className="toggler text-start ms-0 mt-1 me-2 mb-1 col-3"
                     onClick={(e) => e.stopPropagation()}>
                     <input id="toggler-1" name="toggler-1" type="checkbox" value="1" />
                     <label for="toggler-1">

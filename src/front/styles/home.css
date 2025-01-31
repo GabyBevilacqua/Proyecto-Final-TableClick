@@ -6,7 +6,7 @@
     on that page only (the ones not reused in other pages).
 */
 body { /* Color azul oscuro de fondo     https://i.ibb.co/Ttw82wc/fondo-Pantalla.jpg                                 */
-  background-image: linear-gradient(rgba(0, 0, 0, 0.712), rgba(0, 0, 0, 0.445)) ,url("https://c.wallhere.com/photos/2a/5e/food_vegetables_tomatoes_salad_Pepper_Garlic_Paprika-1949021.jpg!d");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.555), rgba(0, 0, 0, 0.288)) ,url("https://c.wallhere.com/photos/2a/5e/food_vegetables_tomatoes_salad_Pepper_Garlic_Paprika-1949021.jpg!d");
     background-size: cover; /* Escala la imagen para cubrir toda la pantalla */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
     background-position: center center; /* Centra la imagen */
@@ -225,13 +225,13 @@ body { /* Color azul oscuro de fondo     https://i.ibb.co/Ttw82wc/fondo-Pantalla
   }
 
   #menus-creados{
-    background-color: #7d9bbb;
+    background-color: #203953a1;
     text-align: center;
     margin-left: 35%;
     margin-right: 35%;
     padding-top: 5px;
     padding-bottom: 10px;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 .card-menusView{
@@ -242,86 +242,19 @@ body { /* Color azul oscuro de fondo     https://i.ibb.co/Ttw82wc/fondo-Pantalla
     border-radius: 20px;
 }
 
-.button1{
-    display: inline-block;
-  transition: all 0.2s ease-in;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-  color: #090909;
-  padding: 0.5em 1em;
-  cursor: pointer;
-  font-size: 18px;
-  border-radius: 0.5em;
-  background: #c9c6c6;
-  border: 1px solid rgba(0, 0, 0, 0.301);
-}
-
-.button1:active {
-    color: #666;
-    box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
-  }
-  
-  .button1:before {
-    content: "";
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%) scaleY(1) scaleX(1.25);
-    top: 100%;
-    width: 140%;
-    height: 180%;
-    background-color: rgba(0, 0, 0, 0.05);
-    border-radius: 50%;
-    display: block;
-    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
-    z-index: -1;
-  }
-  
-  .button1:after {
-    content: "";
-    position: absolute;
-    left: 55%;
-    transform: translateX(-50%) scaleY(1) scaleX(1.45);
-    top: 180%;
-    width: 160%;
-    height: 190%;
-    background-color: #203953;
-    border-radius: 50%;
-    display: block;
-    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
-    z-index: -1;
-  }
-  
-  .button1:hover {
-    color: #ffffff;
-    border: 1px solid #203953;
-  }
-  
-  .button1:hover:before {
-    top: -35%;
-    background-color: #203953;
-    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
-  }
-  
-  .button1:hover:after {
-    top: -45%;
-    background-color: #203953;
-    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
-  }
-
   /* MENUSVIEW */
 
   .menuCreate{
     background-color: #7297B4;
     padding: 10px;
-    border-radius: 20px;
+    border-radius: 10px;
     border: 5px solid #aec5ff;
     box-shadow: 0px 0px 10px 1px #cbeaff65;
   }
 
   .menusViewCard{
     background-color: #677a9c;
-    border-radius: 20px;
+    border-radius: 10px;
   }
 
   .cardTitleMenusView {
