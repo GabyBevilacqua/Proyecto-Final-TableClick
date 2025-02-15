@@ -2,18 +2,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			message: null,
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			],
+
 
 			tablesOrders: {
 				"Mesa 01": [], // Lista de pedidos para Mesa 01
@@ -23,8 +12,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			tables: [],
 
 			menuData: {
-
-
 
 				Entrantes: [
 					{
@@ -270,15 +257,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-			// Cambiar color de demo HAY QUE BORRAR ESTO
-			changeColor: (index, color) => {
-				const store = getStore();
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
-				setStore({ demo: demo });
-			},
 
 			// ACCIONES DE REGISTRO DE USUARIO NUEVO restRegister.js
 

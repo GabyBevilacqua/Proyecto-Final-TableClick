@@ -10,7 +10,6 @@ from flask_bcrypt import Bcrypt
 from flask_jwt_extended import create_access_token
 
 
-
 api = Blueprint('api', __name__)
 bcrypt = Bcrypt()
 

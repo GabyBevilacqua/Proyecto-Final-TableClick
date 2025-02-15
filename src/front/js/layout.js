@@ -11,10 +11,9 @@ import { DiningView } from "./pages/diningView";
 import { SecLogin } from "./pages/secLogin";
 import { TableMenu } from "./pages/tableMenu";
 import { EditUser } from "./pages/editUser";
-import { CardsItem2 } from "./component/cards/cardsItem2";
+import { NewMenu } from "./pages/newMenu";
 
-import { Demo } from "./pages/demo";
-import { Single } from "./pages/single";
+// Don't forget to import the context provider
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -53,14 +52,12 @@ const Layout = () => {
                         <Route element={<MenuItems />} path="/menuItems" />
                         <Route element={<DiningView />} path="/diningView" />
                         <Route element={<SecLogin />} path="/secLogin" />
-                        <Route element={<EditUser />} path="/editUser/:userId" /> 
+                        <Route element={<EditUser />} path="/editUser/:userId" />
                         <Route element={<TableMenu />} path="/tableMenu" />
-                        <Route element={<Demo />} path="/demo" />
-                        <Route element={<Single />} path="/single/:theid" />
                         <Route element={<RequestPasswordReset />} path="/request-reset-password" />
                         {/* <Route element={<ResetPassword />} path="/reset-password/:encoded_token" /> */}
                         <Route element={<ResetPassword />} path="/reset-password" />
-                        <Route element={<CardsItem2 />} path="/newMenu" />
+                        <Route element={<NewMenu />} path="/newMenu" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                     <Footer />

@@ -46,8 +46,10 @@ export const CardsItem3 = () => {
         return (
             <div className="row g-3"> {/* Se asegura la organización en grid */}
                 {items.map((item, index) => (
-                    <div key={index} className="col-md-4 col-lg-3"> {/* Ajusta el número de columnas en distintas pantallas */}
+                    <div key={index} className="col-md-4 col-lg-3"> {/* Ajusta el número de columnas en distintas pantallas */}                    
                         <div className="card cardItems h-100 p-0 rounded-4"
+
+
                             type="button"
                             onClick={() => {
                                 const modal = new bootstrap.Modal(document.getElementById("staticBackdrop"));
@@ -109,6 +111,7 @@ export const CardsItem3 = () => {
                                     </div>
                                 </li>
                             </ul>
+                            
                         </div>
                     </div>
                 ))}
